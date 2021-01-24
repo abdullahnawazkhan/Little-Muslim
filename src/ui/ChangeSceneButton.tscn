@@ -2,7 +2,6 @@
 
 [ext_resource path="res://src/ui/ChangeSceneButton.gd" type="Script" id=2]
 
-
 [node name="ChangeSceneButton" type="Button"]
 margin_right = 368.0
 margin_bottom = 91.0

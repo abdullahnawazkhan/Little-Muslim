@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Little-Muslim"
-run/main_scene="res://src/Levels/level_1.tscn"
+run/main_scene="res://src/Screens/Main_Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
