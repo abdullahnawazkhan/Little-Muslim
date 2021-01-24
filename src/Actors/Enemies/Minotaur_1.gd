@@ -22,6 +22,8 @@ var getting_hurt := false
 var is_attacking := false
 var dying := false
 
+var prev_anim
+
 func die() -> void:
 	moving = false
 	character.animation = "die"
@@ -52,6 +54,7 @@ func get_hurt() -> void:
 		if (health <= 0):
 			die()
 		else:
+			prev_anim = character.animation
 			character.animation = "hurt"
 			moving = false
 			getting_hurt = true
@@ -68,11 +71,14 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if character.animation == "attack" && character.frame == 7:
+		attack_area.call_deferred("set_disabled", false)
+	
 	if character.animation == "die" && character.frame == 10:
 		queue_free()
 		
-	if character.animation == "hurt" && character.frame == 11:
-		character.animation = "attack"
+	if character.animation == "hurt" && character.frame == 14:
+		character.animation = prev_anim
 		getting_hurt = false
 
 	if (moving == true):
@@ -96,6 +102,8 @@ func _on_PlayerDetector_body_exited(body: Node) -> void:
 		is_attacking = false
 		moving = true
 		character.animation = "walk"
+		attack_timer.stop()
+		pause_timer.stop()
 
 
 func flip() -> void:
@@ -119,14 +127,14 @@ func set_attack(value : bool) -> void:
 		attack_timer.set_wait_time(1.2)
 		attack_timer.start()
 		character.animation = "attack"
-		attack_area.call_deferred("set_disabled", false)
 	elif (value == false):
 		attack_area.call_deferred("set_disabled", true)		
+		character.animation = "idle"
 
 
 func _on_Minotaur1AttackArea_body_entered(body: Node) -> void:
 	if (body.get_name() == "Player"):
-		body.get_hurt()
+		body.get_hurt(self)
 
 
 func _on_AttackTimer_timeout() -> void:

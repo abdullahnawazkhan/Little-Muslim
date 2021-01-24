@@ -83,7 +83,7 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 40 ), ExtResource( 37 ) ],
+"frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 37 ), ExtResource( 37 ), ExtResource( 37 ) ],
 "loop": true,
 "name": "hurt",
 "speed": 5.0
@@ -101,7 +101,7 @@ extents = Vector2( 78.8738, 166.73 )
 extents = Vector2( 361.177, 173.53 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 97.2625, 117.407 )
+extents = Vector2( 130.279, 117.407 )
 
 [node name="Minotaur_1" type="KinematicBody2D"]
 collision_layer = 2
@@ -112,7 +112,7 @@ script = ExtResource( 54 )
 position = Vector2( 0, 1.7818 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 16
+frame = 12
 speed_scale = 2.0
 playing = true
 flip_h = true
@@ -140,8 +140,9 @@ modulate = Color( 1, 0, 0, 1 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minotaur1AttackArea"]
-position = Vector2( -248.429, 66.6174 )
+position = Vector2( -211.564, 79.6987 )
 shape = SubResource( 4 )
+disabled = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 

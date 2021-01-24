@@ -14,8 +14,9 @@ onready var jump_button : TouchScreenButton = get_node("touch_buttons/TouchScree
 
 var is_jumping := false
 var is_attacking := false
+var is_getting_hurt := false
 
-var paused := false setget set_paused
+var is_paused := false setget set_paused
 
 func _ready() -> void:
 	PlayerData.connect("score_updated", self, "update_interface")
@@ -32,11 +33,11 @@ func _on_PlayerData_player_died() -> void:
 	
 	
 
-func _unhandled_input(event: InputEvent) -> void:
-	if pause_title.text != "You died":
-		if event.is_action_pressed("paused"):
-			self.paused = not paused
-			scene_tree.set_input_as_handled()
+#func _unhandled_input(event: InputEvent) -> void:
+#	if pause_title.text != "You died":
+#		if event.is_action_pressed("paused"):
+#			self.paused = not paused
+#			scene_tree.set_input_as_handled()
 
 
 func update_interface() -> void:
@@ -44,7 +45,7 @@ func update_interface() -> void:
 
 
 func set_paused(value : bool) -> void:
-	paused = value
+	is_paused = value
 	scene_tree.paused = value
 	paused_overly.visible = value
 
@@ -55,6 +56,9 @@ func set_is_jumping(value : bool) -> void:
 func set_is_attacking(value : bool) -> void:
 	is_attacking = value
 
+func set_is_getting_hurt(value : bool) -> void:
+	is_getting_hurt = value
+
 
 func stop() -> void:
 	left_button.visible = false
@@ -62,9 +66,20 @@ func stop() -> void:
 	jump_button.visible = false
 	attack_button.visible = false
 
+func pause() -> void:
+	left_button.enable = false
+	right_button.enable = false
+	jump_button.enable = false
+	attack_button.enable = false
+	
+func start() -> void:
+	left_button.enable = true
+	right_button.enable = true
+	jump_button.enable = true
+	attack_button.enable = true
 
 func _on_TouchScreenButton_Jump_pressed() -> void:
-	if (is_jumping == false):
+	if (is_jumping == false && is_getting_hurt == false && is_paused == false):
 		player.set_jump(true)
 		player.set_animation("jump")
 
@@ -74,34 +89,35 @@ func _on_TouchScreenButton_Jump_released() -> void:
 
 
 func _on_TouchScreenButton_right_pressed() -> void:
-	player.set_direction("right")
-	player.set_animation("walk")
+	if (is_getting_hurt == false && is_paused == false && is_getting_hurt == false):
+		player.set_direction("right")
+		player.set_animation("walk")
 
 
 func _on_TouchScreenButton_right_released() -> void:
-#	print("Button released")
 	player.set_direction("null")
 	player.set_animation("idle")
 
 
 func _on_TouchScreenButton_left_pressed() -> void:
-	player.set_direction("left")
-	player.set_animation("walk")
+	if (is_getting_hurt == false  && is_paused == false && is_getting_hurt == false):
+		player.set_direction("left")
+		player.set_animation("walk")
 
 
 func _on_TouchScreenButton_left_released() -> void:
-#	print("Button released")
 	player.set_direction("null")
 	player.set_animation("idle")
 	
 
 
 func _on_TouchScreenButton_attack_pressed() -> void:
-	if (is_attacking == false):
+	if (is_attacking == false && is_getting_hurt == false && is_paused == false):
 		player.set_animation("attack")
 		player.set_attack(true)
 
 
 
 func _on_TouchScreenButton_pause_pressed() -> void:
-	pass # Replace with function body.
+	self.is_paused = true
+	pause_title.text = "Game Paused"
