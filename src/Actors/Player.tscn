@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/player/idle/Idle (5).png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
@@ -41,34 +41,6 @@
 [ext_resource path="res://assets/player/attack/Attack (6).png" type="Texture" id=39]
 [ext_resource path="res://assets/player/attack/Attack (1).png" type="Texture" id=40]
 [ext_resource path="res://assets/player/attack/Attack (9).png" type="Texture" id=41]
-[ext_resource path="res://assets/player/die/Dead (2).png" type="Texture" id=42]
-[ext_resource path="res://assets/player/die/Dead (3).png" type="Texture" id=43]
-[ext_resource path="res://assets/player/die/Dead (1).png" type="Texture" id=44]
-[ext_resource path="res://assets/player/die/Dead (4).png" type="Texture" id=45]
-[ext_resource path="res://assets/player/die/Dead (5).png" type="Texture" id=46]
-[ext_resource path="res://assets/player/die/Dead (7).png" type="Texture" id=47]
-[ext_resource path="res://assets/player/die/Dead (6).png" type="Texture" id=48]
-[ext_resource path="res://assets/player/die/Dead (8).png" type="Texture" id=49]
-[ext_resource path="res://assets/player/die/Dead (9).png" type="Texture" id=50]
-[ext_resource path="res://assets/player/die/Dead (10).png" type="Texture" id=51]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_07.png" type="Texture" id=52]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_12.png" type="Texture" id=53]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_01.png" type="Texture" id=54]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_04.png" type="Texture" id=55]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_06.png" type="Texture" id=56]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_08.png" type="Texture" id=57]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_09.png" type="Texture" id=58]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_03.png" type="Texture" id=59]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_10.png" type="Texture" id=60]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_00.png" type="Texture" id=61]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_02.png" type="Texture" id=62]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_05.png" type="Texture" id=63]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_11.png" type="Texture" id=64]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_13.png" type="Texture" id=65]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_14.png" type="Texture" id=66]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_17.png" type="Texture" id=67]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_16.png" type="Texture" id=68]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_15.png" type="Texture" id=69]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -87,73 +59,46 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 61 ), ExtResource( 54 ), ExtResource( 62 ), ExtResource( 59 ), ExtResource( 64 ), ExtResource( 53 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 69 ), ExtResource( 68 ), ExtResource( 67 ), ExtResource( 55 ), ExtResource( 63 ), ExtResource( 56 ), ExtResource( 52 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 60 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 26 ), ExtResource( 23 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 24 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 44 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ) ],
-"loop": true,
-"name": "dying",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.74765, 5.07467 )
+extents = Vector2( 48.8466, 8.81617 )
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 128.0
+radius = 121.912
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 146.48, 15.1578 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 150.273, 184 )
+extents = Vector2( 63.9, 76.7957 )
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 10
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 4
+frame = 7
 speed_scale = 2.0
 playing = true
 
-[node name="right_body_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -62.4123, 160.385 )
-scale = Vector2( 13.8841, 16.5954 )
+[node name="right_feet_collision" type="CollisionShape2D" parent="."]
+position = Vector2( -65.822, 274.867 )
+scale = Vector2( 3, 3 )
 shape = SubResource( 2 )
-
-[node name="left_body_collision" type="CollisionShape2D" parent="."]
-position = Vector2( 54.8403, 154.15 )
-scale = Vector2( 13.8841, 16.5954 )
-shape = SubResource( 2 )
-disabled = true
-
-[node name="right_head_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -6.11928, -29.9681 )
-shape = SubResource( 3 )
-
-[node name="left_head_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -25.6247, -32.0522 )
-shape = SubResource( 3 )
-disabled = true
 
 [node name="left_feet_collision" type="CollisionShape2D" parent="."]
-position = Vector2( 68.2582, 288.796 )
-shape = SubResource( 4 )
+position = Vector2( 68.7215, 274.867 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 2 )
 disabled = true
 
-[node name="right_feet_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -61.9086, 290.383 )
-shape = SubResource( 4 )
+[node name="head_collision" type="CollisionShape2D" parent="."]
+position = Vector2( -8.409, -35.3176 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -430 )
@@ -167,60 +112,51 @@ smoothing_enabled = true
 drag_margin_left = 0.0
 drag_margin_right = 0.0
 
-[node name="PlayerAttackArea" type="Area2D" parent="."]
-position = Vector2( -16, 0 )
-collision_layer = 0
-collision_mask = 2
+[node name="right_body_collision" type="CollisionShape2D" parent="."]
+position = Vector2( -59.8893, 146.09 )
+shape = SubResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttackArea"]
-position = Vector2( 179.189, 149.172 )
-shape = SubResource( 5 )
+[node name="left_body_collision" type="CollisionShape2D" parent="."]
+position = Vector2( 56.1544, 146.09 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="WallRayCast" type="Node2D" parent="."]
-visible = false
 
-[node name="left_ray" type="Node2D" parent="WallRayCast"]
+[node name="left" type="Node2D" parent="WallRayCast"]
 
-[node name="Left_WallRayCast2D" type="RayCast2D" parent="WallRayCast/left_ray"]
+[node name="RayCast2D" type="RayCast2D" parent="WallRayCast/left"]
 enabled = true
 cast_to = Vector2( -210, 0 )
-collision_mask = 10
-collide_with_areas = true
+collision_mask = 2
 
-[node name="Left_WallRayCast2D2" type="RayCast2D" parent="WallRayCast/left_ray"]
-position = Vector2( 0, 244.425 )
+[node name="RayCast2D2" type="RayCast2D" parent="WallRayCast/left"]
+position = Vector2( 0, 122.771 )
 enabled = true
 cast_to = Vector2( -210, 0 )
-collision_mask = 10
-collide_with_areas = true
+collision_mask = 2
 
-[node name="Left_WallRayCast2D3" type="RayCast2D" parent="WallRayCast/left_ray"]
-position = Vector2( 0, 133.552 )
+[node name="RayCast2D3" type="RayCast2D" parent="WallRayCast/left"]
+position = Vector2( 0, 244.701 )
 enabled = true
 cast_to = Vector2( -210, 0 )
-collision_mask = 10
-collide_with_areas = true
+collision_mask = 2
 
-[node name="right_ray" type="Node2D" parent="WallRayCast"]
+[node name="right" type="Node2D" parent="WallRayCast"]
 
-[node name="Right_WallRayCast2D" type="RayCast2D" parent="WallRayCast/right_ray"]
+[node name="RayCast2D" type="RayCast2D" parent="WallRayCast/right"]
 enabled = true
 cast_to = Vector2( 210, 0 )
-collision_mask = 10
-collide_with_areas = true
+collision_mask = 2
 
-[node name="Right_WallRayCast2D2" type="RayCast2D" parent="WallRayCast/right_ray"]
-position = Vector2( 0, 134.811 )
+[node name="RayCast2D2" type="RayCast2D" parent="WallRayCast/right"]
+position = Vector2( 0, 121.93 )
 enabled = true
 cast_to = Vector2( 210, 0 )
-collision_mask = 10
-collide_with_areas = true
+collision_mask = 2
 
-[node name="Right_WallRayCast2D3" type="RayCast2D" parent="WallRayCast/right_ray"]
-position = Vector2( 0, 241.905 )
+[node name="RayCast2D3" type="RayCast2D" parent="WallRayCast/right"]
+position = Vector2( 0, 245.542 )
 enabled = true
 cast_to = Vector2( 210, 0 )
-collision_mask = 10
-collide_with_areas = true
-[connection signal="body_entered" from="PlayerAttackArea" to="." method="_on_PlayerAttackArea_body_entered"]
+collision_mask = 2
