@@ -1,162 +1,154 @@
 [gd_scene load_steps=75 format=2]
 
-[ext_resource path="res://assets/player/idle/Idle (5).png" type="Texture" id=1]
-[ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/player/walk/Walk (6).png" type="Texture" id=3]
-[ext_resource path="res://assets/player/walk/Walk (7).png" type="Texture" id=4]
-[ext_resource path="res://assets/player/walk/Walk (9).png" type="Texture" id=5]
-[ext_resource path="res://assets/player/walk/Walk (8).png" type="Texture" id=6]
-[ext_resource path="res://assets/player/walk/Walk (10).png" type="Texture" id=7]
-[ext_resource path="res://assets/player/walk/Walk (2).png" type="Texture" id=8]
-[ext_resource path="res://assets/player/walk/Walk (3).png" type="Texture" id=9]
-[ext_resource path="res://assets/player/walk/Walk (4).png" type="Texture" id=10]
-[ext_resource path="res://assets/player/walk/Walk (5).png" type="Texture" id=11]
-[ext_resource path="res://assets/player/walk/Walk (1).png" type="Texture" id=12]
-[ext_resource path="res://assets/player/idle/Idle (7).png" type="Texture" id=13]
-[ext_resource path="res://assets/player/idle/Idle (3).png" type="Texture" id=14]
-[ext_resource path="res://assets/player/idle/Idle (4).png" type="Texture" id=15]
-[ext_resource path="res://assets/player/idle/Idle (8).png" type="Texture" id=16]
-[ext_resource path="res://assets/player/idle/Idle (6).png" type="Texture" id=17]
-[ext_resource path="res://assets/player/idle/Idle (9).png" type="Texture" id=18]
-[ext_resource path="res://assets/player/idle/Idle (10).png" type="Texture" id=19]
-[ext_resource path="res://assets/player/idle/Idle (1).png" type="Texture" id=20]
-[ext_resource path="res://assets/player/idle/Idle (2).png" type="Texture" id=21]
-[ext_resource path="res://assets/player/jump/Jump (10).png" type="Texture" id=22]
-[ext_resource path="res://assets/player/jump/Jump (2).png" type="Texture" id=23]
-[ext_resource path="res://assets/player/jump/Jump (5).png" type="Texture" id=24]
-[ext_resource path="res://assets/player/jump/Jump (9).png" type="Texture" id=25]
-[ext_resource path="res://assets/player/jump/Jump (1).png" type="Texture" id=26]
-[ext_resource path="res://assets/player/jump/Jump (8).png" type="Texture" id=27]
-[ext_resource path="res://assets/player/jump/Jump (3).png" type="Texture" id=28]
-[ext_resource path="res://assets/player/jump/Jump (6).png" type="Texture" id=29]
-[ext_resource path="res://assets/player/jump/Jump (7).png" type="Texture" id=30]
-[ext_resource path="res://assets/player/jump/Jump (4).png" type="Texture" id=31]
-[ext_resource path="res://assets/player/attack/Attack (7).png" type="Texture" id=32]
-[ext_resource path="res://assets/player/attack/Attack (10).png" type="Texture" id=33]
-[ext_resource path="res://assets/player/attack/Attack (8).png" type="Texture" id=34]
-[ext_resource path="res://assets/player/attack/Attack (2).png" type="Texture" id=35]
-[ext_resource path="res://assets/player/attack/Attack (3).png" type="Texture" id=36]
-[ext_resource path="res://assets/player/attack/Attack (4).png" type="Texture" id=37]
-[ext_resource path="res://assets/player/attack/Attack (5).png" type="Texture" id=38]
-[ext_resource path="res://assets/player/attack/Attack (6).png" type="Texture" id=39]
-[ext_resource path="res://assets/player/attack/Attack (1).png" type="Texture" id=40]
-[ext_resource path="res://assets/player/attack/Attack (9).png" type="Texture" id=41]
-[ext_resource path="res://assets/player/die/Dead (2).png" type="Texture" id=42]
-[ext_resource path="res://assets/player/die/Dead (3).png" type="Texture" id=43]
-[ext_resource path="res://assets/player/die/Dead (1).png" type="Texture" id=44]
-[ext_resource path="res://assets/player/die/Dead (4).png" type="Texture" id=45]
-[ext_resource path="res://assets/player/die/Dead (5).png" type="Texture" id=46]
-[ext_resource path="res://assets/player/die/Dead (7).png" type="Texture" id=47]
-[ext_resource path="res://assets/player/die/Dead (6).png" type="Texture" id=48]
-[ext_resource path="res://assets/player/die/Dead (8).png" type="Texture" id=49]
-[ext_resource path="res://assets/player/die/Dead (9).png" type="Texture" id=50]
-[ext_resource path="res://assets/player/die/Dead (10).png" type="Texture" id=51]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_07.png" type="Texture" id=52]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_12.png" type="Texture" id=53]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_01.png" type="Texture" id=54]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_04.png" type="Texture" id=55]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_06.png" type="Texture" id=56]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_08.png" type="Texture" id=57]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_09.png" type="Texture" id=58]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_03.png" type="Texture" id=59]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_10.png" type="Texture" id=60]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_00.png" type="Texture" id=61]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_02.png" type="Texture" id=62]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_05.png" type="Texture" id=63]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_11.png" type="Texture" id=64]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_13.png" type="Texture" id=65]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_14.png" type="Texture" id=66]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_17.png" type="Texture" id=67]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_16.png" type="Texture" id=68]
-[ext_resource path="res://assets/player/hurt/Armature_hurt_15.png" type="Texture" id=69]
+[ext_resource path="res://src/actors/player.gd" type="Script" id=1]
+[ext_resource path="res://assets/player/attack/Attack (7).png" type="Texture" id=2]
+[ext_resource path="res://assets/player/attack/Attack (2).png" type="Texture" id=3]
+[ext_resource path="res://assets/player/attack/Attack (3).png" type="Texture" id=4]
+[ext_resource path="res://assets/player/attack/Attack (4).png" type="Texture" id=5]
+[ext_resource path="res://assets/player/attack/Attack (5).png" type="Texture" id=6]
+[ext_resource path="res://assets/player/attack/Attack (1).png" type="Texture" id=7]
+[ext_resource path="res://assets/player/attack/Attack (8).png" type="Texture" id=8]
+[ext_resource path="res://assets/player/attack/Attack (10).png" type="Texture" id=9]
+[ext_resource path="res://assets/player/attack/Attack (9).png" type="Texture" id=10]
+[ext_resource path="res://assets/player/attack/Attack (6).png" type="Texture" id=11]
+[ext_resource path="res://assets/player/die/Dead (4).png" type="Texture" id=12]
+[ext_resource path="res://assets/player/die/Dead (5).png" type="Texture" id=13]
+[ext_resource path="res://assets/player/die/Dead (1).png" type="Texture" id=14]
+[ext_resource path="res://assets/player/die/Dead (2).png" type="Texture" id=15]
+[ext_resource path="res://assets/player/die/Dead (3).png" type="Texture" id=16]
+[ext_resource path="res://assets/player/die/Dead (9).png" type="Texture" id=17]
+[ext_resource path="res://assets/player/die/Dead (10).png" type="Texture" id=18]
+[ext_resource path="res://assets/player/die/Dead (7).png" type="Texture" id=19]
+[ext_resource path="res://assets/player/die/Dead (6).png" type="Texture" id=20]
+[ext_resource path="res://assets/player/die/Dead (8).png" type="Texture" id=21]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_12.png" type="Texture" id=22]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_15.png" type="Texture" id=23]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_01.png" type="Texture" id=24]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_04.png" type="Texture" id=25]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_17.png" type="Texture" id=26]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_16.png" type="Texture" id=27]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_13.png" type="Texture" id=28]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_09.png" type="Texture" id=29]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_08.png" type="Texture" id=30]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_10.png" type="Texture" id=31]
+[ext_resource path="res://assets/player/jump/Jump (5).png" type="Texture" id=32]
+[ext_resource path="res://assets/player/walk/Walk (1).png" type="Texture" id=33]
+[ext_resource path="res://assets/player/jump/Jump (8).png" type="Texture" id=34]
+[ext_resource path="res://assets/player/walk/Walk (6).png" type="Texture" id=35]
+[ext_resource path="res://assets/player/walk/Walk (8).png" type="Texture" id=36]
+[ext_resource path="res://assets/player/walk/Walk (5).png" type="Texture" id=37]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_03.png" type="Texture" id=38]
+[ext_resource path="res://assets/player/walk/Walk (4).png" type="Texture" id=39]
+[ext_resource path="res://assets/player/jump/Jump (4).png" type="Texture" id=40]
+[ext_resource path="res://assets/player/walk/Walk (7).png" type="Texture" id=41]
+[ext_resource path="res://assets/player/walk/Walk (2).png" type="Texture" id=42]
+[ext_resource path="res://assets/player/jump/Jump (6).png" type="Texture" id=43]
+[ext_resource path="res://assets/player/jump/Jump (10).png" type="Texture" id=44]
+[ext_resource path="res://assets/player/walk/Walk (9).png" type="Texture" id=45]
+[ext_resource path="res://assets/player/walk/Walk (3).png" type="Texture" id=46]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_00.png" type="Texture" id=47]
+[ext_resource path="res://assets/player/walk/Walk (10).png" type="Texture" id=48]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_02.png" type="Texture" id=49]
+[ext_resource path="res://assets/player/idle/Idle (10).png" type="Texture" id=50]
+[ext_resource path="res://assets/player/idle/Idle (4).png" type="Texture" id=51]
+[ext_resource path="res://assets/player/idle/Idle (3).png" type="Texture" id=52]
+[ext_resource path="res://assets/player/idle/Idle (2).png" type="Texture" id=53]
+[ext_resource path="res://assets/player/idle/Idle (7).png" type="Texture" id=54]
+[ext_resource path="res://assets/player/idle/Idle (5).png" type="Texture" id=55]
+[ext_resource path="res://assets/player/idle/Idle (6).png" type="Texture" id=56]
+[ext_resource path="res://assets/player/idle/Idle (1).png" type="Texture" id=57]
+[ext_resource path="res://assets/player/idle/Idle (8).png" type="Texture" id=58]
+[ext_resource path="res://assets/player/idle/Idle (9).png" type="Texture" id=59]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_07.png" type="Texture" id=60]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_14.png" type="Texture" id=61]
+[ext_resource path="res://assets/player/jump/Jump (9).png" type="Texture" id=62]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_06.png" type="Texture" id=63]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_05.png" type="Texture" id=64]
+[ext_resource path="res://assets/player/hurt/Armature_hurt_11.png" type="Texture" id=65]
+[ext_resource path="res://assets/player/jump/Jump (7).png" type="Texture" id=66]
+[ext_resource path="res://assets/player/jump/Jump (1).png" type="Texture" id=67]
+[ext_resource path="res://assets/player/jump/Jump (2).png" type="Texture" id=68]
+[ext_resource path="res://assets/player/jump/Jump (3).png" type="Texture" id=69]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 1 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 57 ), ExtResource( 53 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 54 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 50 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 40 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 41 ), ExtResource( 33 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 33 ), ExtResource( 42 ), ExtResource( 46 ), ExtResource( 39 ), ExtResource( 37 ), ExtResource( 35 ), ExtResource( 41 ), ExtResource( 36 ), ExtResource( 45 ), ExtResource( 48 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 61 ), ExtResource( 54 ), ExtResource( 62 ), ExtResource( 59 ), ExtResource( 64 ), ExtResource( 53 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 69 ), ExtResource( 68 ), ExtResource( 67 ), ExtResource( 55 ), ExtResource( 63 ), ExtResource( 56 ), ExtResource( 52 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 60 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 23 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 24 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 40 ), ExtResource( 32 ), ExtResource( 43 ), ExtResource( 66 ), ExtResource( 34 ), ExtResource( 62 ), ExtResource( 44 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 44 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ), ExtResource( 51 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 24 ), ExtResource( 49 ), ExtResource( 38 ), ExtResource( 25 ), ExtResource( 64 ), ExtResource( 63 ), ExtResource( 60 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 65 ), ExtResource( 22 ), ExtResource( 28 ), ExtResource( 61 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "dying",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.74765, 5.07467 )
+extents = Vector2( 62.321, 86.5149 )
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 128.0
+radius = 114.656
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 146.48, 15.1578 )
+extents = Vector2( 149.157, 10 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 150.273, 184 )
+extents = Vector2( 142.178, 165.186 )
 
-[node name="Player" type="KinematicBody2D"]
-collision_mask = 10
-script = ExtResource( 2 )
+[node name="player" type="KinematicBody2D"]
+collision_mask = 8
+script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 4
+frame = 1
 speed_scale = 2.0
 playing = true
 
 [node name="right_body_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -62.4123, 160.385 )
-scale = Vector2( 13.8841, 16.5954 )
+position = Vector2( -56.6324, 166.122 )
 shape = SubResource( 2 )
 
 [node name="left_body_collision" type="CollisionShape2D" parent="."]
-position = Vector2( 54.8403, 154.15 )
-scale = Vector2( 13.8841, 16.5954 )
+position = Vector2( 57.5764, 166.122 )
 shape = SubResource( 2 )
 disabled = true
 
-[node name="right_head_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -6.11928, -29.9681 )
+[node name="head_collision" type="CollisionShape2D" parent="."]
+position = Vector2( -7.55103, -35.8672 )
 shape = SubResource( 3 )
-
-[node name="left_head_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -25.6247, -32.0522 )
-shape = SubResource( 3 )
-disabled = true
-
-[node name="left_feet_collision" type="CollisionShape2D" parent="."]
-position = Vector2( 68.2582, 288.796 )
-shape = SubResource( 4 )
-disabled = true
 
 [node name="right_feet_collision" type="CollisionShape2D" parent="."]
-position = Vector2( -61.9086, 290.383 )
+position = Vector2( -65.1273, 292.601 )
 shape = SubResource( 4 )
 
+[node name="left_feet_collision" type="CollisionShape2D" parent="."]
+position = Vector2( 64.6446, 292.601 )
+shape = SubResource( 4 )
+disabled = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -430 )
 current = true
 limit_left = 0
 limit_top = 0
@@ -168,59 +160,42 @@ drag_margin_left = 0.0
 drag_margin_right = 0.0
 
 [node name="PlayerAttackArea" type="Area2D" parent="."]
-position = Vector2( -16, 0 )
-collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttackArea"]
-position = Vector2( 179.189, 149.172 )
+position = Vector2( 142.553, 141.43 )
 shape = SubResource( 5 )
 disabled = true
 
 [node name="WallRayCast" type="Node2D" parent="."]
-visible = false
 
-[node name="left_ray" type="Node2D" parent="WallRayCast"]
+[node name="left" type="Node2D" parent="WallRayCast"]
 
-[node name="Left_WallRayCast2D" type="RayCast2D" parent="WallRayCast/left_ray"]
+[node name="RayCast2D" type="RayCast2D" parent="WallRayCast/left"]
 enabled = true
 cast_to = Vector2( -210, 0 )
-collision_mask = 10
-collide_with_areas = true
 
-[node name="Left_WallRayCast2D2" type="RayCast2D" parent="WallRayCast/left_ray"]
-position = Vector2( 0, 244.425 )
+[node name="RayCast2D2" type="RayCast2D" parent="WallRayCast/left"]
+position = Vector2( 0, 138.75 )
 enabled = true
 cast_to = Vector2( -210, 0 )
-collision_mask = 10
-collide_with_areas = true
 
-[node name="Left_WallRayCast2D3" type="RayCast2D" parent="WallRayCast/left_ray"]
-position = Vector2( 0, 133.552 )
+[node name="RayCast2D3" type="RayCast2D" parent="WallRayCast/left"]
+position = Vector2( 0, 272.78 )
 enabled = true
 cast_to = Vector2( -210, 0 )
-collision_mask = 10
-collide_with_areas = true
 
-[node name="right_ray" type="Node2D" parent="WallRayCast"]
+[node name="right" type="Node2D" parent="WallRayCast"]
 
-[node name="Right_WallRayCast2D" type="RayCast2D" parent="WallRayCast/right_ray"]
+[node name="RayCast2D" type="RayCast2D" parent="WallRayCast/right"]
 enabled = true
 cast_to = Vector2( 210, 0 )
-collision_mask = 10
-collide_with_areas = true
 
-[node name="Right_WallRayCast2D2" type="RayCast2D" parent="WallRayCast/right_ray"]
-position = Vector2( 0, 134.811 )
+[node name="RayCast2D2" type="RayCast2D" parent="WallRayCast/right"]
+position = Vector2( 0, 138.79 )
 enabled = true
 cast_to = Vector2( 210, 0 )
-collision_mask = 10
-collide_with_areas = true
 
-[node name="Right_WallRayCast2D3" type="RayCast2D" parent="WallRayCast/right_ray"]
-position = Vector2( 0, 241.905 )
+[node name="RayCast2D3" type="RayCast2D" parent="WallRayCast/right"]
+position = Vector2( 0, 270.163 )
 enabled = true
 cast_to = Vector2( 210, 0 )
-collision_mask = 10
-collide_with_areas = true
-[connection signal="body_entered" from="PlayerAttackArea" to="." method="_on_PlayerAttackArea_body_entered"]

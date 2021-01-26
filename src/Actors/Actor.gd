@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name Actor
+class_name actor
 
 const FLOOR_NORMAL := Vector2.UP
 

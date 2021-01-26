@@ -1,74 +1,71 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/ui/ChangeSceneButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Screens/Main_Menu.gd" type="Script" id=2]
-[ext_resource path="res://src/ui/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=2]
 
-[node name="Main_Menu" type="Control"]
+[node name="main_menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+margin_left = -1.0
+margin_right = -1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="."]
+[node name="title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -48.5
-margin_top = -183.199
+margin_top = -225.0
 margin_right = 48.5
-margin_bottom = -169.199
-text = "Little Muslim"
+margin_bottom = -211.0
+text = "little muslim"
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sub-Title" type="Label" parent="."]
+[node name="sub_title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -45.5
-margin_top = -151.654
-margin_right = 45.5
-margin_bottom = -120.654
-text = "Islam For Kids
-"
+margin_left = -44.0
+margin_top = -203.0
+margin_right = 44.0
+margin_bottom = -189.0
+text = "Islam for Kids"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Sub-Title"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -146.5
-margin_top = 35.7595
-margin_right = 146.5
-margin_bottom = 325.759
+margin_left = -116.5
+margin_top = -127.5
+margin_right = 116.5
+margin_bottom = 127.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" parent="Sub-Title/VBoxContainer" instance=ExtResource( 1 )]
-margin_right = 293.0
-margin_bottom = 94.0
-text = "Play Now"
-scene_path = "res://src/Levels/level_1.tscn"
-
-[node name="Settings" type="Button" parent="Sub-Title/VBoxContainer"]
-margin_top = 98.0
-margin_right = 293.0
-margin_bottom = 192.0
+[node name="play" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_right = 233.0
+margin_bottom = 125.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "My Settings"
+text = "Play Now"
+scene_path = "res://src/levels/level_test.tscn"
 
-[node name="QuitButton" parent="Sub-Title/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 196.0
-margin_right = 293.0
-margin_bottom = 290.0
+[node name="quit_button" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 129.0
+margin_right = 233.0
+margin_bottom = 255.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Quit"

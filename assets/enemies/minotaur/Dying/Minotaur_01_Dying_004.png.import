@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minotaur_01_Dying_004.png-dfae7b7279842160ad3291651a97329f.stex"
+path="res://.import/Minotaur_01_Dying_004.png-4c54c69c31f5103b6553f5370a0ccb52.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_004.png"
-dest_files=[ "res://.import/Minotaur_01_Dying_004.png-dfae7b7279842160ad3291651a97329f.stex" ]
+source_file="res://assets/enemies/minotaur/dying/Minotaur_01_Dying_004.png"
+dest_files=[ "res://.import/Minotaur_01_Dying_004.png-4c54c69c31f5103b6553f5370a0ccb52.stex" ]
 
 [params]
 

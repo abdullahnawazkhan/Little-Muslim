@@ -1,21 +1,19 @@
-extends Actor
+extends actor
 
 onready var curr = get_tree().get_current_scene().get_name()
-onready var ui = get_tree().get_root().get_node(curr + "/UserInterface/UserInterface")
+onready var ui = get_tree().get_root().get_node(curr + "/user_interface/user_interface")
 
 onready var character = get_node("AnimatedSprite")
 onready var attack_area = get_node("PlayerAttackArea/CollisionShape2D")
 
 onready var right_body_collision = get_node("right_body_collision")
 onready var right_feet_collision = get_node("right_feet_collision")
-onready var right_head_collision = get_node("right_head_collision")
 
 onready var left_body_collision = get_node("left_body_collision")
 onready var left_feet_collision = get_node("left_feet_collision")
-onready var left_head_collision = get_node("left_head_collision")
 
-onready var left_raycasts = get_node("WallRayCast/left_ray")
-onready var right_raycasts = get_node("WallRayCast/right_ray")
+onready var left_raycasts = get_node("WallRayCast/left")
+onready var right_raycasts = get_node("WallRayCast/right")
 
 
 var move_direction := 0.0
@@ -109,11 +107,9 @@ func set_direction(arrow : String):
 				
 				left_body_collision.call_deferred("set_disabled", true)
 				left_feet_collision.call_deferred("set_disabled", true)
-				left_head_collision.call_deferred("set_disabled", true)
 				
 				right_body_collision.call_deferred("set_disabled", false)
 				right_feet_collision.call_deferred("set_disabled", false)
-				right_head_collision.call_deferred("set_disabled", false)
 				
 				if (check_wall(left_raycasts) == true):
 					self.position.x += 20	
@@ -127,11 +123,9 @@ func set_direction(arrow : String):
 					
 				left_body_collision.call_deferred("set_disabled", false)
 				left_feet_collision.call_deferred("set_disabled", false)
-				left_head_collision.call_deferred("set_disabled", false)
 				
 				right_body_collision.call_deferred("set_disabled", true)
 				right_feet_collision.call_deferred("set_disabled", true)
-				right_head_collision.call_deferred("set_disabled", true)
 				
 				if (check_wall(right_raycasts) == true):
 					self.position.x -= 20	

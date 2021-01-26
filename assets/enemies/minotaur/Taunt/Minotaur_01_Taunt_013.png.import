@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minotaur_01_Taunt_013.png-357a8aecf90993d7e2f1cddf4ad20020.stex"
+path="res://.import/Minotaur_01_Taunt_013.png-e705d7ed58e748bec624c853ed9c4ee7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/minotaur/Taunt/Minotaur_01_Taunt_013.png"
-dest_files=[ "res://.import/Minotaur_01_Taunt_013.png-357a8aecf90993d7e2f1cddf4ad20020.stex" ]
+source_file="res://assets/enemies/minotaur/taunt/Minotaur_01_Taunt_013.png"
+dest_files=[ "res://.import/Minotaur_01_Taunt_013.png-e705d7ed58e748bec624c853ed9c4ee7.stex" ]
 
 [params]
 
