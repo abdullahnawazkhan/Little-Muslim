@@ -100,6 +100,10 @@ func calculate_move_velocity(linear_velocity: Vector2, speed: Vector2, direction
 
 func set_direction(arrow : String):
 	if (state != "dying" && getting_hurt != true):
+		if (falling == true):
+			prev_state = "walk"
+		else:
+			set_animation("walk")
 		if (arrow == "right"):
 			if character_direction == "left":
 				character.flip_h = false
@@ -117,6 +121,10 @@ func set_direction(arrow : String):
 			move_direction = 1.0
 			character_direction = "right"
 		elif (arrow == "left"):
+			if (falling == true):
+				prev_state = "walk"
+			else:
+				set_animation("walk")
 			if character_direction == "right":
 				character.flip_h = true			
 				attack_area.position.x *= -1
@@ -138,6 +146,7 @@ func set_direction(arrow : String):
 
 func set_jump(val : bool):
 	if (jump_pressed == false && state != "dying" && getting_hurt != true):
+		
 		jump_pressed = val
 		jump_released = false
 		ui.set_is_jumping(true)

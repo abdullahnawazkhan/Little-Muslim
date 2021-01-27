@@ -74,7 +74,7 @@ func start() -> void:
 func _on_TouchScreenButton_right_pressed() -> void:
 	if (is_getting_hurt == false && is_paused == false && is_getting_hurt == false):
 		player.set_direction("right")
-		player.set_animation("walk")
+
 
 
 func _on_TouchScreenButton_right_released() -> void:
@@ -85,7 +85,6 @@ func _on_TouchScreenButton_right_released() -> void:
 func _on_TouchScreenButton_left_pressed() -> void:
 	if (is_getting_hurt == false  && is_paused == false && is_getting_hurt == false):
 		player.set_direction("left")
-		player.set_animation("walk")
 
 
 func _on_TouchScreenButton_left_released() -> void:
@@ -95,7 +94,7 @@ func _on_TouchScreenButton_left_released() -> void:
 
 
 func _on_TouchScreenButton_attack_pressed() -> void:
-	if (is_attacking == false && is_getting_hurt == false && is_paused == false):
+	if (is_attacking == false && is_getting_hurt == false && is_paused == false && is_jumping == false):
 		player.set_animation("attack")
 		player.set_attack(true)
 
