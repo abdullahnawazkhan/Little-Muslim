@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 3 )
 
 [node name="main_menu" type="Control"]
 anchor_right = 1.0
@@ -17,10 +34,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -48.5
-margin_top = -225.0
-margin_right = 48.5
-margin_bottom = -211.0
+margin_left = -209.5
+margin_top = -274.101
+margin_right = 209.5
+margin_bottom = -201.101
+custom_fonts/font = SubResource( 1 )
 text = "little muslim"
 uppercase = true
 __meta__ = {
@@ -32,10 +50,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -44.0
-margin_top = -203.0
-margin_right = 44.0
-margin_bottom = -189.0
+margin_left = -113.5
+margin_top = -191.525
+margin_right = 113.5
+margin_bottom = -147.525
+custom_fonts/font = SubResource( 2 )
 text = "Islam for Kids"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -47,9 +66,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -116.5
-margin_top = -127.5
+margin_top = -59.4232
 margin_right = 116.5
-margin_bottom = 127.5
+margin_bottom = 195.577
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,6 +78,7 @@ margin_right = 233.0
 margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
 text = "Play Now"
 scene_path = "res://src/levels/level_test.tscn"
 
@@ -68,4 +88,5 @@ margin_right = 233.0
 margin_bottom = 255.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
 text = "Quit"

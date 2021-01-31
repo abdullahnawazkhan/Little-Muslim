@@ -6,6 +6,7 @@ onready var score : Label = get_node("label")
 onready var pause_title : Label = get_node("pause_overlay/title")
 onready var curr = get_tree().get_current_scene().get_name()
 onready var player : actor =  get_tree().get_root().get_node(curr + "/player")
+onready var player_sm := get_tree().get_root().get_node(curr + "/player/state_machine")
 onready var left_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_left")
 onready var right_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_right")
 onready var attack_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_attack")
@@ -72,32 +73,23 @@ func start() -> void:
 
 
 func _on_TouchScreenButton_right_pressed() -> void:
-	if (is_getting_hurt == false && is_paused == false && is_getting_hurt == false):
-		player.set_direction("right")
-
+	player_sm.set_direction("right")
 
 
 func _on_TouchScreenButton_right_released() -> void:
-	player.set_direction("null")
-	player.set_animation("idle")
+	player_sm.set_direction("null")
 
 
 func _on_TouchScreenButton_left_pressed() -> void:
-	if (is_getting_hurt == false  && is_paused == false && is_getting_hurt == false):
-		player.set_direction("left")
+	player_sm.set_direction("left")
 
 
 func _on_TouchScreenButton_left_released() -> void:
-	player.set_direction("null")
-	player.set_animation("idle")
-	
+	player_sm.set_direction("null")
 
 
 func _on_TouchScreenButton_attack_pressed() -> void:
-	if (is_attacking == false && is_getting_hurt == false && is_paused == false && is_jumping == false):
-		player.set_animation("attack")
-		player.set_attack(true)
-
+	player_sm.set_attack(true)
 
 
 func _on_TouchScreenButton_pause_pressed() -> void:
@@ -106,10 +98,8 @@ func _on_TouchScreenButton_pause_pressed() -> void:
 
 
 func _on_TouchScreenButton_jump_pressed() -> void:
-	if (is_jumping == false && is_getting_hurt == false && is_paused == false):
-		player.set_jump(true)
-		player.set_animation("jump")
+	player_sm.set_jump()
 
 
 func _on_TouchScreenButton_jump_released() -> void:
-	player.set_jump_release(true)
+	player_sm.set_jump_release()

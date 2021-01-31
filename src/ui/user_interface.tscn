@@ -46,7 +46,7 @@ position = Vector2( 180.807, 587.395 )
 rotation = 3.14159
 scale = Vector2( 0.252, 0.252 )
 normal = ExtResource( 2 )
-pressed = ExtResource( 2 )
+pressed = ExtResource( 3 )
 
 [node name="TouchScreenButton_right" type="TouchScreenButton" parent="touch_buttons"]
 position = Vector2( 208.986, 456.935 )
@@ -123,6 +123,7 @@ margin_bottom = 225.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Main Menu"
+scene_path = ""
 
 [node name="quit_button" parent="pause_overlay/pause_menu" instance=ExtResource( 12 )]
 margin_top = 229.0
