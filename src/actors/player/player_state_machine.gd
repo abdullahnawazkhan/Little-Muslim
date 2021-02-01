@@ -18,7 +18,7 @@ func _ready():
 	add_state("attack")
 	add_state("block")
 	add_state("dying")
-	add_state("getting_hurt")
+	add_state("hurt")
 	
 	call_deferred("set_state", states.idle)
 
@@ -30,6 +30,12 @@ func _state_logic(delta):
 func _get_transition(delta):
 	match state:
 		states.idle:
+			# checking if player has died
+			if (parent.has_player_died() == true):
+				return states.dying
+			# checking if player getting hurt
+			if (parent.is_player_hurt() == true):
+				return states.hurt
 			# checking for attack_transition
 			if (attack_pressed == true):
 				return states.attack
@@ -49,6 +55,8 @@ func _get_transition(delta):
 				else:
 					return states.idle
 			else:
+				# if user presses attack button during jump it will neglect it
+				attack_pressed = false
 				# if player has pressed move key during jump:
 				#	state will not change but character will move in the direction
 				if (right_pressed == true):
@@ -71,6 +79,7 @@ func _get_transition(delta):
 			# attack area of character will be enabled on a certain frame
 			if (animator.frame == 4):
 				parent.enable_attack_area(true)
+				animator.speed_scale = 3.0
 			
 			# checking if attack animation is finised
 			if (animator.frame == 9):
@@ -78,6 +87,17 @@ func _get_transition(delta):
 					return states.walk
 				else:
 					return states.idle
+					
+		states.hurt:
+			# checking if hurt animation has finished
+			if (animator.frame == 17):
+				return previous_state
+		
+		states.dying:
+			# checking if dying animation has finished
+			if (animator.frame == 17):
+				parent.die()
+				animator.stop()
 
 	return null
 
@@ -88,9 +108,11 @@ func _enter_state(new_state, old_state):
 			animator.animation = "idle"
 			parent.set_label("idle")
 			parent.set_direction("null")
+			
 		states.jump:
 			animator.animation = "jump"
 			parent.set_label("jumping")
+			
 		states.walk:
 			animator.animation = "walk"
 			parent.set_label("walking")
@@ -98,19 +120,40 @@ func _enter_state(new_state, old_state):
 				parent.set_direction("right")
 			else:
 				parent.set_direction("left")
+				
 		states.attack:
 			parent.set_direction("null")
 			animator.animation = "attack"
 			parent.set_label("attack")
+			
+		states.hurt:
+			parent.set_direction("null")
+			animator.animation = "hurt"
+			animator.speed_scale = 3.0
+			animator.offset = Vector2(80, 0)
+			parent.set_label("getting hurt")
+			
+		states.dying:
+			parent.set_direction("null")
+			animator.animation = "dying"
+			animator.offset = Vector2(-200, 0)
+			parent.set_label("dying")
 
 
 func _exit_state(old_state, new_state):
 	match old_state:
 		states.jump:
 			jump_pressed = false
+			
 		states.attack:
 			attack_pressed = false
 			parent.enable_attack_area(false)
+			animator.speed_scale = 2.0
+			
+		states.hurt:
+			parent.set_hurt(false)
+			animator.speed_scale = 2.0
+			animator.offset = Vector2(0, 0)
 
 
 func set_direction(arrow : String):
@@ -125,11 +168,13 @@ func set_direction(arrow : String):
 
 
 func set_jump():
-	jump_pressed = true
+	if (attack_pressed == false && jump_pressed == false):
+		jump_pressed = true
 
 
 func set_jump_release():
 	jump_pressed = false
+
 
 func set_attack(val : bool):
 	if (attack_pressed == false && jump_pressed == false):

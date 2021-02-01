@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/arrow.png" type="Texture" id=2]
@@ -13,6 +13,15 @@
 [ext_resource path="res://src/ui/retry_button.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/ui/label.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 14 )
 
 [node name="user_interface" type="Control"]
 pause_mode = 2
@@ -23,12 +32,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="label" type="Label" parent="."]
-margin_left = 52.563
-margin_top = 37.4178
-margin_right = 118.563
-margin_bottom = 51.4178
-text = "Score : %s"
+[node name="health_label" type="Label" parent="."]
+margin_left = 27.8688
+margin_top = 22.8258
+margin_right = 154.869
+margin_bottom = 52.8258
+custom_fonts/font = SubResource( 2 )
+text = "Health : "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_label" type="Label" parent="."]
+margin_left = 31.2362
+margin_top = 64.3569
+margin_right = 148.236
+margin_bottom = 94.3569
+custom_fonts/font = SubResource( 1 )
+text = "Score : "
 __meta__ = {
 "_edit_use_anchors_": false
 }

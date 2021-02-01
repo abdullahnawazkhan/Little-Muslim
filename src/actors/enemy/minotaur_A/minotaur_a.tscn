@@ -1,0 +1,189 @@
+[gd_scene load_steps=74 format=2]
+
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_004.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_006.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_008.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_000.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_001.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_007.png" type="Texture" id=6]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_002.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_009.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_005.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_010.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_011.png" type="Texture" id=11]
+[ext_resource path="res://assets/enemies/minotaur/Idle/Minotaur_01_Idle_003.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_000.png" type="Texture" id=13]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_001.png" type="Texture" id=14]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_006.png" type="Texture" id=15]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_002.png" type="Texture" id=16]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_007.png" type="Texture" id=17]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_003.png" type="Texture" id=18]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_004.png" type="Texture" id=19]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_005.png" type="Texture" id=20]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_017.png" type="Texture" id=21]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_007.png" type="Texture" id=22]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_016.png" type="Texture" id=23]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_006.png" type="Texture" id=24]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_008.png" type="Texture" id=25]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_012.png" type="Texture" id=26]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_014.png" type="Texture" id=27]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_005.png" type="Texture" id=28]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_009.png" type="Texture" id=29]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_009.png" type="Texture" id=30]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_015.png" type="Texture" id=31]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_013.png" type="Texture" id=32]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_004.png" type="Texture" id=33]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_010.png" type="Texture" id=34]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_002.png" type="Texture" id=35]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_000.png" type="Texture" id=36]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_011.png" type="Texture" id=37]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_001.png" type="Texture" id=38]
+[ext_resource path="res://assets/enemies/minotaur/Walking/Minotaur_01_Walking_003.png" type="Texture" id=39]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_010.png" type="Texture" id=40]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_007.png" type="Texture" id=41]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_008.png" type="Texture" id=42]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_003.png" type="Texture" id=43]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_004.png" type="Texture" id=44]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_005.png" type="Texture" id=45]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_006.png" type="Texture" id=46]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_008.png" type="Texture" id=47]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_009.png" type="Texture" id=48]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_010.png" type="Texture" id=49]
+[ext_resource path="res://assets/enemies/minotaur/Attacking/Minotaur_01_Attacking_011.png" type="Texture" id=50]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_000.png" type="Texture" id=51]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_001.png" type="Texture" id=52]
+[ext_resource path="res://assets/enemies/minotaur/Hurt/Minotaur_01_Hurt_002.png" type="Texture" id=53]
+[ext_resource path="res://src/actors/enemy/minotaur_A/minotaur_a.gd" type="Script" id=54]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_006.png" type="Texture" id=55]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_007.png" type="Texture" id=56]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_008.png" type="Texture" id=57]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_009.png" type="Texture" id=58]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_011.png" type="Texture" id=59]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_002.png" type="Texture" id=60]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_010.png" type="Texture" id=61]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_000.png" type="Texture" id=62]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_001.png" type="Texture" id=63]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_004.png" type="Texture" id=64]
+[ext_resource path="res://assets/enemies/minotaur/Dying/Minotaur_01_Dying_005.png" type="Texture" id=65]
+[ext_resource path="res://src/actors/enemy/minotaur_A/minotaur_a_state_machine.gd" type="Script" id=66]
+[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=67]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 39 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 30 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 31 ), ExtResource( 23 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 60 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 61 ), ExtResource( 59 ) ],
+"loop": true,
+"name": "die",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 37 ), ExtResource( 37 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 78.8738, 166.73 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 361.177, 173.53 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 130.279, 117.407 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 67 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 67 )
+
+[node name="minotaur_a" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource( 54 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 1.7818 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 2
+speed_scale = 2.0
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.82843, 35.3553 )
+shape = SubResource( 2 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -67.1458, 11.4872 )
+scale = Vector2( 22.1906, 18.9952 )
+process_parent = true
+physics_process_parent = true
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+modulate = Color( 0.00784314, 1, 0.164706, 1 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2( -264.106, 32.7241 )
+shape = SubResource( 3 )
+
+[node name="Minotaur1AttackArea" type="Area2D" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minotaur1AttackArea"]
+position = Vector2( -211.564, 79.6987 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="PauseTimer" type="Timer" parent="."]
+
+[node name="state_machine" type="Node2D" parent="."]
+script = ExtResource( 66 )
+
+[node name="state_label" type="Label" parent="."]
+margin_left = -92.042
+margin_top = -225.204
+margin_right = 86.958
+margin_bottom = -181.204
+custom_fonts/font = SubResource( 5 )
+text = "State = %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_label" type="Label" parent="."]
+margin_left = -92.042
+margin_top = -286.635
+margin_right = 53.958
+margin_bottom = -242.635
+custom_fonts/font = SubResource( 6 )
+text = "Health = 100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_PlayerDetector_body_exited"]
+[connection signal="body_entered" from="Minotaur1AttackArea" to="." method="_on_Minotaur1AttackArea_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="timeout" from="PauseTimer" to="." method="_on_PauseTimer_timeout"]

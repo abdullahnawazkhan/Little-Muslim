@@ -2,7 +2,8 @@ extends Control
 
 onready var scene_tree : = get_tree()
 onready var paused_overly : ColorRect = get_node("pause_overlay")
-onready var score : Label = get_node("label")
+onready var score : Label = get_node("score_label")
+onready var health : Label = get_node("health_label")
 onready var pause_title : Label = get_node("pause_overlay/title")
 onready var curr = get_tree().get_current_scene().get_name()
 onready var player : actor =  get_tree().get_root().get_node(curr + "/player")
@@ -21,20 +22,22 @@ var is_paused := false setget set_paused
 
 func _ready() -> void:
 	PlayerData.connect("score_updated", self, "update_interface")
+	PlayerData.connect("player_health_changed", self, "update_interface")
 	PlayerData.connect("player_died", self, "_on_PlayerData_player_died")
 	update_interface()
 	
 
 func _on_PlayerData_player_died() -> void:
-	yield(get_tree().create_timer(1.5), "timeout")
-	player.queue_free()
-	print("Player Died")
-	self.paused = true
+#	yield(get_tree().create_timer(1.5), "timeout")
+#	player.queue_free()
+#	print("Player Died")
+	self.is_paused = true
 	pause_title.text = "You died"
 
 
 func update_interface() -> void:
-	score.text = "Score: %s" % PlayerData.score
+	score.text = "Score: " + str(PlayerData.score)
+	health.text = "Health: " + str(PlayerData.health) + "%"
 
 
 func set_paused(value : bool) -> void:
