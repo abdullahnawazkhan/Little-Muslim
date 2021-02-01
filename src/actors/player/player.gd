@@ -18,6 +18,8 @@ onready var state_label = get_node("Label")
 
 var move_direction := 0.0
 var character_direction := "right"
+var hurting := false
+var died := false
 
 
 func set_label(s: String) -> void:
@@ -96,47 +98,42 @@ func set_direction(arrow : String):
 
 func die() -> void:
 	PlayerData.deaths += 1
-	character.animation = "dying"
 	ui.stop()
 	
 
-func get_hurt(enemy : KinematicBody2D) -> void:
-	if (PlayerData.health <= 0):
-		pass
-	else:
-		PlayerData.health -= 25
+func get_hurt(power : float) -> void:
+	if (hurting == false):
+		PlayerData.health -= power
 		if (PlayerData.health <= 0):
-			die()
+			died = true
 		else:
-			ui.set_is_getting_hurt(true)
-			character.animation = "hurt"
-			character_direction = "idle"
-			move_direction = 0.0
-		
-		if (character_direction == "left"):
-			if (enemy.direction == "left"):
-				if is_on_wall() == false:
-					self.position.x += -30.0
-				set_direction("right")
-			else:
-				if is_on_wall() == false:
-					self.position.x += 30.0
-		elif (character_direction == "right"):
-			if (enemy.direction == "right"):
-				if is_on_wall() == false:
-					self.position.x += 30.0
-				set_direction("left")
-			else:
-				if is_on_wall() == false:
-					self.position.x += -30.0
+			hurting = true
+
+func push() -> void:
+	if (character_direction == "left"):
+		self.position.x += 60
+	else:
+		self.position.x -= 60
+
+
+func set_hurt(val : bool) -> void:
+	hurting = val
+	
+	
+func is_player_hurt() -> bool:
+	return hurting
+	
+
+func has_player_died() -> bool:
+	return died
 
 
 func _on_PlayerAttackArea_body_entered(body: Node) -> void:
 	var regex = RegEx.new()
-	regex.compile("Minotaur_\\d")
+	regex.compile("minotaur_a")
 	
 	if (regex.search(body.get_name())):
-		body.get_hurt()
+		body.get_hurt(25.0)
 
 
 func check_wall(wall_raycasts) -> bool:
