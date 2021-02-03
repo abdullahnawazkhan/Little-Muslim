@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Armature_hurt_03.png-1ba0b47eaa29c725b528624e87674729.stex"
+path="res://.import/armature_hurt_03.png-1198bb433d0db1ca1ef571ae9dbfc30f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/hurt/Armature_hurt_03.png"
-dest_files=[ "res://.import/Armature_hurt_03.png-1ba0b47eaa29c725b528624e87674729.stex" ]
+source_file="res://assets/player/hurt/armature_hurt_03.png"
+dest_files=[ "res://.import/armature_hurt_03.png-1198bb433d0db1ca1ef571ae9dbfc30f.stex" ]
 
 [params]
 

@@ -28,6 +28,7 @@ _global_script_class_icons={
 
 config/name="Little-Muslim"
 run/main_scene="res://src/screens/main_menu.tscn"
+run/low_processor_mode=true
 config/icon="res://icon.png"
 
 [autoload]

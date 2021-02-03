@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minotaur_01_Idle Blinking_007.png-89a2f45f8d45743764665f15bce6e0dc.stex"
+path="res://.import/minotaur_01_idle blinking_007.png-d8b8eb17ca62c052a94a11e27575dafa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/minotaur/idle_blink/Minotaur_01_Idle Blinking_007.png"
-dest_files=[ "res://.import/Minotaur_01_Idle Blinking_007.png-89a2f45f8d45743764665f15bce6e0dc.stex" ]
+source_file="res://assets/enemies/minotaur/idle_blink/minotaur_01_idle blinking_007.png"
+dest_files=[ "res://.import/minotaur_01_idle blinking_007.png-d8b8eb17ca62c052a94a11e27575dafa.stex" ]
 
 [params]
 

@@ -8,11 +8,13 @@ onready var pause_title : Label = get_node("pause_overlay/title")
 onready var curr = get_tree().get_current_scene().get_name()
 onready var player : actor =  get_tree().get_root().get_node(curr + "/player")
 onready var player_sm := get_tree().get_root().get_node(curr + "/player/state_machine")
+
 onready var left_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_left")
 onready var right_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_right")
 onready var attack_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_attack")
 onready var jump_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_jump")
-
+onready var enter_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_enter")
+onready var touch_buttons : ColorRect = get_node("touch_buttons")
 
 var is_jumping := false
 var is_attacking := false
@@ -41,9 +43,9 @@ func update_interface() -> void:
 
 
 func set_paused(value : bool) -> void:
-	is_paused = value
-	scene_tree.paused = value
+#	is_paused = value
 	paused_overly.visible = value
+	scene_tree.paused = value
 
 
 func set_is_jumping(value : bool) -> void:
@@ -55,24 +57,29 @@ func set_is_attacking(value : bool) -> void:
 func set_is_getting_hurt(value : bool) -> void:
 	is_getting_hurt = value
 
+func show_enter_button(value : bool) -> void:
+	enter_button.visible = value
 
-func stop() -> void:
-	left_button.visible = false
-	right_button.visible = false
-	jump_button.visible = false
-	attack_button.visible = false
 
-func pause() -> void:
-	left_button.enable = false
-	right_button.enable = false
-	jump_button.enable = false
-	attack_button.enable = false
+#func stop() -> void:
+#	left_button.hide()
+#	right_button.hide()
+#	jump_button.hide()
+#	attack_button.hide()
+#	left_button.visible = false
+#	right_button.visible = false
+#	jump_button.visible = false
+#	attack_button.visible = false
 	
-func start() -> void:
-	left_button.enable = true
-	right_button.enable = true
-	jump_button.enable = true
-	attack_button.enable = true
+#func start() -> void:
+#	left_button.show()
+#	right_button.show()
+#	jump_button.show()
+#	attack_button.show()
+#	left_button.visible = true
+#	right_button.visible = true
+#	jump_button.visible = true
+#	attack_button.visible = true
 
 
 func _on_TouchScreenButton_right_pressed() -> void:

@@ -1,7 +1,7 @@
 extends "res://src/actors/actor.gd"
 
 onready var character := get_node("AnimatedSprite")
-onready var player := get_tree().get_current_scene().get_node("player")
+#onready var player := get_tree().get_current_scene().get_node("player")
 onready var player_detector := get_node("PlayerDetector/CollisionShape2D")
 onready var attack_area := get_node("Minotaur1AttackArea/CollisionShape2D")
 onready var character_collision := get_node("CollisionShape2D")
@@ -9,6 +9,8 @@ onready var attack_timer := get_node("AttackTimer")
 onready var pause_timer := get_node("PauseTimer")
 onready var state_label := get_node("state_label")
 onready var health_label := get_node("health_label")
+
+onready var rays := get_node("rays")
 
 var score := 100
 var health := 100.0
@@ -83,7 +85,7 @@ func _ready() -> void:
 
 func _movement(delta: float, moving) -> void:
 	if (moving == true):
-		if is_on_wall():
+		if check_fall() == true || is_on_wall():
 			flip()
 				
 		_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
@@ -93,6 +95,14 @@ func push() -> void:
 		self.position.x += 30
 	else:
 		self.position.x -= 30
+
+
+func check_fall() -> bool:
+	for raycast in rays.get_children():
+		if (raycast.is_colliding() == false):
+			return true
+	return false
+
 
 
 func _on_PlayerDetector_body_entered(body: Node) -> void:
@@ -141,3 +151,7 @@ func _on_PauseTimer_timeout() -> void:
 
 func has_player_entered() -> bool:
 	return player_entered
+
+
+func _on_Area2D_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minotaur_01_Jump Loop_001.png-a6198f09210f93f2929accc7b68933bb.stex"
+path="res://.import/minotaur_01_jump loop_001.png-a26eb15ed94558f3c5232d63494a70f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/minotaur/jump_loop/Minotaur_01_Jump Loop_001.png"
-dest_files=[ "res://.import/Minotaur_01_Jump Loop_001.png-a6198f09210f93f2929accc7b68933bb.stex" ]
+source_file="res://assets/enemies/minotaur/jump_loop/minotaur_01_jump loop_001.png"
+dest_files=[ "res://.import/minotaur_01_jump loop_001.png-a26eb15ed94558f3c5232d63494a70f8.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minotaur_01_Walking_007.png-b167caaaaa60eac554fd2e779c7c6640.stex"
+path="res://.import/minotaur_01_walking_007.png-f8136a05d6cf1df90711a93d2eb3854c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/minotaur/walking/Minotaur_01_Walking_007.png"
-dest_files=[ "res://.import/Minotaur_01_Walking_007.png-b167caaaaa60eac554fd2e779c7c6640.stex" ]
+source_file="res://assets/enemies/minotaur/walking/minotaur_01_walking_007.png"
+dest_files=[ "res://.import/minotaur_01_walking_007.png-f8136a05d6cf1df90711a93d2eb3854c.stex" ]
 
 [params]
 

@@ -1,6 +1,6 @@
 extends "res://src/actors/state_machine.gd"
 
-onready var animator := get_tree().get_current_scene().get_node("minotaur_a/AnimatedSprite")
+onready var animator = parent.get_node("AnimatedSprite")
 
 func _ready():
 	add_state("idle")
@@ -19,12 +19,12 @@ func _state_logic(delta):
 func _get_transition(delta):
 	match state:
 		states.idle:
-			# checking if player has died
-			if (parent.has_died() == true):
-				return states.dying
 			# checking if player is attacking
 			if (parent.is_getting_hurt() == true):
 				return states.hurt
+			# checking if player has died
+			if (parent.has_died() == true):
+				return states.dying
 			# checking is attack timeout has finished
 			if (parent.is_stopped_pause_timer() == true):
 				return states.attack
@@ -33,12 +33,12 @@ func _get_transition(delta):
 				return states.walk
 
 		states.walk:
-			# checking if player has died
-			if (parent.has_died() == true):
-				return states.dying
 			# checking if player is attacking
 			if (parent.is_getting_hurt() == true):
 				return states.hurt
+			# checking if player has died
+			if (parent.has_died() == true):
+				return states.dying
 			# checking if player entered visibility region
 			if (parent.has_player_entered() == true):
 				return states.attack
@@ -47,6 +47,9 @@ func _get_transition(delta):
 			# checking if player has died
 			if (parent.has_died() == true):
 				return states.dying
+			# checking if player is attacking
+			if (parent.is_getting_hurt() == true):
+				return states.hurt
 			# checking for a certain animation frame to activate attack box
 			if (animator.frame == 7):
 				parent.set_attack_area(true)

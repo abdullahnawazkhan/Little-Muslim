@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minotaur_01_Idle_008.png-63eae74836149e7b9a53199d9f63c788.stex"
+path="res://.import/minotaur_01_idle_008.png-4dba347616d11b51d71cfefdd6819866.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/minotaur/idle/Minotaur_01_Idle_008.png"
-dest_files=[ "res://.import/Minotaur_01_Idle_008.png-63eae74836149e7b9a53199d9f63c788.stex" ]
+source_file="res://assets/enemies/minotaur/idle/minotaur_01_idle_008.png"
+dest_files=[ "res://.import/minotaur_01_idle_008.png-4dba347616d11b51d71cfefdd6819866.stex" ]
 
 [params]
 

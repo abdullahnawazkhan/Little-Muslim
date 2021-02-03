@@ -1,22 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 30
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 30
 font_data = ExtResource( 3 )
 
@@ -29,16 +22,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.0666667, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -209.5
-margin_top = -274.101
-margin_right = 209.5
-margin_bottom = -201.101
+margin_left = -211.619
+margin_top = -203.008
+margin_right = 207.381
+margin_bottom = -130.008
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "little muslim"
 uppercase = true
 __meta__ = {
@@ -51,10 +53,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -113.5
-margin_top = -191.525
+margin_top = -134.443
 margin_right = 113.5
-margin_bottom = -147.525
+margin_bottom = -90.4431
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Islam for Kids"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -65,28 +68,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -116.5
-margin_top = -59.4232
-margin_right = 116.5
-margin_bottom = 195.577
+margin_left = -159.0
+margin_top = -6.90436
+margin_right = 159.0
+margin_bottom = 140.096
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="play" parent="VBoxContainer" instance=ExtResource( 1 )]
-margin_right = 233.0
-margin_bottom = 125.0
+margin_right = 318.0
+margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+theme = ExtResource( 4 )
 text = "Play Now"
-scene_path = "res://src/levels/level_test.tscn"
+scene_path = "res://src/levels/forest/forest_a.tscn"
 
 [node name="quit_button" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 129.0
-margin_right = 233.0
-margin_bottom = 255.0
+margin_top = 75.0
+margin_right = 318.0
+margin_bottom = 147.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+theme = ExtResource( 4 )
 text = "Quit"

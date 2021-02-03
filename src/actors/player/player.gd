@@ -52,7 +52,7 @@ func calculate_move_velocity(linear_velocity: Vector2, speed: Vector2, direction
 
 	if is_jump_interrupted == true:
 		out.y = 0.0
-		
+	
 	return out
 
 
@@ -97,8 +97,8 @@ func set_direction(arrow : String):
 
 
 func die() -> void:
+	queue_free()
 	PlayerData.deaths += 1
-	ui.stop()
 	
 
 func get_hurt(power : float) -> void:
@@ -108,6 +108,7 @@ func get_hurt(power : float) -> void:
 			died = true
 		else:
 			hurting = true
+			push()
 
 func push() -> void:
 	if (character_direction == "left"):

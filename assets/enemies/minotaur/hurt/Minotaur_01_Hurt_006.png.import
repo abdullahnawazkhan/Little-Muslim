@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minotaur_01_Hurt_006.png-8122dddf58e3b71337bf7b675706dc6a.stex"
+path="res://.import/minotaur_01_hurt_006.png-9647dba01a2ff16cdd8338d5e696b1ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/minotaur/hurt/Minotaur_01_Hurt_006.png"
-dest_files=[ "res://.import/Minotaur_01_Hurt_006.png-8122dddf58e3b71337bf7b675706dc6a.stex" ]
+source_file="res://assets/enemies/minotaur/hurt/minotaur_01_hurt_006.png"
+dest_files=[ "res://.import/minotaur_01_hurt_006.png-9647dba01a2ff16cdd8338d5e696b1ed.stex" ]
 
 [params]
 

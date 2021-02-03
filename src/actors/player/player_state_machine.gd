@@ -1,3 +1,5 @@
+# TODO : Implement Falling state
+
 extends "res://src/actors/state_machine.gd"
 
 
@@ -14,7 +16,7 @@ func _ready():
 	add_state("idle")
 	add_state("walk")
 	add_state("jump")
-	add_state("fall")
+	add_state("falling")
 	add_state("attack")
 	add_state("block")
 	add_state("dying")
@@ -89,6 +91,8 @@ func _get_transition(delta):
 					return states.idle
 					
 		states.hurt:
+			# TODO : player is hurt and is pushed of floor and falls
+			
 			# checking if hurt animation has finished
 			if (animator.frame == 17):
 				return previous_state
@@ -97,7 +101,7 @@ func _get_transition(delta):
 			# checking if dying animation has finished
 			if (animator.frame == 17):
 				parent.die()
-				animator.stop()
+#				animator.stop()
 
 	return null
 
@@ -130,13 +134,20 @@ func _enter_state(new_state, old_state):
 			parent.set_direction("null")
 			animator.animation = "hurt"
 			animator.speed_scale = 3.0
-			animator.offset = Vector2(80, 0)
+			if (parent.character_direction == "right"):
+				animator.offset = Vector2(80, 0)
+			elif (parent.character_direction == "left"):
+				animator.offset = Vector2(-80, 0)
+			
 			parent.set_label("getting hurt")
 			
 		states.dying:
 			parent.set_direction("null")
 			animator.animation = "dying"
-			animator.offset = Vector2(-200, 0)
+			if (parent.character_direction == "right"):
+				animator.offset = Vector2(-233, 0)
+			elif (parent.character_direction == "left"):
+				animator.offset = Vector2(233, 0)
 			parent.set_label("dying")
 
 

@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
-[ext_resource path="res://assets/ui/arrow.png" type="Texture" id=2]
-[ext_resource path="res://assets/ui/arrow-clicked.png" type="Texture" id=3]
-[ext_resource path="res://assets/ui/jump_button.png" type="Texture" id=4]
-[ext_resource path="res://assets/ui/jump_button_pressed.png" type="Texture" id=5]
-[ext_resource path="res://assets/ui/attack_button.png" type="Texture" id=6]
-[ext_resource path="res://assets/ui/attack_button_pressed.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/self_made/right-arrow_pressed.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/self_made/right-arrow.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/self_made/jump_button.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/self_made/jump_button_pressed.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/self_made/attack_button(1)_pressed.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/self_made/attack_button(1).png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/pause_button.png" type="Texture" id=8]
 [ext_resource path="res://src/ui/resume_button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=10]
@@ -14,17 +14,37 @@
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/ui/label.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=14]
-
-[sub_resource type="DynamicFont" id=2]
-size = 20
-font_data = ExtResource( 14 )
+[ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=15]
+[ext_resource path="res://assets/ui/self_made/left_arrow.png" type="Texture" id=16]
+[ext_resource path="res://assets/ui/self_made/left_arrow_pressed.png" type="Texture" id=17]
+[ext_resource path="res://assets/ui/self_made/enter_button.png" type="Texture" id=18]
+[ext_resource path="res://assets/ui/self_made/enter_button_pressed.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 14 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
+font_data = ExtResource( 14 )
+
 [node name="user_interface" type="Control"]
-pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -37,7 +57,7 @@ margin_left = 27.8688
 margin_top = 22.8258
 margin_right = 154.869
 margin_bottom = 52.8258
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Health : "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,7 +68,7 @@ margin_left = 31.2362
 margin_top = 64.3569
 margin_right = 148.236
 margin_bottom = 94.3569
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Score : "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,36 +83,46 @@ __meta__ = {
 }
 
 [node name="TouchScreenButton_left" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 180.807, 587.395 )
-rotation = 3.14159
+position = Vector2( 48, 424 )
 scale = Vector2( 0.252, 0.252 )
-normal = ExtResource( 2 )
-pressed = ExtResource( 3 )
+normal = ExtResource( 16 )
+pressed = ExtResource( 17 )
 
 [node name="TouchScreenButton_right" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 208.986, 456.935 )
+position = Vector2( 232, 424 )
 scale = Vector2( 0.252, 0.252 )
-normal = ExtResource( 2 )
-pressed = ExtResource( 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
 
 [node name="TouchScreenButton_jump" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 856.318, 448.435 )
+position = Vector2( 816, 426.06 )
+scale = Vector2( 1.212, 1.189 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 5 )
 
 [node name="TouchScreenButton_attack" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 687.874, 448.713 )
-normal = ExtResource( 6 )
-pressed = ExtResource( 7 )
+position = Vector2( 664, 424 )
+scale = Vector2( 1.21237, 1.18877 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 6 )
 
 [node name="TouchScreenButton_pause" type="TouchScreenButton" parent="touch_buttons"]
 position = Vector2( 883.466, 15.102 )
 normal = ExtResource( 8 )
 
+[node name="TouchScreenButton_enter" type="TouchScreenButton" parent="touch_buttons"]
+visible = false
+position = Vector2( 736, 272 )
+scale = Vector2( 1.212, 1.189 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 19 )
+
 [node name="pause_overlay" type="ColorRect" parent="."]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 15 )
 color = Color( 0, 0, 0, 0.678431 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -103,11 +133,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -44.0
-margin_top = -193.679
-margin_right = 44.0
-margin_bottom = -179.679
+margin_left = -120.265
+margin_top = -213.451
+margin_right = 133.735
+margin_bottom = -161.451
 text = "Game Paused"
+uppercase = true
 
 [node name="pause_menu" type="VBoxContainer" parent="pause_overlay"]
 anchor_left = 0.5
@@ -115,9 +146,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -158.0
-margin_top = -151.0
+margin_top = -122.938
 margin_right = 158.0
-margin_bottom = 151.0
+margin_bottom = 179.062
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -127,6 +158,7 @@ margin_right = 316.0
 margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
 text = "Resume"
 
 [node name="retry_button" parent="pause_overlay/pause_menu" instance=ExtResource( 11 )]
@@ -135,6 +167,7 @@ margin_right = 316.0
 margin_bottom = 149.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
 text = "Retry"
 
 [node name="change_scene_button" parent="pause_overlay/pause_menu" instance=ExtResource( 10 )]
@@ -143,8 +176,8 @@ margin_right = 316.0
 margin_bottom = 225.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
 text = "Main Menu"
-scene_path = ""
 
 [node name="quit_button" parent="pause_overlay/pause_menu" instance=ExtResource( 12 )]
 margin_top = 229.0
@@ -152,6 +185,7 @@ margin_right = 316.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
 text = "Quit"
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_pressed"]
 [connection signal="released" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_released"]
