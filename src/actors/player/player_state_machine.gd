@@ -91,7 +91,7 @@ func _get_transition(delta):
 					return states.idle
 					
 		states.hurt:
-			# TODO : player is hurt and is pushed of floor and falls
+			# TODO : player is hurt and is pushed of floor and falls [for falling state]
 			
 			# checking if hurt animation has finished
 			if (animator.frame == 17):

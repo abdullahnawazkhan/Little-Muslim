@@ -1,3 +1,5 @@
+# TODO: Create a seperate dead screen
+
 extends Control
 
 onready var scene_tree : = get_tree()

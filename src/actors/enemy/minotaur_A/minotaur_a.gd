@@ -1,3 +1,7 @@
+# TODO: Fix hurt -> attack transition
+# TODO: Make Player Detector area greater
+
+
 extends "res://src/actors/actor.gd"
 
 onready var character := get_node("AnimatedSprite")

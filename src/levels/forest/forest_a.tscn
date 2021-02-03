@@ -389,7 +389,7 @@ position = Vector2( 1423.81, 1954.18 )
 scale = Vector2( 0.35, 0.35 )
 
 [node name="AnimatedSprite" parent="player" index="0"]
-frame = 7
+frame = 5
 
 [node name="Camera2D" parent="player" index="3"]
 position = Vector2( -58.9739, 187.774 )

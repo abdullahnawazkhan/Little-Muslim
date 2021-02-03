@@ -1,3 +1,4 @@
+# TODO: Make the getting hurt animation better
 extends "res://src/actors/actor.gd"
 
 onready var curr = get_tree().get_current_scene().get_name()
