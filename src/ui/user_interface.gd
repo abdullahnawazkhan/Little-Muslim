@@ -32,11 +32,8 @@ func _ready() -> void:
 	
 
 func _on_PlayerData_player_died() -> void:
-#	yield(get_tree().create_timer(1.5), "timeout")
-#	player.queue_free()
-#	print("Player Died")
-	self.is_paused = true
-	pause_title.text = "You died"
+	get_tree().change_scene("res://src/screens/dead_screen.tscn")
+	
 
 
 func update_interface() -> void:
@@ -61,27 +58,6 @@ func set_is_getting_hurt(value : bool) -> void:
 
 func show_enter_button(value : bool) -> void:
 	enter_button.visible = value
-
-
-#func stop() -> void:
-#	left_button.hide()
-#	right_button.hide()
-#	jump_button.hide()
-#	attack_button.hide()
-#	left_button.visible = false
-#	right_button.visible = false
-#	jump_button.visible = false
-#	attack_button.visible = false
-	
-#func start() -> void:
-#	left_button.show()
-#	right_button.show()
-#	jump_button.show()
-#	attack_button.show()
-#	left_button.visible = true
-#	right_button.visible = true
-#	jump_button.visible = true
-#	attack_button.visible = true
 
 
 func _on_TouchScreenButton_right_pressed() -> void:

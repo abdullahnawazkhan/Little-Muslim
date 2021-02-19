@@ -78,14 +78,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 64 ), ExtResource( 68 ), ExtResource( 67 ), ExtResource( 65 ), ExtResource( 69 ), ExtResource( 8 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 42 ), ExtResource( 62 ) ],
+"frames": [ ExtResource( 38 ), ExtResource( 29 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 25 ), ExtResource( 40 ), ExtResource( 20 ), ExtResource( 35 ), ExtResource( 26 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 55 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 49 ), ExtResource( 21 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 30 ), ExtResource( 6 ), ExtResource( 41 ), ExtResource( 5 ), ExtResource( 28 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 51 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ) ],
-"loop": true,
-"name": "dying",
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 36 ), ExtResource( 58 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 15 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 56 ), ExtResource( 18 ) ],
@@ -93,14 +88,19 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 22 ), ExtResource( 30 ), ExtResource( 6 ), ExtResource( 41 ), ExtResource( 5 ), ExtResource( 28 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 51 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 48 ) ],
+"loop": true,
+"name": "dying",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 64 ), ExtResource( 68 ), ExtResource( 67 ), ExtResource( 65 ), ExtResource( 69 ), ExtResource( 8 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 42 ), ExtResource( 62 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 52 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 10 ), ExtResource( 43 ), ExtResource( 16 ), ExtResource( 54 ), ExtResource( 23 ), ExtResource( 44 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 38 ), ExtResource( 29 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 25 ), ExtResource( 40 ), ExtResource( 20 ), ExtResource( 35 ), ExtResource( 26 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 55 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 49 ), ExtResource( 21 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "hurt",
 "speed": 5.0
 } ]
 
@@ -108,7 +108,7 @@ animations = [ {
 extents = Vector2( 164.672, 232.638 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 142.178, 165.186 )
+extents = Vector2( 203.784, 185.574 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 30
@@ -118,25 +118,31 @@ font_data = ExtResource( 71 )
 collision_mask = 8
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_vertical_guides_": [ 135.627, 370.861 ]
+"_edit_horizontal_guides_": [ 300.0, 258.497 ],
+"_edit_vertical_guides_": [ -215.0, -291.473 ]
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -3 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "attack"
+frame = 8
 speed_scale = 2.0
 playing = true
 
 [node name="right_body_collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -49.497, 65.0394 )
 shape = SubResource( 2 )
 
 [node name="left_body_collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 49.2519, 64.0395 )
 shape = SubResource( 2 )
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 current = true
 limit_left = 0
 limit_top = 0
@@ -152,7 +158,7 @@ modulate = Color( 0.996078, 0.996078, 0.996078, 1 )
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttackArea"]
-position = Vector2( 142.553, 141.43 )
+position = Vector2( 207.607, 128.702 )
 shape = SubResource( 3 )
 disabled = true
 

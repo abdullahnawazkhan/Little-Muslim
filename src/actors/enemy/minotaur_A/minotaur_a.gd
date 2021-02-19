@@ -142,7 +142,7 @@ func set_attack_area(val : bool) -> void:
 
 func _on_Minotaur1AttackArea_body_entered(body: Node) -> void:
 	if (body.get_name() == "player"):
-		body.get_hurt(50)
+		body.get_hurt(0)
 
 
 func _on_AttackTimer_timeout() -> void:

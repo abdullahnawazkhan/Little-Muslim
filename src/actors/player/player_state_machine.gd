@@ -129,15 +129,19 @@ func _enter_state(new_state, old_state):
 			parent.set_direction("null")
 			animator.animation = "attack"
 			parent.set_label("attack")
+			if (parent.character_direction == "right"):
+				animator.offset = Vector2(76, 42)
+			elif (parent.character_direction == "left"):
+				animator.offset = Vector2(-76, -42)
 			
 		states.hurt:
 			parent.set_direction("null")
 			animator.animation = "hurt"
-			animator.speed_scale = 3.0
-			if (parent.character_direction == "right"):
-				animator.offset = Vector2(80, 0)
-			elif (parent.character_direction == "left"):
-				animator.offset = Vector2(-80, 0)
+			animator.speed_scale = 4.0
+#			if (parent.character_direction == "right"):
+#				animator.offset = Vector2(80, 0)
+#			elif (parent.character_direction == "left"):
+#				animator.offset = Vector2(-80, 0)
 			
 			parent.set_label("getting hurt")
 			
@@ -160,6 +164,7 @@ func _exit_state(old_state, new_state):
 			attack_pressed = false
 			parent.enable_attack_area(false)
 			animator.speed_scale = 2.0
+			animator.offset = Vector2(0, 0)
 			
 		states.hurt:
 			parent.set_hurt(false)

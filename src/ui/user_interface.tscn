@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/self_made/right-arrow_pressed.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://assets/ui/pause_button.png" type="Texture" id=8]
 [ext_resource path="res://src/ui/resume_button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/ui/retry_button.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/ui/label.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=14]
@@ -37,10 +36,6 @@ size = 25
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 25
-font_data = ExtResource( 14 )
-
-[sub_resource type="DynamicFont" id=6]
 size = 25
 font_data = ExtResource( 14 )
 
@@ -155,37 +150,29 @@ __meta__ = {
 
 [node name="resume_button" parent="pause_overlay/pause_menu" instance=ExtResource( 9 )]
 margin_right = 316.0
-margin_bottom = 72.0
+margin_bottom = 98.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 text = "Resume"
 
-[node name="retry_button" parent="pause_overlay/pause_menu" instance=ExtResource( 11 )]
-margin_top = 76.0
+[node name="change_scene_button" parent="pause_overlay/pause_menu" instance=ExtResource( 10 )]
+margin_top = 102.0
 margin_right = 316.0
-margin_bottom = 149.0
+margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
-text = "Retry"
-
-[node name="change_scene_button" parent="pause_overlay/pause_menu" instance=ExtResource( 10 )]
-margin_top = 153.0
-margin_right = 316.0
-margin_bottom = 225.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
 text = "Main Menu"
+scene_path = "res://src/screens/main_menu.tscn"
 
 [node name="quit_button" parent="pause_overlay/pause_menu" instance=ExtResource( 12 )]
-margin_top = 229.0
+margin_top = 204.0
 margin_right = 316.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "Quit"
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_pressed"]
 [connection signal="released" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_released"]
