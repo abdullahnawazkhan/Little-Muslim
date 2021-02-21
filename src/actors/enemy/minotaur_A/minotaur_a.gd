@@ -1,11 +1,6 @@
-# TODO: Fix hurt -> attack transition
-# TODO: Make Player Detector area greater
-
-
 extends "res://src/actors/actor.gd"
 
 onready var character := get_node("AnimatedSprite")
-#onready var player := get_tree().get_current_scene().get_node("player")
 onready var player_detector := get_node("PlayerDetector/CollisionShape2D")
 onready var attack_area := get_node("Minotaur1AttackArea/CollisionShape2D")
 onready var character_collision := get_node("CollisionShape2D")
@@ -18,6 +13,7 @@ onready var rays := get_node("rays")
 
 var score := 100
 var health := 100.0
+var attack_power := 10
 var direction := "left"
 
 var player_entered := false
@@ -58,8 +54,10 @@ func is_stopped_attack_timer() -> bool:
 
 
 func die() -> void:
+	yield(get_tree().create_timer(2.0), "timeout")
 	PlayerData.score += score
 	self.queue_free()
+
 
 func get_hurt(power : float) -> void:
 	health -= power
@@ -142,7 +140,7 @@ func set_attack_area(val : bool) -> void:
 
 func _on_Minotaur1AttackArea_body_entered(body: Node) -> void:
 	if (body.get_name() == "player"):
-		body.get_hurt(0)
+		body.get_hurt(attack_power)
 
 
 func _on_AttackTimer_timeout() -> void:

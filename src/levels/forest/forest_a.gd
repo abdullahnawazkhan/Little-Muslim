@@ -22,7 +22,6 @@ func _on_dead_area_body_entered(body: Node) -> void:
 
 
 func _on_building_body_entered(body: Node) -> void:
-	#	ui.set_enter_location(scene_path)
 	if (body.get_name() == "player"):
 		ui.show_enter_button(true)
 

@@ -19,7 +19,6 @@ func _ready() -> void:
 
 func _load(path) -> void:
 	loaded_scene = load(path)
-	print("I am in the child thread")
 
 func _physics_process(delta: float) -> void:
 	if (loaded_scene != null):

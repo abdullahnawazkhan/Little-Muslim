@@ -16,7 +16,7 @@ func _state_logic(delta):
 	parent._movement(delta, true if state == 1 else false)
 
 
-func _get_transition(delta):
+func _get_transition():
 	match state:
 		states.idle:
 			# checking if player is attacking
@@ -72,6 +72,7 @@ func _get_transition(delta):
 		states.dying:
 			# checking if dying animation has finished
 			if (animator.frame == 10):
+				animator.stop()
 				parent.die()
 			
 	return null
@@ -105,7 +106,6 @@ func _enter_state(new_state, old_state):
 			animator.animation = "hurt"
 			parent.set_label("getting_hurt")
 			parent.push()
-	pass
 
 
 func _exit_state(old_state, new_state):

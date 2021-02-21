@@ -27,12 +27,18 @@ func set_label(s: String) -> void:
 	state_label.text = "State = " + s
 
 
-func _movement(delta : float, jump_released : bool, jump_pressed : bool) -> void:
-	var is_jump_interrupted := jump_released == true and _velocity.y < 0.0
+func _movement(delta : float, jump_pressed : bool) -> void:
+	var is_jump_interrupted
+	# this will check if player is mid air and jump button is released
+	# this will stop the player jump and make them fall
+	if (jump_pressed == false and _velocity.y < 0.0):
+		is_jump_interrupted = true
+	else:
+		is_jump_interrupted = false
 
 	var direction := get_direction(jump_pressed)
 
-	_velocity = calculate_move_velocity(_velocity, speed, direction, is_jump_interrupted)
+	_velocity = calculate_move_velocity(_velocity, speed, direction, is_jump_interrupted, delta)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 
 
@@ -43,12 +49,13 @@ func get_direction(jump_pressed) -> Vector2:
 	)
 
 
-func calculate_move_velocity(linear_velocity: Vector2, speed: Vector2, direction: Vector2, is_jump_interrupted: bool) -> Vector2:
+func calculate_move_velocity(linear_velocity: Vector2, speed: Vector2, direction: Vector2, is_jump_interrupted: bool, delta: float) -> Vector2:
 	var out := linear_velocity
 	out.x = speed.x * direction.x
-	out.y += gravity * get_physics_process_delta_time()
+	out.y += gravity * delta
 
 	if direction.y == -1.0:
+		# the character is jumping
 		out.y = speed.y * direction.y
 
 	if is_jump_interrupted == true:
@@ -109,6 +116,7 @@ func get_hurt(power : float) -> void:
 			died = true
 		else:
 			hurting = true
+			move_direction = 0.0
 			push()
 
 func push() -> void:

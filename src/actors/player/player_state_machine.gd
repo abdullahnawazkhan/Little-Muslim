@@ -26,10 +26,13 @@ func _ready():
 
 
 func _state_logic(delta):
-	parent._movement(delta, false if jump_pressed == true else true, jump_pressed)
+	# player.gd will handle the actual movement
+	# logically want the player needs is the move direction and whether jump is pressed or not
+	# move direction is set when player presses the arrow buttons so we only send if jump is pressed via param
+	parent._movement(delta, jump_pressed)
 
 
-func _get_transition(delta):
+func _get_transition():
 	match state:
 		states.idle:
 			# checking if player has died
@@ -101,7 +104,6 @@ func _get_transition(delta):
 			# checking if dying animation has finished
 			if (animator.frame == 17):
 				parent.die()
-#				animator.stop()
 
 	return null
 
@@ -132,26 +134,21 @@ func _enter_state(new_state, old_state):
 			if (parent.character_direction == "right"):
 				animator.offset = Vector2(76, 42)
 			elif (parent.character_direction == "left"):
-				animator.offset = Vector2(-76, -42)
+				animator.offset = Vector2(-76, 42)
 			
 		states.hurt:
 			parent.set_direction("null")
 			animator.animation = "hurt"
 			animator.speed_scale = 4.0
-#			if (parent.character_direction == "right"):
-#				animator.offset = Vector2(80, 0)
-#			elif (parent.character_direction == "left"):
-#				animator.offset = Vector2(-80, 0)
-			
 			parent.set_label("getting hurt")
 			
 		states.dying:
 			parent.set_direction("null")
 			animator.animation = "dying"
 			if (parent.character_direction == "right"):
-				animator.offset = Vector2(-233, 0)
+				animator.offset = Vector2(-233, 25)
 			elif (parent.character_direction == "left"):
-				animator.offset = Vector2(233, 0)
+				animator.offset = Vector2(233, 25)
 			parent.set_label("dying")
 
 
@@ -173,18 +170,19 @@ func _exit_state(old_state, new_state):
 
 
 func set_direction(arrow : String):
-	if (arrow == "right"):
-		right_pressed = true
-	elif (arrow == "left"):
-		left_pressed = true
-	elif (arrow == "null"):
-		parent.set_direction("null")
-		left_pressed = false
-		right_pressed = false
+	if (state != states.hurt):
+		if (arrow == "right"):
+			right_pressed = true
+		elif (arrow == "left"):
+			left_pressed = true
+		elif (arrow == "null"):
+			parent.set_direction("null")
+			left_pressed = false
+			right_pressed = false
 
 
 func set_jump():
-	if (attack_pressed == false && jump_pressed == false):
+	if (attack_pressed == false && jump_pressed == false && state != states.hurt):
 		jump_pressed = true
 
 
@@ -193,5 +191,5 @@ func set_jump_release():
 
 
 func set_attack(val : bool):
-	if (attack_pressed == false && jump_pressed == false):
+	if (attack_pressed == false && jump_pressed == false && state != states.hurt):
 		attack_pressed = val
