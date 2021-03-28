@@ -6,7 +6,7 @@
 [ext_resource path="res://src/ui/retry_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/button_theme.tres" type="Theme" id=5]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 2 )
 
@@ -34,7 +34,7 @@ margin_left = -208.5
 margin_top = -221.706
 margin_right = 208.5
 margin_bottom = -148.706
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "YOU HAVE DIED"
 __meta__ = {

@@ -22,7 +22,8 @@ func _load(path) -> void:
 
 func _physics_process(delta: float) -> void:
 	if (loaded_scene != null):
-		get_tree().change_scene_to(load(scene_path))
+		get_tree().change_scene_to(loaded_scene)
+#		get_tree().change_scene_to(loaded_scene)
 	else:
 		if ($Timer.is_stopped() == true):
 			if ($Label.text == "Loading..."):

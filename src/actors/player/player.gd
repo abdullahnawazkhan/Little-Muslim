@@ -40,6 +40,7 @@ func _movement(delta : float, jump_pressed : bool) -> void:
 
 	_velocity = calculate_move_velocity(_velocity, speed, direction, is_jump_interrupted, delta)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
+#	move_and_slide(_velocity, FLOOR_NORMAL)
 
 
 func get_direction(jump_pressed) -> Vector2:
@@ -140,7 +141,7 @@ func has_player_died() -> bool:
 
 func _on_PlayerAttackArea_body_entered(body: Node) -> void:
 	var regex = RegEx.new()
-	regex.compile("minotaur_a")
+	regex.compile("minotaur_|wraith_")
 	
 	if (regex.search(body.get_name())):
 		body.get_hurt(25.0)
