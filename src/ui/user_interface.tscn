@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/self_made/right-arrow_pressed.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/ui/pause_button.png" type="Texture" id=8]
 [ext_resource path="res://src/ui/resume_button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/ui/self_made/interact_button.png" type="Texture" id=11]
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/ui/label.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=14]
@@ -18,6 +19,10 @@
 [ext_resource path="res://assets/ui/self_made/left_arrow_pressed.png" type="Texture" id=17]
 [ext_resource path="res://assets/ui/self_made/enter_button.png" type="Texture" id=18]
 [ext_resource path="res://assets/ui/self_made/enter_button_pressed.png" type="Texture" id=19]
+[ext_resource path="res://assets/ui/self_made/interact_button_pressed.png" type="Texture" id=20]
+[ext_resource path="res://assets/fonts/NewTegomin-Regular.ttf" type="DynamicFontData" id=21]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://assets/ui/next.png" type="Texture" id=24]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -28,18 +33,54 @@ size = 20
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 23 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.305882, 0.862745, 0.886275, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 37
+font_data = ExtResource( 23 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource( 5 )
+Button/styles/pressed = null
+
+[sub_resource type="DynamicFont" id=8]
+size = 35
+font_data = ExtResource( 21 )
+
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
+
+[sub_resource type="DynamicFont" id=10]
 size = 25
 font_data = ExtResource( 14 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=11]
 size = 25
 font_data = ExtResource( 14 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=12]
 size = 25
 font_data = ExtResource( 14 )
 
 [node name="user_interface" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -112,6 +153,95 @@ scale = Vector2( 1.212, 1.189 )
 normal = ExtResource( 18 )
 pressed = ExtResource( 19 )
 
+[node name="TouchScreenButton_interact" type="TouchScreenButton" parent="touch_buttons"]
+visible = false
+position = Vector2( 736, 272 )
+scale = Vector2( 1.212, 1.189 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 20 )
+
+[node name="dialog_overlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.219608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="choices" type="ColorRect" parent="dialog_overlay"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -244.0
+margin_right = 320.0
+margin_bottom = 84.0
+color = Color( 0.376471, 0.87451, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="dialog_overlay/choices"]
+margin_left = 197.0
+margin_top = 8.0
+margin_right = 443.0
+margin_bottom = 52.0
+theme = SubResource( 4 )
+text = "Your Choices"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="dialog_overlay/choices"]
+margin_left = 124.0
+margin_top = 96.0
+margin_right = 516.0
+margin_bottom = 296.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="dialog_overlay/choices/HBoxContainer"]
+margin_right = 392.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 7 )
+
+[node name="dialog_box" type="ColorRect" parent="dialog_overlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 440.0
+color = Color( 0.396078, 0.898039, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="dialog_overlay/dialog_box"]
+anchor_right = 0.992
+anchor_bottom = 0.95
+margin_left = 104.0
+margin_top = 16.0
+margin_right = -191.808
+theme = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="dialog_overlay/dialog_box"]
+position = Vector2( 920, 16 )
+scale = Vector2( 2, 2.03125 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="dialog_overlay/dialog_box"]
+position = Vector2( 80, 56 )
+rotation = 1.5708
+scale = Vector2( 0.125001, 0.126954 )
+normal = ExtResource( 24 )
+
 [node name="pause_overlay" type="ColorRect" parent="."]
 pause_mode = 2
 visible = false
@@ -153,7 +283,7 @@ margin_right = 316.0
 margin_bottom = 98.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 10 )
 text = "Resume"
 
 [node name="change_scene_button" parent="pause_overlay/pause_menu" instance=ExtResource( 10 )]
@@ -162,7 +292,7 @@ margin_right = 316.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 11 )
 text = "Main Menu"
 scene_path = "res://src/screens/main_menu.tscn"
 
@@ -172,7 +302,7 @@ margin_right = 316.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 12 )
 text = "Quit"
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_pressed"]
 [connection signal="released" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_released"]
@@ -182,3 +312,4 @@ text = "Quit"
 [connection signal="released" from="touch_buttons/TouchScreenButton_jump" to="." method="_on_TouchScreenButton_jump_released"]
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_attack" to="." method="_on_TouchScreenButton_attack_pressed"]
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_pause" to="." method="_on_TouchScreenButton_pause_pressed"]
+[connection signal="pressed" from="touch_buttons/TouchScreenButton_interact" to="." method="_on_TouchScreenButton_interact_pressed"]

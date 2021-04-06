@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/levels/forest/forest_a.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesheet_complete.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/actors/enemy/minotaur_A/minotaur_a.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/actors/enemy/minotaur_b/minotaur_b.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/actors/enemy/wraith_a/wraith_a.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/quests/npcs/quest_1/quest_1.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -390,12 +391,12 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( 2097.87, 3776.15 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1485.33, 1626.18 )
-scale = Vector2( 0.35, 0.35 )
+[node name="quest_1" parent="." instance=ExtResource( 11 )]
+position = Vector2( 946, 3729.08 )
 
-[node name="AnimatedSprite" parent="player" index="0"]
-frame = 7
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1069.56, 3198.56 )
+scale = Vector2( 0.35, 0.35 )
 
 [node name="Camera2D" parent="player" index="3"]
 position = Vector2( -58.9739, 187.774 )

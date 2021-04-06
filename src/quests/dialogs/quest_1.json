@@ -1,0 +1,43 @@
+{
+	"000" : {
+		"type" : "dialog",
+		"text" : "I have lost my necklace, My Father worked really hard to buy me that necklace",
+		"next" : "001"
+	},
+	"001" : {
+		"type" : "response",
+		"text" : "Will you please help me? :(",
+		"responses" : {
+			"Of course I will help" : "002",
+			"No I'm Busy" : "003"
+		}
+	},
+	"002" : {
+		"type" : "quest_accepted_dialog",
+		"text" : "Reallyy??? Thank you Thank you, I'll be waiting :')",
+		"next" : "null"
+	},
+	"003" : {
+		"type" : "dialog",
+		"text" : "Oh ok... :'(",
+		"next" : "null"
+	},
+	"004" : {
+		"type" : "response",
+		"text" : "Did you find it??",
+		"responses" : {
+			"Yes I did" : "005",
+			"No I didn't" : "006"
+		}
+	},
+	"005" : {
+		"type" : "dialog",
+		"text" : "I can't believe it. I thought i would never see this again. Thank you so much",
+		"next" : "finished"
+	},
+	"006" : {
+		"type" : "dialog",
+		"text" : "Again I can't thank you enough for helping me",
+		"next" : "null"
+	}
+}

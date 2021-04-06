@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/actors/actor.gd"
 }, {
+"base": "Node",
+"class": "npc",
+"language": "GDScript",
+"path": "res://src/quests/npcs/npc.gd"
+}, {
 "base": "Node2D",
 "class": "state_machine",
 "language": "GDScript",
@@ -21,6 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "actor": "",
+"npc": "",
 "state_machine": ""
 }
 

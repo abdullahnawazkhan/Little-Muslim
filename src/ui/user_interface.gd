@@ -16,7 +16,20 @@ onready var right_button : TouchScreenButton = get_node("touch_buttons/TouchScre
 onready var attack_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_attack")
 onready var jump_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_jump")
 onready var enter_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_enter")
+onready var interact_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_interact")
 onready var touch_buttons : ColorRect = get_node("touch_buttons")
+
+onready var dialog : ColorRect = get_node("dialog_overlay")
+onready var dialog_text : RichTextLabel = get_node("dialog_overlay/dialog_box/RichTextLabel")
+onready var next_button : TouchScreenButton = get_node("dialog_overlay/dialog_box/TouchScreenButton")
+onready var sprite : Sprite = get_node("dialog_overlay/dialog_box/Sprite")
+onready var choice_button : Button = get_node("dialog_overlay/choices/HBoxContainer/Button")
+onready var choice_area : ColorRect = get_node("dialog_overlay/choices")
+onready var choice_list : VBoxContainer = get_node("dialog_overlay/choices/HBoxContainer")
+
+var b = []
+
+var npc = null
 
 var is_jumping := false
 var is_attacking := false
@@ -29,12 +42,11 @@ func _ready() -> void:
 	PlayerData.connect("player_health_changed", self, "update_interface")
 	PlayerData.connect("player_died", self, "_on_PlayerData_player_died")
 	update_interface()
-	
+
 
 func _on_PlayerData_player_died() -> void:
 	get_tree().change_scene("res://src/screens/dead_screen.tscn")
 	
-
 
 func update_interface() -> void:
 	score.text = "Score: " + str(PlayerData.score)
@@ -50,14 +62,25 @@ func set_paused(value : bool) -> void:
 func set_is_jumping(value : bool) -> void:
 	is_jumping = value
 
+
 func set_is_attacking(value : bool) -> void:
 	is_attacking = value
+
 
 func set_is_getting_hurt(value : bool) -> void:
 	is_getting_hurt = value
 
+
 func show_enter_button(value : bool) -> void:
 	enter_button.visible = value
+	
+
+func show_interact_button(value : bool) -> void:
+	interact_button.visible = value
+
+
+func set_npc(target) -> void:
+	npc = target
 
 
 func _on_TouchScreenButton_right_pressed() -> void:
@@ -91,3 +114,62 @@ func _on_TouchScreenButton_jump_pressed() -> void:
 
 func _on_TouchScreenButton_jump_released() -> void:
 	player_sm.set_jump_release()
+
+
+func _on_TouchScreenButton_interact_pressed() -> void:
+	touch_buttons.visible = false
+	dialog.visible = true
+	scene_tree.paused = true
+	touch_buttons.visible = false
+	npc.init()
+	npc.execute()
+	next_button.connect("pressed", npc, "execute")
+	
+
+func set_text(text) -> void:
+	dialog_text.text = text
+	
+	
+func set_texture(texture) -> void:
+	sprite.texture = texture
+
+
+func dialog_end() -> void:
+	touch_buttons.visible = true
+	dialog.visible = false
+	scene_tree.paused = false
+	touch_buttons.visible = true
+	next_button.disconnect("pressed", npc, "execute")
+	
+	choice_button.disconnect("pressed", npc, "process_choice")
+	clear_choices()
+	
+
+func generate_choices(choices) -> void:
+	clear_choices()
+	
+	choice_area.visible = true
+	
+	for c in choices:
+		if (choice_button.text == ""):
+			choice_button.text = c
+			choice_button.connect("pressed", npc, "process_choice", [c])
+		else:
+			var new_button = choice_button.duplicate()
+			b.append(new_button)
+			choice_list.add_child(new_button)
+			new_button.text = c
+			new_button.connect("pressed", npc, "process_choice", [c])
+
+
+func clear_choices() -> void:
+	choice_button.text = ""
+	
+	for a in b:
+		a.queue_free()
+		
+	b = []
+
+
+func hide_choices() -> void:
+	choice_area.visible = false

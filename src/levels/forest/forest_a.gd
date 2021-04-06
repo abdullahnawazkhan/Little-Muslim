@@ -29,3 +29,4 @@ func _on_building_body_entered(body: Node) -> void:
 func _on_building_body_exited(body: Node) -> void:
 	if (body.get_name() == "player"):
 		ui.show_enter_button(false)
+
