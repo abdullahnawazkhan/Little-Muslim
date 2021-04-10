@@ -8,6 +8,8 @@ var score := 0 setget set_score
 var deaths := 0 setget set_deaths
 var health := 100 setget set_health
 
+var full_data = {}
+
 func reset():
 	self.score = 0
 	self.deaths = 0

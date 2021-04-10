@@ -45,7 +45,7 @@ func _ready() -> void:
 
 
 func _on_PlayerData_player_died() -> void:
-	get_tree().change_scene("res://src/screens/dead_screen.tscn")
+	get_tree().change_scene("res://src/screens/minor_screens/dead_screen.tscn")
 	
 
 func update_interface() -> void:

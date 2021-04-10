@@ -33,12 +33,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Little-Muslim"
-run/main_scene="res://src/screens/main_menu.tscn"
+run/main_scene="res://src/screens/start_up_screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 PlayerData="*res://src/auto_load/player_data.gd"
+Firebase="*res://src/auto_load/Firebase.gd"
 
 [display]
 

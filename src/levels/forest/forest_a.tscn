@@ -398,6 +398,9 @@ position = Vector2( 946, 3729.08 )
 position = Vector2( 1069.56, 3198.56 )
 scale = Vector2( 0.35, 0.35 )
 
+[node name="AnimatedSprite" parent="player" index="0"]
+frame = 5
+
 [node name="Camera2D" parent="player" index="3"]
 position = Vector2( -58.9739, 187.774 )
 limit_right = 4349

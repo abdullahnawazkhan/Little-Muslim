@@ -1,0 +1,290 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/screens/log_in_module/registration/register.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=3]
+[ext_resource path="res://src/ui/back_button.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 29
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.40976
+margin_top = 3.00452
+margin_right = -1.40979
+margin_bottom = 3.00452
+color = Color( 0.188235, 0.164706, 0.470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -245.0
+margin_top = 17.3529
+margin_right = 245.0
+margin_bottom = 76.3529
+custom_fonts/font = SubResource( 1 )
+text = "Creating New Account"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name_label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -289.308
+margin_top = -182.661
+margin_right = -218.308
+margin_bottom = -138.661
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="email_label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -295.317
+margin_top = -81.9955
+margin_right = -225.317
+margin_bottom = -37.9955
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
+text = "Email"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password_label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -352.968
+margin_top = 8.33936
+margin_right = -219.968
+margin_bottom = 52.3394
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
+text = "Password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password_label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -482.032
+margin_top = 109.0
+margin_right = -215.032
+margin_bottom = 186.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
+text = "Re-Enter Password"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.441
+margin_top = -190.185
+margin_right = 307.559
+margin_bottom = -138.185
+custom_fonts/font = SubResource( 3 )
+placeholder_text = "Enter Name Here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="email" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.441
+margin_top = -92.742
+margin_right = 307.559
+margin_bottom = -40.742
+custom_fonts/font = SubResource( 3 )
+placeholder_text = "Enter Email Here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.441
+margin_top = -1.9729
+margin_right = 307.559
+margin_bottom = 50.0271
+custom_fonts/font = SubResource( 3 )
+secret = true
+placeholder_text = "Enter Password Here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password2" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.441
+margin_top = 107.484
+margin_right = 307.559
+margin_bottom = 159.484
+custom_fonts/font = SubResource( 3 )
+secret = true
+placeholder_text = "Re-Enter Password Here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = 192.932
+margin_right = 148.0
+margin_bottom = 276.932
+theme = ExtResource( 3 )
+text = "Create Account"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="account_creation" type="HTTPRequest" parent="."]
+
+[node name="document_creation" type="HTTPRequest" parent="."]
+
+[node name="error_pane" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.92549, 0.113725, 0.113725, 0.0627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="error_pane"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -293.5
+margin_top = -118.0
+margin_right = 293.5
+margin_bottom = 118.0
+color = Color( 0.929412, 0.211765, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="error_msg" type="Label" parent="error_pane/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -209.5
+margin_top = -84.5
+margin_right = 209.5
+margin_bottom = 84.5
+custom_fonts/font = SubResource( 4 )
+text = "Passwords Do not Match. Please Re-enter Information"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="success_pane" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0862745, 0.494118, 0.0392157, 0.431373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="success_pane"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -293.5
+margin_top = -118.0
+margin_right = 293.5
+margin_bottom = 118.0
+color = Color( 0.156863, 0.847059, 0.231373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="msg" type="Label" parent="success_pane/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -238.5
+margin_top = -21.5
+margin_right = 238.5
+margin_bottom = 21.5
+custom_fonts/font = SubResource( 4 )
+text = "Account Successfully Created"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="back" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3.36359, -8.40897 )
+scale = Vector2( 0.260931, 0.260931 )
+scene_path = "res://src/screens/start_up_screen.tscn"
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[connection signal="request_completed" from="account_creation" to="." method="_on_account_creation_request_completed"]
+[connection signal="request_completed" from="document_creation" to="." method="_on_document_creation_request_completed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

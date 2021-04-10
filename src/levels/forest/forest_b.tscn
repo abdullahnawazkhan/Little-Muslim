@@ -5,8 +5,6 @@
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ui/user_interface.tscn" type="PackedScene" id=4]
 
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
@@ -259,6 +257,9 @@ tile_data = PoolIntArray( -393216, 1610612743, 0, -393209, 1610612743, 0, -39320
 position = Vector2( 243.759, 244.953 )
 scale = Vector2( 0.35, 0.35 )
 
+[node name="AnimatedSprite" parent="player" index="0"]
+frame = 4
+
 [node name="Camera2D" parent="player" index="3"]
 position = Vector2( -40.8188, 276.661 )
 limit_right = 4335
@@ -267,9 +268,6 @@ limit_bottom = 3760
 [node name="user_interface" type="CanvasLayer" parent="."]
 
 [node name="user_interface" parent="user_interface" instance=ExtResource( 4 )]
-
-[node name="change_scene_button" parent="user_interface/user_interface/pause_overlay/pause_menu" index="2"]
-scene_path = "res://src/screens/main_menu.tscn"
 
 [editable path="player"]
 
