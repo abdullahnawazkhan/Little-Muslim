@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/self_made/right-arrow_pressed.png" type="Texture" id=2]
@@ -13,24 +13,23 @@
 [ext_resource path="res://assets/ui/self_made/interact_button.png" type="Texture" id=11]
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/ui/label.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://assets/fonts/newtegomin-regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=15]
 [ext_resource path="res://assets/ui/self_made/left_arrow.png" type="Texture" id=16]
 [ext_resource path="res://assets/ui/self_made/left_arrow_pressed.png" type="Texture" id=17]
 [ext_resource path="res://assets/ui/self_made/enter_button.png" type="Texture" id=18]
 [ext_resource path="res://assets/ui/self_made/enter_button_pressed.png" type="Texture" id=19]
 [ext_resource path="res://assets/ui/self_made/interact_button_pressed.png" type="Texture" id=20]
-[ext_resource path="res://assets/fonts/NewTegomin-Regular.ttf" type="DynamicFontData" id=21]
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://assets/ui/next.png" type="Texture" id=24]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
-font_data = ExtResource( 14 )
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
-font_data = ExtResource( 14 )
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
@@ -62,27 +61,29 @@ Button/styles/pressed = null
 
 [sub_resource type="DynamicFont" id=8]
 size = 35
-font_data = ExtResource( 21 )
+font_data = ExtResource( 14 )
 
 [sub_resource type="Theme" id=9]
 default_font = SubResource( 8 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 25
-font_data = ExtResource( 14 )
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 25
-font_data = ExtResource( 14 )
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 25
-font_data = ExtResource( 14 )
+font_data = ExtResource( 23 )
 
 [node name="user_interface" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -154,14 +155,12 @@ normal = ExtResource( 18 )
 pressed = ExtResource( 19 )
 
 [node name="TouchScreenButton_interact" type="TouchScreenButton" parent="touch_buttons"]
-visible = false
 position = Vector2( 736, 272 )
 scale = Vector2( 1.212, 1.189 )
 normal = ExtResource( 11 )
 pressed = ExtResource( 20 )
 
 [node name="dialog_overlay" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.219608 )
@@ -312,4 +311,5 @@ text = "Quit"
 [connection signal="released" from="touch_buttons/TouchScreenButton_jump" to="." method="_on_TouchScreenButton_jump_released"]
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_attack" to="." method="_on_TouchScreenButton_attack_pressed"]
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_pause" to="." method="_on_TouchScreenButton_pause_pressed"]
+[connection signal="pressed" from="touch_buttons/TouchScreenButton_enter" to="." method="_on_TouchScreenButton_enter_pressed"]
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_interact" to="." method="_on_TouchScreenButton_interact_pressed"]

@@ -1,5 +1,3 @@
-# TODO: Create a seperate dead screen
-
 extends Control
 
 onready var scene_tree : = get_tree()
@@ -29,13 +27,16 @@ onready var choice_list : VBoxContainer = get_node("dialog_overlay/choices/HBoxC
 
 var b = []
 
-var npc = null
+var npc_child = null
 
 var is_jumping := false
 var is_attacking := false
 var is_getting_hurt := false
 
 var is_paused := false setget set_paused
+
+var scene_change_path := ""
+
 
 func _ready() -> void:
 	PlayerData.connect("score_updated", self, "update_interface")
@@ -80,7 +81,7 @@ func show_interact_button(value : bool) -> void:
 
 
 func set_npc(target) -> void:
-	npc = target
+	npc_child = target
 
 
 func _on_TouchScreenButton_right_pressed() -> void:
@@ -117,13 +118,12 @@ func _on_TouchScreenButton_jump_released() -> void:
 
 
 func _on_TouchScreenButton_interact_pressed() -> void:
-	touch_buttons.visible = false
 	dialog.visible = true
 	scene_tree.paused = true
 	touch_buttons.visible = false
-	npc.init()
-	npc.execute()
-	next_button.connect("pressed", npc, "execute")
+	npc_child.init()
+	npc_child.execute()
+	next_button.connect("pressed", npc_child, "execute")
 	
 
 func set_text(text) -> void:
@@ -135,13 +135,12 @@ func set_texture(texture) -> void:
 
 
 func dialog_end() -> void:
-	touch_buttons.visible = true
 	dialog.visible = false
 	scene_tree.paused = false
 	touch_buttons.visible = true
-	next_button.disconnect("pressed", npc, "execute")
+	next_button.disconnect("pressed", npc_child, "execute")
 	
-	choice_button.disconnect("pressed", npc, "process_choice")
+	choice_button.disconnect("pressed", npc_child, "process_choice")
 	clear_choices()
 	
 
@@ -173,3 +172,13 @@ func clear_choices() -> void:
 
 func hide_choices() -> void:
 	choice_area.visible = false
+
+
+func set_scene_change_path(path) -> void:
+	scene_change_path = path
+
+
+func _on_TouchScreenButton_enter_pressed() -> void:
+	var save = load(scene_change_path)
+	var save_scene = save.instance()
+	get_parent().add_child(save_scene)

@@ -12,8 +12,12 @@ var user_id
 var user_data = {}
 
 
-
-func log_in(http, body) -> void:
+func log_in(http, email, password) -> void:
+	var body = {
+		"email" : email,
+		"password" : password,
+		"returnSecureToken" : true
+	}
 	http.request(LOGIN_ENDPOINT, [], false, HTTPClient.METHOD_POST, to_json(body))
 
 
@@ -24,13 +28,17 @@ func get_headers() -> PoolStringArray:
 	])
 
 
-func register(http, body) -> void:
+func register(http, email, password) -> void:
+	var body = {
+		"email" : email,
+		"password" : password,
+	}
 	http.request(REGISTER_ENDPOINT, [], false, HTTPClient.METHOD_POST, to_json(body))
 
 
 func save_document(path, fields, http) -> void:
 	var doc = {
-		"fields" : fields
+		"fields" : fields,
 	}
 	var body = to_json(doc)
 	var url = FIRESTORE_ENDPOINT + path
@@ -49,3 +57,21 @@ func update_document(path, fields, http) -> void:
 func get_document(path, http) -> void:
 	var url = FIRESTORE_ENDPOINT + path
 	http.request(url, get_headers(), false, HTTPClient.METHOD_GET)
+
+
+func change_password(password, http) -> void:
+	var body = {
+		"idToken" : user_token,
+		"password" : password
+	}
+	var url = "https://identitytoolkit.googleapis.com/v1/accounts:update?key=%s" % API_KEY
+	http.request(url, [], false, HTTPClient.METHOD_POST, to_json(body))
+	
+	
+func forgot_my_password(email, http) -> void:
+	var body = {
+		"requestType" : "PASSWORD_RESET",
+		"email" : email
+	}
+	var url = "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=%s" % API_KEY
+	http.request(url, [], false, HTTPClient.METHOD_POST, to_json(body))

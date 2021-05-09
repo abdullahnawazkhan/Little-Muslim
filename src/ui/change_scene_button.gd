@@ -11,7 +11,5 @@ func _get_configuration_warning() -> String:
 
 
 func _on_change_scene_button_button_up() -> void:
-	PlayerData.score = 0
-	PlayerData.deaths = 0
 	get_tree().paused = false
 	get_tree().change_scene(scene_path)

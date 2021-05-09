@@ -120,9 +120,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.5
+margin_left = 92.6526
 margin_top = 154.221
-margin_right = 64.5
+margin_right = 221.653
 margin_bottom = 238.221
 theme = ExtResource( 2 )
 text = "Enter"
@@ -130,9 +130,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="forgot_password" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -314.544
+margin_top = 154.111
+margin_right = 42.456
+margin_bottom = 238.111
+theme = ExtResource( 2 )
+text = "Forgot My Pasword"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="get_document_request" type="HTTPRequest" parent="."]
+
+[node name="back" parent="." instance=ExtResource( 4 )]
+scale = Vector2( 0.244, 0.244 )
+scene_path = "res://src/screens/start_up_screen.tscn"
 
 [node name="error_pane" type="ColorRect" parent="."]
 visible = false
@@ -213,12 +232,8 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="back" parent="." instance=ExtResource( 4 )]
-position = Vector2( 13.2884, 4.79327 )
-scale = Vector2( 0.255906, 0.255906 )
-scene_path = "res://src/screens/start_up_screen.tscn"
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="forgot_password" to="." method="_on_forgot_password_button_up"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="get_document_request" to="." method="_on_get_document_request_request_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

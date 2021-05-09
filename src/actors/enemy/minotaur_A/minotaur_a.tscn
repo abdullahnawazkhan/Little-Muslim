@@ -66,12 +66,12 @@
 [ext_resource path="res://assets/enemies/minotaur/minotaur_a/walking/minotaur_01_walking_013.png" type="Texture" id=64]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_a/walking/minotaur_01_walking_014.png" type="Texture" id=65]
 [ext_resource path="res://src/actors/enemy/minotaur_A/minotaur_a_state_machine.gd" type="Script" id=66]
-[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=67]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_a/walking/minotaur_01_walking_011.png" type="Texture" id=68]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_a/walking/minotaur_01_walking_017.png" type="Texture" id=69]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_a/walking/minotaur_01_walking_006.png" type="Texture" id=70]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_a/walking/minotaur_01_walking_007.png" type="Texture" id=71]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_a/walking/minotaur_01_walking_015.png" type="Texture" id=72]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=73]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -112,11 +112,11 @@ extents = Vector2( 138.402, 272.193 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 30
-font_data = ExtResource( 67 )
+font_data = ExtResource( 73 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 30
-font_data = ExtResource( 67 )
+font_data = ExtResource( 73 )
 
 [node name="minotaur_a" type="KinematicBody2D"]
 collision_layer = 2
@@ -127,7 +127,7 @@ script = ExtResource( 54 )
 position = Vector2( 0, 1.7818 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 17
+frame = 15
 speed_scale = 2.0
 playing = true
 flip_h = true

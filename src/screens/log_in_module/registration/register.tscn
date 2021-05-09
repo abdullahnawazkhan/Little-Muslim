@@ -32,10 +32,6 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.40976
-margin_top = 3.00452
-margin_right = -1.40979
-margin_bottom = 3.00452
 color = Color( 0.188235, 0.164706, 0.470588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -281,8 +277,7 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 
 [node name="back" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3.36359, -8.40897 )
-scale = Vector2( 0.260931, 0.260931 )
+scale = Vector2( 0.244, 0.244 )
 scene_path = "res://src/screens/start_up_screen.tscn"
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
 [connection signal="request_completed" from="account_creation" to="." method="_on_account_creation_request_completed"]

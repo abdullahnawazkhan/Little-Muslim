@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/ui/retry_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/button_theme.tres" type="Theme" id=5]

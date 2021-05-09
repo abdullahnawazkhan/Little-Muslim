@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/levels/forest/forest_a.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesheet_complete.png" type="Texture" id=2]
@@ -7,10 +7,8 @@
 [ext_resource path="res://src/ui/user_interface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/buildings/store_1.png" type="Texture" id=6]
 [ext_resource path="res://assets/buildings/home.png" type="Texture" id=7]
-[ext_resource path="res://src/actors/enemy/minotaur_A/minotaur_a.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/actors/enemy/minotaur_b/minotaur_b.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/actors/enemy/wraith_a/wraith_a.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/quests/npcs/quest_1/quest_1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/buildings/masjid.png" type="Texture" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -302,10 +300,14 @@ extents = Vector2( 94.2566, 62.6885 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 1785.36, 117.887 )
 
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 44.2146, 98.9193 )
+[sub_resource type="CapsuleShape2D" id=14]
+radius = 82.3708
+height = 182.823
 
 [sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 44.2146, 98.9193 )
+
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 57.593, 103.728 )
 
 [node name="forest_a" type="Node2D"]
@@ -351,6 +353,16 @@ position = Vector2( 2503.67, 1241.96 )
 scale = Vector2( 1, 0.439998 )
 shape = SubResource( 13 )
 
+[node name="masjid" type="Area2D" parent="."]
+position = Vector2( 3769.84, 3467.7 )
+
+[node name="Sprite" type="Sprite" parent="masjid"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="masjid"]
+position = Vector2( -2.37842, 237.841 )
+shape = SubResource( 14 )
+
 [node name="store" type="Area2D" parent="."]
 position = Vector2( 1130.92, 1869.93 )
 monitorable = false
@@ -361,9 +373,10 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="store"]
 position = Vector2( 134.526, 89.0897 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="house" type="Area2D" parent="."]
+visible = false
 position = Vector2( 3811.84, 3516.65 )
 monitorable = false
 
@@ -373,33 +386,17 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="house"]
 position = Vector2( -3.56348, 231.634 )
-shape = SubResource( 15 )
-
-[node name="minotaur_a" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1274.59, 361.009 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="minotaur_a3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2835.99, 3240.12 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="minotaur_b" parent="." instance=ExtResource( 9 )]
-position = Vector2( 993.651, 1961.24 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="wraith_a" parent="." instance=ExtResource( 10 )]
-position = Vector2( 2097.87, 3776.15 )
-scale = Vector2( 0.7, 0.7 )
+shape = SubResource( 16 )
 
 [node name="quest_1" parent="." instance=ExtResource( 11 )]
 position = Vector2( 946, 3729.08 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1069.56, 3198.56 )
+position = Vector2( 1297.82, 3483.85 )
 scale = Vector2( 0.35, 0.35 )
 
 [node name="AnimatedSprite" parent="player" index="0"]
-frame = 5
+frame = 3
 
 [node name="Camera2D" parent="player" index="3"]
 position = Vector2( -58.9739, 187.774 )
@@ -411,6 +408,8 @@ limit_bottom = 4136
 [node name="user_interface" parent="user_interface" instance=ExtResource( 5 )]
 [connection signal="body_entered" from="transport" to="." method="_on_transport_body_entered"]
 [connection signal="body_entered" from="dead_area" to="." method="_on_dead_area_body_entered"]
+[connection signal="body_entered" from="masjid" to="." method="_on_masjid_body_entered"]
+[connection signal="body_exited" from="masjid" to="." method="_on_masjid_body_exited"]
 [connection signal="body_entered" from="store" to="." method="_on_building_body_entered"]
 [connection signal="body_exited" from="store" to="." method="_on_building_body_exited"]
 [connection signal="body_entered" from="house" to="." method="_on_building_body_entered"]

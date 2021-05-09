@@ -48,7 +48,7 @@ func _exit_state(old_state, new_state):
 
 
 func set_state(new_state):
-	# this method is called in the side physics process
+	# this method is called inside physics process
 	# if a transition occurs, this will handle the changing of states
 	# changing of state is a two step process, exiting the current one and entering the new one
 	previous_state = state

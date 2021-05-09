@@ -66,18 +66,23 @@
 [ext_resource path="res://assets/enemies/minotaur/minotaur_b/walking/minotaur_03_walking_013.png" type="Texture" id=64]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_b/walking/minotaur_03_walking_014.png" type="Texture" id=65]
 [ext_resource path="res://src/actors/enemy/minotaur_b/minotaur_b.gd" type="Script" id=66]
-[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=67]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_b/walking/minotaur_03_walking_011.png" type="Texture" id=68]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_b/walking/minotaur_03_walking_017.png" type="Texture" id=69]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_b/walking/minotaur_03_walking_006.png" type="Texture" id=70]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_b/walking/minotaur_03_walking_007.png" type="Texture" id=71]
 [ext_resource path="res://assets/enemies/minotaur/minotaur_b/walking/minotaur_03_walking_015.png" type="Texture" id=72]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=73]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 22 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 49 ), ExtResource( 47 ), ExtResource( 40 ), ExtResource( 19 ), ExtResource( 31 ), ExtResource( 35 ), ExtResource( 20 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "die",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 52 ), ExtResource( 60 ), ExtResource( 53 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 57 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 68 ), ExtResource( 58 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 72 ), ExtResource( 59 ), ExtResource( 69 ) ],
@@ -94,11 +99,6 @@ animations = [ {
 "loop": true,
 "name": "attack",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 22 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 49 ), ExtResource( 47 ), ExtResource( 40 ), ExtResource( 19 ), ExtResource( 31 ), ExtResource( 35 ), ExtResource( 20 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 50 ) ],
-"loop": true,
-"name": "die",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -112,11 +112,11 @@ extents = Vector2( 138.402, 272.193 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 30
-font_data = ExtResource( 67 )
+font_data = ExtResource( 73 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 30
-font_data = ExtResource( 67 )
+font_data = ExtResource( 73 )
 
 [node name="minotaur_b" type="KinematicBody2D"]
 collision_layer = 2
@@ -127,7 +127,7 @@ script = ExtResource( 66 )
 position = Vector2( 0, 1.7818 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 3
+frame = 17
 speed_scale = 2.0
 playing = true
 flip_h = true

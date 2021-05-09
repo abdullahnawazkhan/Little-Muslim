@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Little-Muslim"
-run/main_scene="res://src/screens/start_up_screen.tscn"
+run/main_scene="res://src/screens/log_checker/login_checker.tscn"
 config/icon="res://icon.png"
 
 [autoload]

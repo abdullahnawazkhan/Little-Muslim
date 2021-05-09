@@ -18,4 +18,4 @@ func _on_Area2D_body_exited(body: Node) -> void:
 
 
 func init() -> void:
-	load_json()
+	_init()

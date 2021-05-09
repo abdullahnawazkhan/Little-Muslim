@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/screens/minor_screens/loading_screen/loading_screen.gd" type="Script" id=2]
 [ext_resource path="res://assets/player/walk/(10).png" type="Texture" id=3]
 [ext_resource path="res://assets/player/walk/(7).png" type="Texture" id=4]
@@ -12,8 +12,6 @@
 [ext_resource path="res://assets/player/walk/(3).png" type="Texture" id=10]
 [ext_resource path="res://assets/player/walk/(1).png" type="Texture" id=11]
 [ext_resource path="res://assets/player/walk/(2).png" type="Texture" id=12]
-
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 70

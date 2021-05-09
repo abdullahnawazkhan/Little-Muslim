@@ -30,3 +30,14 @@ func _on_building_body_exited(body: Node) -> void:
 	if (body.get_name() == "player"):
 		ui.show_enter_button(false)
 
+
+
+func _on_masjid_body_entered(body: Node) -> void:
+	if (body.get_name() == "player"):
+		ui.show_enter_button(true)
+		ui.set_scene_change_path("res://src/screens/minor_screens/saving_screen/saving.tscn")
+
+
+func _on_masjid_body_exited(body: Node) -> void:
+	if (body.get_name() == "player"):
+		ui.show_enter_button(false)

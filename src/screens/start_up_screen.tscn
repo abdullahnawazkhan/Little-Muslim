@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/screens/start_up_screen.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=4]
+[ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -37,9 +38,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -211.619
-margin_top = -203.008
+margin_top = -238.927
 margin_right = 207.381
-margin_bottom = -130.008
+margin_bottom = -165.927
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "little muslim"
@@ -54,9 +55,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -113.5
-margin_top = -134.443
+margin_top = -156.892
 margin_right = 113.5
-margin_bottom = -90.4431
+margin_bottom = -112.892
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Islam for Kids"
@@ -69,10 +70,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -195.914
-margin_top = -39.6203
-margin_right = 193.086
-margin_bottom = 220.38
+margin_left = -196.0
+margin_top = -40.4436
+margin_right = 193.0
+margin_bottom = 222.556
 rect_scale = Vector2( 1, 1.00314 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -93,10 +94,9 @@ theme = ExtResource( 4 )
 text = "Create New Account"
 scene_path = "res://src/screens/log_in_module/registration/register.tscn"
 
-[node name="google" type="Button" parent="VBoxContainer"]
+[node name="quit_button" parent="VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 176.0
 margin_right = 389.0
 margin_bottom = 260.0
 theme = ExtResource( 4 )
-text = "Continue with Google"
-[connection signal="button_up" from="VBoxContainer/google" to="." method="_on_google_button_up"]
+text = "Exit"

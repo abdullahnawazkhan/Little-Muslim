@@ -66,7 +66,6 @@
 [ext_resource path="res://assets/enemies/wraith/idle/wraith_01_idle_005.png" type="Texture" id=64]
 [ext_resource path="res://assets/enemies/wraith/dying/wraith_01_dying_010.png" type="Texture" id=65]
 [ext_resource path="res://assets/enemies/wraith/hurt/wraith_01_hurt_002.png" type="Texture" id=66]
-[ext_resource path="res://assets/fonts/PottaOne-Regular.ttf" type="DynamicFontData" id=67]
 [ext_resource path="res://assets/enemies/wraith/dying/wraith_01_dying_014.png" type="Texture" id=68]
 [ext_resource path="res://assets/enemies/wraith/hurt/wraith_01_hurt_003.png" type="Texture" id=69]
 [ext_resource path="res://assets/enemies/wraith/hurt/wraith_01_hurt_004.png" type="Texture" id=70]
@@ -84,6 +83,7 @@
 [ext_resource path="res://assets/enemies/wraith/idle/wraith_01_idle_008.png" type="Texture" id=82]
 [ext_resource path="res://assets/enemies/wraith/dying/wraith_01_dying_006.png" type="Texture" id=83]
 [ext_resource path="res://assets/enemies/wraith/hurt/wraith_01_hurt_010.png" type="Texture" id=84]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=85]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -92,9 +92,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 61 ), ExtResource( 71 ), ExtResource( 34 ), ExtResource( 72 ), ExtResource( 40 ), ExtResource( 51 ), ExtResource( 55 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 56 ), ExtResource( 73 ), ExtResource( 29 ) ],
+"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 62 ), ExtResource( 43 ), ExtResource( 57 ), ExtResource( 32 ), ExtResource( 83 ), ExtResource( 46 ), ExtResource( 74 ), ExtResource( 35 ), ExtResource( 65 ), ExtResource( 78 ), ExtResource( 75 ), ExtResource( 47 ), ExtResource( 68 ) ],
 "loop": true,
-"name": "walk",
+"name": "die",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 80 ), ExtResource( 58 ), ExtResource( 66 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 41 ), ExtResource( 76 ), ExtResource( 31 ), ExtResource( 79 ), ExtResource( 81 ), ExtResource( 84 ), ExtResource( 77 ) ],
@@ -102,19 +102,19 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 61 ), ExtResource( 71 ), ExtResource( 34 ), ExtResource( 72 ), ExtResource( 40 ), ExtResource( 51 ), ExtResource( 55 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 56 ), ExtResource( 73 ), ExtResource( 29 ) ],
 "loop": true,
-"name": "attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 62 ), ExtResource( 43 ), ExtResource( 57 ), ExtResource( 32 ), ExtResource( 83 ), ExtResource( 46 ), ExtResource( 74 ), ExtResource( 35 ), ExtResource( 65 ), ExtResource( 78 ), ExtResource( 75 ), ExtResource( 47 ), ExtResource( 68 ) ],
-"loop": true,
-"name": "die",
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 63 ), ExtResource( 30 ), ExtResource( 53 ), ExtResource( 59 ) ],
 "loop": true,
 "name": "spell_attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "attack",
 "speed": 5.0
 } ]
 
@@ -129,11 +129,11 @@ extents = Vector2( 138.402, 272.193 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 30
-font_data = ExtResource( 67 )
+font_data = ExtResource( 85 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 30
-font_data = ExtResource( 67 )
+font_data = ExtResource( 85 )
 
 [node name="wraith_a" type="KinematicBody2D"]
 collision_layer = 2
@@ -144,7 +144,7 @@ script = ExtResource( 27 )
 position = Vector2( 0, 1.7818 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 speed_scale = 2.0
 playing = true
 flip_h = true

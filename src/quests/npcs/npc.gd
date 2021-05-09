@@ -20,14 +20,17 @@ var quest_name
 var in_progress_state
 
 
-func _init(q_name, state) -> void:
+func _init(q_name, s) -> void:
 	quest_name = q_name
-	in_progress_state = state
+	in_progress_state = s
 
 	load_json()
 
-	if "quest_1" in save_data["completed"]:
-		queue_free()
+	if quest_name in PlayerData.quests_completed:
+		queue_free() # 
+		
+	if quest_name in PlayerData.quests_in_progress:
+		state = in_progress_state
 
 
 func load_json() -> void:
@@ -41,26 +44,10 @@ func load_json() -> void:
 	else:
 		print("Error loading JSON")
 
-	# loading user save data
-	# TODO: move this is to autoload
-	var f2 = File.new()
-	var e2 = f2.open("res://src/quests/dialogs/current_quests.json", File.READ)
-	if e2 == OK:
-		print("No Issue loading save file")
-		save_data = parse_json(f2.get_as_text())
-		var quests = save_data["in_progress"]
-		state = "000"
-		for q in quests:
-			if q == quest_name:
-				state = in_progress_state
-		f2.close()
-	else:
-		print("Error loading save file")
-
 
 func execute() -> void:
 	if (state == "null"):
-		# this is when there are no further transistions
+		# this is when there are no further transitions
 		ui.dialog_end()
 	elif(state == "finished"):
 		# this is when the quest is finished
@@ -94,13 +81,8 @@ func execute() -> void:
 
 
 func _add_to_in_progress() -> void:
-	if !(quest_name in save_data["in_progress"]):
-		(save_data["in_progress"]).append(quest_name)
-		var file = File.new()
-		var error = file.open("res://src/quests/dialogs/current_quests.json", File.WRITE)
-		if error == OK:
-			file.store_string(to_json(save_data))
-			file.close()
+	if !(quest_name in PlayerData.quests_in_progress):
+		(PlayerData.quests_in_progress).append(quest_name)
 
 
 func process_choice(choice) -> void:
@@ -109,24 +91,8 @@ func process_choice(choice) -> void:
 
 
 func _add_to_finished() -> void:
-	# removing current quest from "in_progress"
-	if len(save_data["in_progress"]) == 1:
-		save_data["in_progress"].clear()
-	else:
-		(save_data["in_progress"]).remove(quest_name)
-		
-	# adding current quest to "completed"
-	save_data["completed"].append(quest_name)
-	
-	# updated values in file
-	var file = File.new()
-	var error = file.open("res://src/quests/dialogs/current_quests.json", File.WRITE)
-	if error == OK:
-		file.store_string(to_json(save_data))
-	else:
-		print("Error in saving to save file")
-		
-	file.close()
+	(PlayerData.quests_in_progress).erase(quest_name)
+	(PlayerData.quests_completed).append(quest_name)
 
 
 func init() -> void:

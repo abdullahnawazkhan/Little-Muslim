@@ -1,30 +1,45 @@
 extends Control
 
+func is_digit(s) -> bool:
+	# ascii values between 30H and 39H inclusive are digits
+	var ascii = int((s.to_ascii()).hex_encode())
+	
+	if ascii < 30 || ascii > 39:
+		return false
+		
+	return true
+
 
 func validate_password() -> bool:
-	# TODO: Add password requirements here
-	if ($password.text == $password2.text):
-		return true
-	else:
+	# checking if both passwords match
+	if ($password.text != $password2.text):
+		$error_pane/ColorRect/error_msg.text = "Passwords Do Not Match"
 		return false
+	
+	# Rules:
+	#	- Password Must be atleast of length 8
+	#	- Password Must contain atleast 1 digit
+	if (len($password.text) < 8):
+		$error_pane/ColorRect/error_msg.text = "Password must be of length 8"
+		return false
+	
+	for i in range(len($password.text)):
+		if (is_digit($password.text[i]) == true):
+			return true
+	
+	$error_pane/ColorRect/error_msg.text = "Password must contain 1 digit"
+	return false
 
 
 func _on_Button_button_up() -> void:
 	if (validate_password() == false):
 		# show error msg here
 		$error_pane.visible = true
-		$error_pane/ColorRect/error_msg.text = "Passwords Do Not Match"
 		$Timer.set_wait_time(3.0)
 		$Timer.start()
 		print("Passwords do not match")
 	else:
-		var body = {
-			"email" : $email.text,
-			"password" : $password.text,
-		}
-		
-		Firebase.register($account_creation, body)
-#		$RichTextLabel.text = "Processing"
+		Firebase.register($account_creation, $email.text, $password.text)
 
 
 
@@ -65,6 +80,12 @@ func _on_account_creation_request_completed(result: int, response_code: int, hea
 				"arrayValue" : {
 					"values" : []
 				}
+			},
+			"health" : {
+				"integerValue" : 100
+			},
+			"points" : {
+				"integerValue" : 0  
 			}
 		}
 		
