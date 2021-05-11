@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/screens/log_in_module/registration/register.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=3]
 [ext_resource path="res://src/ui/back_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/red_cancel.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/black_cancel.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -18,7 +20,7 @@ size = 20
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 29
+size = 30
 font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
@@ -214,7 +216,7 @@ margin_left = -293.5
 margin_top = -118.0
 margin_right = 293.5
 margin_bottom = 118.0
-color = Color( 0.929412, 0.211765, 0.211765, 1 )
+color = Color( 0.898039, 0.168627, 0.168627, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -235,6 +237,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="error_cancel_button" type="TouchScreenButton" parent="error_pane/ColorRect"]
+position = Vector2( 528.008, -33.2978 )
+scale = Vector2( 0.178, 0.178 )
+normal = ExtResource( 6 )
+
 [node name="success_pane" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
@@ -253,7 +260,7 @@ margin_left = -293.5
 margin_top = -118.0
 margin_right = 293.5
 margin_bottom = 118.0
-color = Color( 0.156863, 0.847059, 0.231373, 1 )
+color = Color( 0.211765, 0.819608, 0.317647, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -263,10 +270,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -238.5
-margin_top = -21.5
-margin_right = 238.5
-margin_bottom = 21.5
+margin_left = -247.0
+margin_top = -24.5
+margin_right = 247.0
+margin_bottom = 24.5
 custom_fonts/font = SubResource( 4 )
 text = "Account Successfully Created"
 autowrap = true
@@ -274,7 +281,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
+[node name="success_cancel_button" type="TouchScreenButton" parent="success_pane/ColorRect"]
+position = Vector2( 535.143, -29.7302 )
+scale = Vector2( 0.178, 0.178 )
+normal = ExtResource( 5 )
+
+[node name="loading" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -293.5
+margin_top = -118.0
+margin_right = 293.5
+margin_bottom = 118.0
+color = Color( 0.980392, 0.921569, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="msg" type="Label" parent="loading"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -22.0
+margin_right = 102.5
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 4 )
+text = "Loading...."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="back" parent="." instance=ExtResource( 4 )]
 scale = Vector2( 0.244, 0.244 )
@@ -282,4 +323,5 @@ scene_path = "res://src/screens/start_up_screen.tscn"
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
 [connection signal="request_completed" from="account_creation" to="." method="_on_account_creation_request_completed"]
 [connection signal="request_completed" from="document_creation" to="." method="_on_document_creation_request_completed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="error_pane/ColorRect/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]
+[connection signal="pressed" from="success_pane/ColorRect/success_cancel_button" to="." method="_on_TouchScreenButton_pressed"]

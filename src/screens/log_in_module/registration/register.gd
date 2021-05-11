@@ -32,11 +32,12 @@ func validate_password() -> bool:
 
 
 func _on_Button_button_up() -> void:
+	$loading.visible = true
+	
 	if (validate_password() == false):
-		# show error msg here
 		$error_pane.visible = true
-		$Timer.set_wait_time(3.0)
-		$Timer.start()
+		$loading.visible = false
+		
 		print("Passwords do not match")
 	else:
 		Firebase.register($account_creation, $email.text, $password.text)
@@ -46,7 +47,9 @@ func _on_Button_button_up() -> void:
 func _on_account_creation_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if (response_code == 200):
 		print("Log in successful")
+		
 		var d = parse_json(body.get_string_from_utf8())
+		
 		Firebase.user_id = d["localId"]
 		Firebase.user_token = d["idToken"]
 		
@@ -90,21 +93,20 @@ func _on_account_creation_request_completed(result: int, response_code: int, hea
 		}
 		
 		Firebase.user_data = dict
-		$success_pane.visible = true
 		Firebase.save_document("users?documentId=%s" % Firebase.user_id, dict, $document_creation)
 	elif (response_code == 400):
 		var d = parse_json(body.get_string_from_utf8())
 		var msg = d["error"]["message"]
+		
+		$loading.visible = false
 		$error_pane.visible = true
+		
 		if msg == "INVALID_EMAIL":
 			$error_pane/ColorRect/error_msg.text = "Invalid Email Entered"
 			print("Invalid Email Entered")
 		elif msg == "EMAIL_EXISTS":
 			$error_pane/ColorRect/error_msg.text = "Email is already in use"
 			print("Email is already in use")
-			
-		$Timer.set_wait_time(3.0)
-		$Timer.start()
 		
 	else:
 		# TODO: Add android toast here
@@ -113,14 +115,16 @@ func _on_account_creation_request_completed(result: int, response_code: int, hea
 
 func _on_document_creation_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if (response_code == 200):
-		print("Document Created")
-		get_tree().change_scene("res://src/screens/start_up_screen.tscn")
+		$success_pane.visible = true
+		$loading.visible = false
 	else:
 		var dict = parse_json(body.get_string_from_utf8())
 		print(dict["error"]["message"])
-#		$RichTextLabel.text = dict["error"]["message"]
 
 
-func _on_Timer_timeout() -> void:
-	$Timer.stop()
+func _on_TouchScreenButton_pressed() -> void:
+	get_tree().change_scene("res://src/screens/start_up_screen.tscn")
+
+
+func _on_error_cancel_button_pressed() -> void:
 	$error_pane.visible = false
