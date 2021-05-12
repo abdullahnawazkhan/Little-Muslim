@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/self_made/right-arrow_pressed.png" type="Texture" id=2]
@@ -9,9 +9,7 @@
 [ext_resource path="res://assets/ui/self_made/attack_button(1).png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/pause_button.png" type="Texture" id=8]
 [ext_resource path="res://src/ui/resume_button.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/ui/self_made/interact_button.png" type="Texture" id=11]
-[ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/ui/label.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/fonts/newtegomin-regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=15]
@@ -20,6 +18,8 @@
 [ext_resource path="res://assets/ui/self_made/enter_button.png" type="Texture" id=18]
 [ext_resource path="res://assets/ui/self_made/enter_button_pressed.png" type="Texture" id=19]
 [ext_resource path="res://assets/ui/self_made/interact_button_pressed.png" type="Texture" id=20]
+[ext_resource path="res://assets/ui/009-tick.png" type="Texture" id=21]
+[ext_resource path="res://assets/ui/033-wrong.png" type="Texture" id=22]
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://assets/ui/next.png" type="Texture" id=24]
 
@@ -70,16 +70,11 @@ default_font = SubResource( 8 )
 size = 25
 font_data = ExtResource( 23 )
 
-[sub_resource type="DynamicFont" id=11]
-size = 25
-font_data = ExtResource( 23 )
-
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 25
 font_data = ExtResource( 23 )
 
 [node name="user_interface" type="Control"]
-pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1.0
@@ -155,12 +150,14 @@ normal = ExtResource( 18 )
 pressed = ExtResource( 19 )
 
 [node name="TouchScreenButton_interact" type="TouchScreenButton" parent="touch_buttons"]
+visible = false
 position = Vector2( 736, 272 )
 scale = Vector2( 1.212, 1.189 )
 normal = ExtResource( 11 )
 pressed = ExtResource( 20 )
 
 [node name="dialog_overlay" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.219608 )
@@ -270,9 +267,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -158.0
-margin_top = -122.938
+margin_top = -123.0
 margin_right = 158.0
-margin_bottom = 179.062
+margin_bottom = 181.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -285,24 +282,77 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 10 )
 text = "Resume"
 
-[node name="change_scene_button" parent="pause_overlay/pause_menu" instance=ExtResource( 10 )]
+[node name="main_menu" type="Button" parent="pause_overlay/pause_menu"]
 margin_top = 102.0
 margin_right = 316.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
+margin_bottom = 201.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 11 )
 text = "Main Menu"
-scene_path = "res://src/screens/main_menu.tscn"
 
-[node name="quit_button" parent="pause_overlay/pause_menu" instance=ExtResource( 12 )]
-margin_top = 204.0
+[node name="quit" type="Button" parent="pause_overlay/pause_menu"]
+margin_top = 205.0
 margin_right = 316.0
-margin_bottom = 302.0
-size_flags_horizontal = 3
+margin_bottom = 304.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 12 )
-text = "Quit"
+text = "Exit"
+
+[node name="confirmation_overlay" type="ColorRect" parent="pause_overlay"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 15 )
+color = Color( 0, 0, 0, 0.678431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="pause_overlay/confirmation_overlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.0
+margin_top = -136.0
+margin_right = 304.0
+margin_bottom = 136.0
+color = Color( 0.129412, 0.584314, 0.803922, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="header" type="Label" parent="pause_overlay/confirmation_overlay/ColorRect"]
+margin_left = 20.0
+margin_top = 13.0
+margin_right = 614.0
+margin_bottom = 57.0
+text = "Are you sure you want to do this?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sub_text" type="Label" parent="pause_overlay/confirmation_overlay/ColorRect"]
+margin_left = 14.0
+margin_top = 75.5
+margin_right = 502.0
+margin_bottom = 166.5
+custom_fonts/font = SubResource( 13 )
+text = "All unsaved data will be lost"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yes_button" type="TouchScreenButton" parent="pause_overlay/confirmation_overlay/ColorRect"]
+position = Vector2( 144, 165 )
+scale = Vector2( 0.171875, 0.171875 )
+normal = ExtResource( 21 )
+
+[node name="no_button" type="TouchScreenButton" parent="pause_overlay/confirmation_overlay/ColorRect"]
+position = Vector2( 368, 165 )
+scale = Vector2( 0.171875, 0.171875 )
+normal = ExtResource( 22 )
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_pressed"]
 [connection signal="released" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_released"]
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_right" to="." method="_on_TouchScreenButton_right_pressed"]
@@ -313,3 +363,7 @@ text = "Quit"
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_pause" to="." method="_on_TouchScreenButton_pause_pressed"]
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_enter" to="." method="_on_TouchScreenButton_enter_pressed"]
 [connection signal="pressed" from="touch_buttons/TouchScreenButton_interact" to="." method="_on_TouchScreenButton_interact_pressed"]
+[connection signal="button_up" from="pause_overlay/pause_menu/main_menu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="pause_overlay/pause_menu/quit" to="." method="_on_quit_button_up"]
+[connection signal="released" from="pause_overlay/confirmation_overlay/ColorRect/yes_button" to="." method="_on_yes_button_released"]
+[connection signal="released" from="pause_overlay/confirmation_overlay/ColorRect/no_button" to="." method="_on_no_button_released"]

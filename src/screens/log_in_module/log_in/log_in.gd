@@ -85,6 +85,9 @@ func _on_get_document_request_request_completed(result: int, response_code: int,
 	
 	success_pane.visible = true
 	loading_msg.visible = false
+	
+	$Timer.set_wait_time(2.5)
+	$Timer.start()
 
 
 func _on_forgot_password_button_up() -> void:
@@ -92,9 +95,9 @@ func _on_forgot_password_button_up() -> void:
 	get_tree().change_scene("res://src/screens/log_in_module/forgot_password/forgot_password.tscn")
 
 
-func _on_success_cancel_button_pressed() -> void:
-	get_tree().change_scene("res://src/screens/main_menu.tscn")
-
-
 func _on_error_cancel_button_pressed() -> void:
 	error_pane.visible = false
+
+
+func _on_Timer_timeout() -> void:
+	get_tree().change_scene("res://src/screens/main_menu.tscn")

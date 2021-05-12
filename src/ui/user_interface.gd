@@ -35,6 +35,9 @@ var is_getting_hurt := false
 
 var is_paused := false setget set_paused
 
+enum pause_action {MAIN_MENU, QUIT}
+var current_action
+
 var scene_change_path := ""
 
 
@@ -182,3 +185,27 @@ func _on_TouchScreenButton_enter_pressed() -> void:
 	var save = load(scene_change_path)
 	var save_scene = save.instance()
 	get_parent().add_child(save_scene)
+
+
+
+func _on_main_menu_button_up() -> void:
+	$pause_overlay/confirmation_overlay.visible = true
+	current_action = pause_action.MAIN_MENU
+
+
+func _on_quit_button_up() -> void:
+	$pause_overlay/confirmation_overlay.visible = true
+	current_action = pause_action.QUIT
+
+
+func _on_yes_button_released() -> void:
+	if current_action == pause_action.MAIN_MENU:
+		get_tree().paused = false
+		get_tree().change_scene("res://src/screens/main_menu.tscn")
+	
+	if current_action == pause_action.QUIT:
+		get_tree().quit()
+
+
+func _on_no_button_released() -> void:
+	$pause_overlay/confirmation_overlay.visible = false

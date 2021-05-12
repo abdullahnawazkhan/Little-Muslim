@@ -2,9 +2,10 @@ extends Control
 
 func is_digit(s) -> bool:
 	# ascii values between 30H and 39H inclusive are digits
-	var ascii = int((s.to_ascii()).hex_encode())
+	var ascii = s.to_ascii()
+	var hex = int(ascii.hex_encode())
 	
-	if ascii < 30 || ascii > 39:
+	if hex < 30 || hex > 39:
 		return false
 		
 	return true
@@ -24,7 +25,9 @@ func validate_password() -> bool:
 		return false
 	
 	for i in range(len($password.text)):
-		if (is_digit($password.text[i]) == true):
+		var pass_text = $password.text
+		var character = pass_text[i]
+		if (is_digit(character) == true):
 			return true
 	
 	$error_pane/ColorRect/error_msg.text = "Password must contain 1 digit"

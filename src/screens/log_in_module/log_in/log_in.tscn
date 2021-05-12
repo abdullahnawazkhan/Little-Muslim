@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=2]
 [ext_resource path="res://src/screens/log_in_module/log_in/log_in.gd" type="Script" id=3]
 [ext_resource path="res://src/ui/back_button.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/ui/red_cancel.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/black_cancel.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 60
+size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -41,11 +40,13 @@ __meta__ = {
 
 [node name="title" type="Label" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -167.0
-margin_top = 46.7194
-margin_right = 167.0
-margin_bottom = 134.719
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -253.649
+margin_right = 124.0
+margin_bottom = -165.649
 custom_fonts/font = SubResource( 1 )
 text = "Logging In"
 __meta__ = {
@@ -241,11 +242,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="success_cancel_button" type="TouchScreenButton" parent="success_pane/popup"]
-position = Vector2( 459.185, -25.3619 )
-scale = Vector2( 0.178, 0.178 )
-normal = ExtResource( 5 )
-
 [node name="loading" type="ColorRect" parent="."]
 visible = false
 anchor_left = 0.5
@@ -276,9 +272,11 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
 [connection signal="button_up" from="forgot_password" to="." method="_on_forgot_password_button_up"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="get_document_request" to="." method="_on_get_document_request_request_completed"]
 [connection signal="pressed" from="error_pane/popup/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]
-[connection signal="pressed" from="success_pane/popup/success_cancel_button" to="." method="_on_success_cancel_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
