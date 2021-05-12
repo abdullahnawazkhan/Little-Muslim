@@ -53,9 +53,8 @@ func _on_PlayerData_player_died() -> void:
 	
 
 func update_interface() -> void:
-	score.text = "Score: " + str(PlayerData.score)
-	health.text = "Health: " + str(PlayerData.health) + "%"
-
+	$health/TextureProgress.value = int(PlayerData.health)
+	$score/score_label.text = str(PlayerData.score)
 
 func set_paused(value : bool) -> void:
 #	is_paused = value

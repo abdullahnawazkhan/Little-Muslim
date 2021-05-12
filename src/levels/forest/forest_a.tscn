@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/levels/forest/forest_a.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesheet_complete.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/ui/user_interface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/buildings/store_1.png" type="Texture" id=6]
 [ext_resource path="res://assets/buildings/home.png" type="Texture" id=7]
+[ext_resource path="res://src/actors/enemy/wraith_a/wraith_a.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/quests/npcs/quest_1/quest_1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/buildings/masjid.png" type="Texture" id=12]
 
@@ -392,11 +393,11 @@ shape = SubResource( 16 )
 position = Vector2( 946, 3729.08 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1297.82, 3483.85 )
+position = Vector2( 2140.69, 3749.72 )
 scale = Vector2( 0.35, 0.35 )
 
 [node name="AnimatedSprite" parent="player" index="0"]
-frame = 3
+frame = 7
 
 [node name="Camera2D" parent="player" index="3"]
 position = Vector2( -58.9739, 187.774 )
@@ -406,6 +407,10 @@ limit_bottom = 4136
 [node name="user_interface" type="CanvasLayer" parent="."]
 
 [node name="user_interface" parent="user_interface" instance=ExtResource( 5 )]
+
+[node name="wraith_a" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2624.01, 3787.66 )
+scale = Vector2( 0.7, 0.7 )
 [connection signal="body_entered" from="transport" to="." method="_on_transport_body_entered"]
 [connection signal="body_entered" from="dead_area" to="." method="_on_dead_area_body_entered"]
 [connection signal="body_entered" from="masjid" to="." method="_on_masjid_body_entered"]

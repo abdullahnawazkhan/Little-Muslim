@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/self_made/right-arrow_pressed.png" type="Texture" id=2]
@@ -9,7 +9,9 @@
 [ext_resource path="res://assets/ui/self_made/attack_button(1).png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/pause_button.png" type="Texture" id=8]
 [ext_resource path="res://src/ui/resume_button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/ui/heart.png" type="Texture" id=10]
 [ext_resource path="res://assets/ui/self_made/interact_button.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/bg.png" type="Texture" id=12]
 [ext_resource path="res://src/ui/label.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/fonts/newtegomin-regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=15]
@@ -22,12 +24,14 @@
 [ext_resource path="res://assets/ui/033-wrong.png" type="Texture" id=22]
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://assets/ui/next.png" type="Texture" id=24]
+[ext_resource path="res://assets/ui/fill.png" type="Texture" id=25]
+[ext_resource path="res://assets/ui/coin.png" type="Texture" id=26]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 23 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 23 )
 
@@ -70,7 +74,7 @@ default_font = SubResource( 8 )
 size = 25
 font_data = ExtResource( 23 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=11]
 size = 25
 font_data = ExtResource( 23 )
 
@@ -84,7 +88,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="health" type="Control" parent="."]
+margin_right = 736.0
+margin_bottom = 153.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="health"]
+margin_left = 32.0
+margin_top = 25.0
+margin_right = 428.0
+margin_bottom = 78.0
+rect_scale = Vector2( 0.8, 1 )
+texture_under = ExtResource( 12 )
+texture_progress = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="health"]
+position = Vector2( 40, 49 )
+scale = Vector2( 0.140625, 0.140625 )
+texture = ExtResource( 10 )
+
+[node name="score" type="Control" parent="."]
+margin_left = 16.0
+margin_top = 105.0
+margin_right = 56.0
+margin_bottom = 145.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_label" type="Label" parent="score"]
+margin_left = 56.0
+margin_right = 173.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 2 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="score"]
+position = Vector2( 24, 16 )
+scale = Vector2( 0.738806, 0.738806 )
+texture = ExtResource( 26 )
+
 [node name="health_label" type="Label" parent="."]
+visible = false
 margin_left = 27.8688
 margin_top = 22.8258
 margin_right = 154.869
@@ -95,20 +148,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="score_label" type="Label" parent="."]
-margin_left = 31.2362
-margin_top = 64.3569
-margin_right = 148.236
-margin_bottom = 94.3569
-custom_fonts/font = SubResource( 2 )
-text = "Score : "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="touch_buttons" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
 color = Color( 0.313726, 0.156863, 0.156863, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -337,7 +381,7 @@ margin_left = 14.0
 margin_top = 75.5
 margin_right = 502.0
 margin_bottom = 166.5
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 11 )
 text = "All unsaved data will be lost"
 autowrap = true
 __meta__ = {
