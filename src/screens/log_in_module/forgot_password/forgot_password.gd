@@ -1,12 +1,14 @@
 extends Control
 
-onready var lineEdit := get_node("LineEdit")
-onready var httpRequest := get_node("HTTPRequest")
+onready var lineEdit := get_node("elements/LineEdit")
+onready var httpRequest := get_node("elements/HTTPRequest")
 
-onready var success_msg := get_node("success_msg_area")
-onready var error_msg := get_node("error_msg_area")
+onready var success_msg := get_node("elements/success_msg_area")
+onready var error_msg := get_node("elements/error_msg_area")
 
-onready var loading_msg := get_node("loading")
+onready var loading_msg := get_node("elements/loading")
+
+var keyboard_open = false
 
 
 func _on_TouchScreenButton_pressed() -> void:
@@ -40,3 +42,21 @@ func _on_error_exit_button_pressed() -> void:
 
 func _on_success_exit_button_pressed() -> void:
 	success_msg.visible = false
+
+
+func _on_LineEdit_focus_entered() -> void:
+	if OS.has_virtual_keyboard() == true:
+		$elements.rect_position.y -= 200
+
+
+func _process(delta: float) -> void:
+	if OS.has_virtual_keyboard() == true:
+		if OS.get_virtual_keyboard_height() > 0:
+			keyboard_open = true
+			
+		if keyboard_open == true:
+			if OS.get_virtual_keyboard_height() == 0:
+				$elements.rect_position.y = 0
+				keyboard_open = false
+				$LineEdit.release_focus()
+

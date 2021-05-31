@@ -36,34 +36,42 @@ anchor_bottom = 1.0
 margin_left = -1.5874
 margin_right = -1.5874
 color = Color( 0.188235, 0.164706, 0.470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="title" type="Label" parent="."]
+[node name="elements" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="elements"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 margin_left = -223.5
-margin_top = -253.649
+margin_top = 18.8988
 margin_right = 223.5
-margin_bottom = -194.649
+margin_bottom = 77.8988
 custom_fonts/font = SubResource( 1 )
 text = "Changing User Name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="back" parent="." instance=ExtResource( 2 )]
+[node name="back" parent="elements" instance=ExtResource( 2 )]
 scale = Vector2( 0.244, 0.244 )
 scene_path = "res://src/screens/settings_page/change_account/change_account_details.tscn"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -408.431
+margin_left = -404.821
 margin_top = -18.5
-margin_right = -188.431
+margin_right = -184.821
 margin_bottom = 18.5
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
@@ -72,14 +80,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name" type="LineEdit" parent="."]
+[node name="name" type="LineEdit" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -121.819
+margin_left = -146.885
 margin_top = -34.0
-margin_right = 328.181
+margin_right = 303.115
 margin_bottom = 34.0
 custom_fonts/font = SubResource( 3 )
 placeholder_text = "Enter New Name Here"
@@ -87,44 +95,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -80.5
-margin_top = 124.677
-margin_right = 80.5
-margin_bottom = 208.677
+margin_left = -79.2401
+margin_top = 164.627
+margin_right = 81.7599
+margin_bottom = 248.627
 theme = ExtResource( 3 )
 text = "Change"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="HTTPRequest" type="HTTPRequest" parent="elements"]
 
-[node name="success_pane" type="ColorRect" parent="."]
+[node name="success_pane" type="ColorRect" parent="elements"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -305.5
-margin_top = -141.0
-margin_right = 305.5
-margin_bottom = 141.0
+margin_left = 186.5
+margin_top = 139.0
+margin_right = 797.5
+margin_bottom = 421.0
 color = Color( 0.211765, 0.819608, 0.317647, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="success_pane"]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="elements/success_pane"]
 position = Vector2( 553.034, -32.4552 )
 scale = Vector2( 0.176, 0.176 )
 normal = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="success_pane"]
+[node name="Label" type="Label" parent="elements/success_pane"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -136,22 +144,22 @@ margin_bottom = 22.0
 custom_fonts/font = SubResource( 4 )
 text = "User Name Successfully Changed"
 
-[node name="loading" type="ColorRect" parent="."]
+[node name="loading" type="ColorRect" parent="elements"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -305.5
-margin_top = -141.0
-margin_right = 305.5
-margin_bottom = 141.0
+margin_left = 186.5
+margin_top = 139.0
+margin_right = 797.5
+margin_bottom = 421.0
 color = Color( 0.980392, 0.921569, 0.0431373, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="loading"]
+[node name="Label" type="Label" parent="elements/loading"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -165,6 +173,7 @@ text = "Loading...."
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="pressed" from="success_pane/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="focus_entered" from="elements/name" to="." method="_on_name_focus_entered"]
+[connection signal="button_up" from="elements/Button" to="." method="_on_Button_button_up"]
+[connection signal="request_completed" from="elements/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="elements/success_pane/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

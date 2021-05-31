@@ -39,30 +39,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title" type="Label" parent="."]
+[node name="elements" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -271.0
-margin_top = -288.68
+margin_top = -273.22
 margin_right = 271.0
-margin_bottom = -222.68
+margin_bottom = -207.22
 custom_fonts/font = SubResource( 1 )
 text = "Creating New Account"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name_label" type="Label" parent="."]
+[node name="name_label" type="Label" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -289.308
-margin_top = -182.661
-margin_right = -218.308
-margin_bottom = -138.661
+margin_left = -284.469
+margin_top = -174.219
+margin_right = -213.469
+margin_bottom = -130.219
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Name"
@@ -70,15 +77,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="email_label" type="Label" parent="."]
+[node name="email_label" type="Label" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -295.317
-margin_top = -81.9955
-margin_right = -225.317
-margin_bottom = -37.9955
+margin_left = -282.568
+margin_top = -73.1348
+margin_right = -212.568
+margin_bottom = -29.1348
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Email"
@@ -86,15 +93,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="password_label" type="Label" parent="."]
+[node name="password_label" type="Label" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -352.968
-margin_top = 8.33936
-margin_right = -219.968
-margin_bottom = 52.3394
+margin_left = -346.518
+margin_top = 17.2
+margin_right = -213.518
+margin_bottom = 61.2
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Password"
@@ -102,62 +109,62 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="password_label2" type="Label" parent="."]
+[node name="password_label2" type="Label" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -482.032
-margin_top = 109.0
-margin_right = -215.032
-margin_bottom = 186.0
+margin_left = -346.993
+margin_top = 91.8281
+margin_right = -211.993
+margin_bottom = 170.828
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
-text = "Re-Enter Password"
-autowrap = true
+text = "Re-Enter
+Password"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name" type="LineEdit" parent="."]
+[node name="name" type="LineEdit" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -203.441
-margin_top = -190.185
-margin_right = 307.559
-margin_bottom = -138.185
+margin_left = -193.661
+margin_top = -178.219
+margin_right = 317.339
+margin_bottom = -126.219
 custom_fonts/font = SubResource( 3 )
 placeholder_text = "Enter Name Here"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="email" type="LineEdit" parent="."]
+[node name="email" type="LineEdit" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -203.441
-margin_top = -92.742
-margin_right = 307.559
-margin_bottom = -40.742
+margin_left = -193.134
+margin_top = -82.6964
+margin_right = 317.866
+margin_bottom = -30.6964
 custom_fonts/font = SubResource( 3 )
 placeholder_text = "Enter Email Here"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="password" type="LineEdit" parent="."]
+[node name="password" type="LineEdit" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -203.441
-margin_top = -1.9729
-margin_right = 307.559
-margin_bottom = 50.0271
+margin_left = -193.134
+margin_top = 8.59045
+margin_right = 317.866
+margin_bottom = 60.5905
 custom_fonts/font = SubResource( 3 )
 secret = true
 placeholder_text = "Enter Password Here"
@@ -165,15 +172,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="password2" type="LineEdit" parent="."]
+[node name="password2" type="LineEdit" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -203.441
-margin_top = 107.484
-margin_right = 307.559
-margin_bottom = 159.484
+margin_left = -193.134
+margin_top = 108.182
+margin_right = 317.866
+margin_bottom = 160.182
 custom_fonts/font = SubResource( 3 )
 secret = true
 placeholder_text = "Re-Enter Password Here"
@@ -181,26 +188,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -148.0
-margin_top = 192.932
+margin_top = 189.227
 margin_right = 148.0
-margin_bottom = 276.932
+margin_bottom = 273.227
 theme = ExtResource( 3 )
 text = "Create Account"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="account_creation" type="HTTPRequest" parent="."]
+[node name="account_creation" type="HTTPRequest" parent="elements"]
 
-[node name="document_creation" type="HTTPRequest" parent="."]
+[node name="document_creation" type="HTTPRequest" parent="elements"]
 
-[node name="error_pane" type="ColorRect" parent="."]
+[node name="error_pane" type="ColorRect" parent="elements"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -209,7 +216,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="error_pane"]
+[node name="ColorRect" type="ColorRect" parent="elements/error_pane"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -223,7 +230,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="error_msg" type="Label" parent="error_pane/ColorRect"]
+[node name="error_msg" type="Label" parent="elements/error_pane/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -239,12 +246,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="error_cancel_button" type="TouchScreenButton" parent="error_pane/ColorRect"]
+[node name="error_cancel_button" type="TouchScreenButton" parent="elements/error_pane/ColorRect"]
 position = Vector2( 528.008, -33.2978 )
 scale = Vector2( 0.178, 0.178 )
 normal = ExtResource( 6 )
 
-[node name="success_pane" type="ColorRect" parent="."]
+[node name="success_pane" type="ColorRect" parent="elements"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -253,7 +260,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="success_pane"]
+[node name="ColorRect" type="ColorRect" parent="elements/success_pane"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -267,7 +274,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="msg" type="Label" parent="success_pane/ColorRect"]
+[node name="msg" type="Label" parent="elements/success_pane/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -283,12 +290,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="success_cancel_button" type="TouchScreenButton" parent="success_pane/ColorRect"]
+[node name="success_cancel_button" type="TouchScreenButton" parent="elements/success_pane/ColorRect"]
 position = Vector2( 535.143, -29.7302 )
 scale = Vector2( 0.178, 0.178 )
 normal = ExtResource( 5 )
 
-[node name="loading" type="ColorRect" parent="."]
+[node name="loading" type="ColorRect" parent="elements"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -303,7 +310,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="msg" type="Label" parent="loading"]
+[node name="msg" type="Label" parent="elements/loading"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -319,11 +326,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="back" parent="." instance=ExtResource( 4 )]
+[node name="back" parent="elements" instance=ExtResource( 4 )]
 scale = Vector2( 0.244, 0.244 )
 scene_path = "res://src/screens/start_up_screen.tscn"
-[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
-[connection signal="request_completed" from="account_creation" to="." method="_on_account_creation_request_completed"]
-[connection signal="request_completed" from="document_creation" to="." method="_on_document_creation_request_completed"]
-[connection signal="pressed" from="error_pane/ColorRect/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]
-[connection signal="pressed" from="success_pane/ColorRect/success_cancel_button" to="." method="_on_TouchScreenButton_pressed"]
+
+[node name="email_cover" type="ColorRect" parent="elements"]
+visible = false
+margin_right = 511.0
+margin_bottom = 52.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password_cover" type="ColorRect" parent="elements"]
+visible = false
+margin_right = 511.0
+margin_bottom = 52.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password2_cover" type="ColorRect" parent="elements"]
+visible = false
+margin_right = 511.0
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="focus_entered" from="elements/name" to="." method="_on_name_focus_entered"]
+[connection signal="focus_entered" from="elements/email" to="." method="_on_email_focus_entered"]
+[connection signal="focus_entered" from="elements/password" to="." method="_on_password_focus_entered"]
+[connection signal="focus_entered" from="elements/password2" to="." method="_on_password2_focus_entered"]
+[connection signal="button_up" from="elements/Button" to="." method="_on_Button_button_up"]
+[connection signal="request_completed" from="elements/account_creation" to="." method="_on_account_creation_request_completed"]
+[connection signal="request_completed" from="elements/document_creation" to="." method="_on_document_creation_request_completed"]
+[connection signal="pressed" from="elements/error_pane/ColorRect/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]
+[connection signal="pressed" from="elements/success_pane/ColorRect/success_cancel_button" to="." method="_on_TouchScreenButton_pressed"]

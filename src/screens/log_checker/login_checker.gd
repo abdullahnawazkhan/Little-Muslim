@@ -90,12 +90,41 @@ func _on_get_document_request_completed(result: int, response_code: int, headers
 		var size_of_completed = len(d["dua_memorized"]["arrayValue"]["values"])
 		for i in range(size_of_completed):
 			PlayerData.memorized.append(d["dua_memorized"]["arrayValue"]["values"][i]["stringValue"])
+			
+	# getting user country and city
+	var city = d["city"]["stringValue"]
+	var country = d["country"]["stringValue"]
 
 
 	PlayerData.set_health(int(d["health"]["integerValue"]))
 	PlayerData.set_score(int(d["points"]["integerValue"]))
-	get_tree().change_scene("res://src/screens/main_menu.tscn")
+	
+	$namaz_timings.request("http://api.aladhan.com/v1/timingsByCity?city=" + city + "&country=" + country + "&method=8")
+	
 
 
 func _on_Timer_timeout() -> void:
 	$Timer.stop()
+
+
+func _on_namaz_timings_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	var d = parse_json(body.get_string_from_utf8())
+	if (response_code == 200):
+		var dict = parse_json(body.get_string_from_utf8())
+		
+		for x in dict["data"]["timings"]:
+			if (x == "Fajr"):
+				NamazTimings.todays_timings["Fajr"] = dict["data"]["timings"]["Fajr"]
+			elif (x == "Dhuhr"):
+				NamazTimings.todays_timings["Dhuhr"] = dict["data"]["timings"]["Fajr"]
+			elif (x == "Asr"):
+				NamazTimings.todays_timings["Asr"] = dict["data"]["timings"]["Asr"]
+			elif (x == "Maghrib"):
+				NamazTimings.todays_timings["Maghrib"] = dict["data"]["timings"]["Maghrib"]
+			elif (x == "Isha"):
+				NamazTimings.todays_timings["Isha"] = dict["data"]["timings"]["Isha"]
+		
+	else:
+		print("Server Error")
+		
+	get_tree().change_scene("res://src/screens/main_menu.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/self_made/right-arrow_pressed.png" type="Texture" id=2]
@@ -13,7 +13,7 @@
 [ext_resource path="res://assets/ui/self_made/interact_button.png" type="Texture" id=11]
 [ext_resource path="res://assets/ui/bg.png" type="Texture" id=12]
 [ext_resource path="res://src/ui/label.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/fonts/newtegomin-regular.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://assets/fonts/new_tegomin-Regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=15]
 [ext_resource path="res://assets/ui/self_made/left_arrow.png" type="Texture" id=16]
 [ext_resource path="res://assets/ui/self_made/left_arrow_pressed.png" type="Texture" id=17]
@@ -26,12 +26,14 @@
 [ext_resource path="res://assets/ui/next.png" type="Texture" id=24]
 [ext_resource path="res://assets/ui/fill.png" type="Texture" id=25]
 [ext_resource path="res://assets/ui/coin.png" type="Texture" id=26]
+[ext_resource path="res://assets/ui/prayer-mat.png" type="Texture" id=27]
+[ext_resource path="res://assets/ui/red_cancel.png" type="Texture" id=28]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 23 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 23 )
 
@@ -64,18 +66,25 @@ Button/styles/normal = SubResource( 5 )
 Button/styles/pressed = null
 
 [sub_resource type="DynamicFont" id=8]
-size = 35
+size = 40
 font_data = ExtResource( 14 )
 
-[sub_resource type="Theme" id=9]
-default_font = SubResource( 8 )
+[sub_resource type="DynamicFont" id=9]
+size = 25
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 25
 font_data = ExtResource( 23 )
 
-[sub_resource type="DynamicFont" id=11]
-size = 25
+[sub_resource type="Theme" id=11]
+
+[sub_resource type="DynamicFont" id=12]
+size = 35
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 35
 font_data = ExtResource( 23 )
 
 [node name="user_interface" type="Control"]
@@ -125,7 +134,7 @@ __meta__ = {
 margin_left = 56.0
 margin_right = 173.0
 margin_bottom = 30.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "100"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -142,7 +151,7 @@ margin_left = 27.8688
 margin_top = 22.8258
 margin_right = 154.869
 margin_bottom = 52.8258
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Health : "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -151,56 +160,122 @@ __meta__ = {
 [node name="touch_buttons" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.0
-margin_bottom = 1.0
 color = Color( 0.313726, 0.156863, 0.156863, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TouchScreenButton_left" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 48, 424 )
+[node name="left" type="Control" parent="touch_buttons"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton_left" type="TouchScreenButton" parent="touch_buttons/left"]
+position = Vector2( 48, -135 )
 scale = Vector2( 0.252, 0.252 )
 normal = ExtResource( 16 )
 pressed = ExtResource( 17 )
 
-[node name="TouchScreenButton_right" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 232, 424 )
+[node name="right" type="Control" parent="touch_buttons"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton_right" type="TouchScreenButton" parent="touch_buttons/right"]
+position = Vector2( 216, -135 )
 scale = Vector2( 0.252, 0.252 )
 normal = ExtResource( 3 )
 pressed = ExtResource( 2 )
 
-[node name="TouchScreenButton_jump" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 816, 426.06 )
-scale = Vector2( 1.212, 1.189 )
-normal = ExtResource( 4 )
-pressed = ExtResource( 5 )
+[node name="attack" type="Control" parent="touch_buttons"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TouchScreenButton_attack" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 664, 424 )
+[node name="TouchScreenButton_attack" type="TouchScreenButton" parent="touch_buttons/attack"]
+position = Vector2( -320, -135 )
 scale = Vector2( 1.21237, 1.18877 )
 normal = ExtResource( 7 )
 pressed = ExtResource( 6 )
 
-[node name="TouchScreenButton_pause" type="TouchScreenButton" parent="touch_buttons"]
-position = Vector2( 883.466, 15.102 )
+[node name="jump" type="Control" parent="touch_buttons"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton_jump" type="TouchScreenButton" parent="touch_buttons/jump"]
+position = Vector2( -144, -135 )
+scale = Vector2( 1.212, 1.189 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+
+[node name="pause" type="Control" parent="touch_buttons"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton_pause" type="TouchScreenButton" parent="touch_buttons/pause"]
+position = Vector2( -72, 9 )
 normal = ExtResource( 8 )
 
-[node name="TouchScreenButton_enter" type="TouchScreenButton" parent="touch_buttons"]
+[node name="enter" type="Control" parent="touch_buttons"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton_enter" type="TouchScreenButton" parent="touch_buttons/enter"]
 visible = false
-position = Vector2( 736, 272 )
+position = Vector2( -248, 272 )
 scale = Vector2( 1.212, 1.189 )
 normal = ExtResource( 18 )
 pressed = ExtResource( 19 )
 
-[node name="TouchScreenButton_interact" type="TouchScreenButton" parent="touch_buttons"]
+[node name="interact" type="Control" parent="touch_buttons"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton_interact" type="TouchScreenButton" parent="touch_buttons/interact"]
 visible = false
-position = Vector2( 736, 272 )
+position = Vector2( -248, 272 )
 scale = Vector2( 1.212, 1.189 )
 normal = ExtResource( 11 )
 pressed = ExtResource( 20 )
 
 [node name="dialog_overlay" type="ColorRect" parent="."]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -262,25 +337,36 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="dialog_overlay/dialog_box"]
-anchor_right = 0.992
-anchor_bottom = 0.95
-margin_left = 104.0
-margin_top = 16.0
-margin_right = -191.808
-theme = SubResource( 9 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -55.0
+margin_right = 320.0
+margin_bottom = 68.0
+custom_fonts/normal_font = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="dialog_overlay/dialog_box"]
-position = Vector2( 920, 16 )
-scale = Vector2( 2, 2.03125 )
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="dialog_overlay/dialog_box"]
+[node name="TouchScreenButton_next_dialog" type="TouchScreenButton" parent="dialog_overlay/dialog_box"]
 position = Vector2( 80, 56 )
 rotation = 1.5708
 scale = Vector2( 0.125001, 0.126954 )
 normal = ExtResource( 24 )
+
+[node name="Control" type="Control" parent="dialog_overlay/dialog_box"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="Sprite" type="Sprite" parent="dialog_overlay/dialog_box/Control"]
+position = Vector2( -88, -104 )
+scale = Vector2( 2, 2.03125 )
 
 [node name="pause_overlay" type="ColorRect" parent="."]
 pause_mode = 2
@@ -290,7 +376,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 15 )
 color = Color( 0, 0, 0, 0.678431 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="title" parent="pause_overlay" instance=ExtResource( 13 )]
@@ -323,7 +409,7 @@ margin_right = 316.0
 margin_bottom = 98.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "Resume"
 
 [node name="main_menu" type="Button" parent="pause_overlay/pause_menu"]
@@ -381,7 +467,7 @@ margin_left = 14.0
 margin_top = 75.5
 margin_right = 502.0
 margin_bottom = 166.5
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 text = "All unsaved data will be lost"
 autowrap = true
 __meta__ = {
@@ -397,17 +483,99 @@ normal = ExtResource( 21 )
 position = Vector2( 368, 165 )
 scale = Vector2( 0.171875, 0.171875 )
 normal = ExtResource( 22 )
-[connection signal="pressed" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_pressed"]
-[connection signal="released" from="touch_buttons/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_released"]
-[connection signal="pressed" from="touch_buttons/TouchScreenButton_right" to="." method="_on_TouchScreenButton_right_pressed"]
-[connection signal="released" from="touch_buttons/TouchScreenButton_right" to="." method="_on_TouchScreenButton_right_released"]
-[connection signal="pressed" from="touch_buttons/TouchScreenButton_jump" to="." method="_on_TouchScreenButton_jump_pressed"]
-[connection signal="released" from="touch_buttons/TouchScreenButton_jump" to="." method="_on_TouchScreenButton_jump_released"]
-[connection signal="pressed" from="touch_buttons/TouchScreenButton_attack" to="." method="_on_TouchScreenButton_attack_pressed"]
-[connection signal="pressed" from="touch_buttons/TouchScreenButton_pause" to="." method="_on_TouchScreenButton_pause_pressed"]
-[connection signal="pressed" from="touch_buttons/TouchScreenButton_enter" to="." method="_on_TouchScreenButton_enter_pressed"]
-[connection signal="pressed" from="touch_buttons/TouchScreenButton_interact" to="." method="_on_TouchScreenButton_interact_pressed"]
+
+[node name="namaz_reminder" type="ColorRect" parent="."]
+pause_mode = 2
+visible = false
+anchor_top = 0.00166667
+anchor_right = 1.0
+anchor_bottom = 1.00167
+color = Color( 0, 0, 0, 0.678431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="namaz_reminder"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -171.0
+margin_top = -230.0
+margin_right = 171.0
+margin_bottom = 230.0
+theme = SubResource( 11 )
+color = Color( 0.384314, 0.72549, 0.372549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="namaz_reminder/ColorRect"]
+position = Vector2( 171, 111 )
+scale = Vector2( 0.40625, 0.40625 )
+texture = ExtResource( 27 )
+
+[node name="namaz_type" type="Label" parent="namaz_reminder/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -42.5
+margin_top = 4.0
+margin_right = 42.5
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 12 )
+text = "Zuhr"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="namaz_reminder/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -111.5
+margin_top = 52.0
+margin_right = 111.5
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 13 )
+text = "Namaz Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="namaz_reminder/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = 124.0
+margin_right = 109.0
+margin_bottom = 201.0
+theme = ExtResource( 15 )
+text = "Qibla Finder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="namaz_reminder/ColorRect"]
+position = Vector2( 291, -30 )
+scale = Vector2( 0.171875, 0.171875 )
+normal = ExtResource( 28 )
+[connection signal="pressed" from="touch_buttons/left/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_pressed"]
+[connection signal="released" from="touch_buttons/left/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_released"]
+[connection signal="pressed" from="touch_buttons/right/TouchScreenButton_right" to="." method="_on_TouchScreenButton_right_pressed"]
+[connection signal="released" from="touch_buttons/right/TouchScreenButton_right" to="." method="_on_TouchScreenButton_right_released"]
+[connection signal="pressed" from="touch_buttons/attack/TouchScreenButton_attack" to="." method="_on_TouchScreenButton_attack_pressed"]
+[connection signal="pressed" from="touch_buttons/jump/TouchScreenButton_jump" to="." method="_on_TouchScreenButton_jump_pressed"]
+[connection signal="released" from="touch_buttons/jump/TouchScreenButton_jump" to="." method="_on_TouchScreenButton_jump_released"]
+[connection signal="pressed" from="touch_buttons/pause/TouchScreenButton_pause" to="." method="_on_TouchScreenButton_pause_pressed"]
+[connection signal="pressed" from="touch_buttons/enter/TouchScreenButton_enter" to="." method="_on_TouchScreenButton_enter_pressed"]
+[connection signal="pressed" from="touch_buttons/interact/TouchScreenButton_interact" to="." method="_on_TouchScreenButton_interact_pressed"]
 [connection signal="button_up" from="pause_overlay/pause_menu/main_menu" to="." method="_on_main_menu_button_up"]
 [connection signal="button_up" from="pause_overlay/pause_menu/quit" to="." method="_on_quit_button_up"]
 [connection signal="released" from="pause_overlay/confirmation_overlay/ColorRect/yes_button" to="." method="_on_yes_button_released"]
 [connection signal="released" from="pause_overlay/confirmation_overlay/ColorRect/no_button" to="." method="_on_no_button_released"]
+[connection signal="pressed" from="namaz_reminder/ColorRect/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

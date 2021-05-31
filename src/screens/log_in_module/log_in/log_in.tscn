@@ -38,14 +38,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title" type="Label" parent="."]
+[node name="element" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="element"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -124.0
 margin_top = -253.649
-margin_right = 124.0
+margin_right = 149.0
 margin_bottom = -165.649
 custom_fonts/font = SubResource( 1 )
 text = "Logging In"
@@ -53,7 +60,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="email_label" type="Label" parent="."]
+[node name="email_label" type="Label" parent="element"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -69,7 +76,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="password_label" type="Label" parent="."]
+[node name="password_label" type="Label" parent="element"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -85,7 +92,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="email" type="LineEdit" parent="."]
+[node name="email" type="LineEdit" parent="element"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -101,7 +108,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="password" type="LineEdit" parent="."]
+[node name="password" type="LineEdit" parent="element"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -118,7 +125,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="element"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -133,7 +140,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="forgot_password" type="Button" parent="."]
+[node name="forgot_password" type="Button" parent="element"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -148,15 +155,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="HTTPRequest" type="HTTPRequest" parent="element"]
 
-[node name="get_document_request" type="HTTPRequest" parent="."]
+[node name="get_document_request" type="HTTPRequest" parent="element"]
 
-[node name="back" parent="." instance=ExtResource( 4 )]
+[node name="namaz_timings" type="HTTPRequest" parent="element"]
+
+[node name="back" parent="element" instance=ExtResource( 4 )]
 scale = Vector2( 0.244, 0.244 )
 scene_path = "res://src/screens/start_up_screen.tscn"
 
-[node name="error_pane" type="ColorRect" parent="."]
+[node name="error_pane" type="ColorRect" parent="element"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -167,7 +176,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="popup" type="ColorRect" parent="error_pane"]
+[node name="popup" type="ColorRect" parent="element/error_pane"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -181,7 +190,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="error_msg" type="Label" parent="error_pane/popup"]
+[node name="error_msg" type="Label" parent="element/error_pane/popup"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -196,12 +205,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="error_cancel_button" type="TouchScreenButton" parent="error_pane/popup"]
+[node name="error_cancel_button" type="TouchScreenButton" parent="element/error_pane/popup"]
 position = Vector2( 459.185, -25.362 )
 scale = Vector2( 0.178, 0.178 )
 normal = ExtResource( 6 )
 
-[node name="success_pane" type="ColorRect" parent="."]
+[node name="success_pane" type="ColorRect" parent="element"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -212,7 +221,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="popup" type="ColorRect" parent="success_pane"]
+[node name="popup" type="ColorRect" parent="element/success_pane"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -226,7 +235,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="success_msg" type="Label" parent="success_pane/popup"]
+[node name="success_msg" type="Label" parent="element/success_pane/popup"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -242,7 +251,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="loading" type="ColorRect" parent="."]
+[node name="loading" type="ColorRect" parent="element"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -257,7 +266,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="success_msg" type="Label" parent="loading"]
+[node name="success_msg" type="Label" parent="element/loading"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -273,10 +282,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
-[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
-[connection signal="button_up" from="forgot_password" to="." method="_on_forgot_password_button_up"]
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="request_completed" from="get_document_request" to="." method="_on_get_document_request_request_completed"]
-[connection signal="pressed" from="error_pane/popup/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Timer" type="Timer" parent="element"]
+[connection signal="focus_entered" from="element/email" to="." method="_on_email_focus_entered"]
+[connection signal="focus_entered" from="element/password" to="." method="_on_password_focus_entered"]
+[connection signal="button_up" from="element/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="element/forgot_password" to="." method="_on_forgot_password_button_up"]
+[connection signal="request_completed" from="element/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="element/get_document_request" to="." method="_on_get_document_request_request_completed"]
+[connection signal="request_completed" from="element/namaz_timings" to="." method="_on_namaz_timings_request_completed"]
+[connection signal="pressed" from="element/error_pane/popup/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]
+[connection signal="timeout" from="element/Timer" to="." method="_on_Timer_timeout"]

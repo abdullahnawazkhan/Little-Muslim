@@ -2,25 +2,23 @@ extends Control
 
 onready var scene_tree : = get_tree()
 onready var paused_overly : ColorRect = get_node("pause_overlay")
-onready var score : Label = get_node("score_label")
-onready var health : Label = get_node("health_label")
 onready var pause_title : Label = get_node("pause_overlay/title")
 onready var curr = get_tree().get_current_scene().get_name()
-onready var player : actor =  get_tree().get_root().get_node(curr + "/player")
+onready var player  :=  get_tree().get_root().get_node(curr + "/player")
 onready var player_sm := get_tree().get_root().get_node(curr + "/player/state_machine")
 
-onready var left_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_left")
-onready var right_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_right")
-onready var attack_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_attack")
-onready var jump_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_jump")
-onready var enter_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_enter")
-onready var interact_button : TouchScreenButton = get_node("touch_buttons/TouchScreenButton_interact")
+onready var left_button : TouchScreenButton = get_node("touch_buttons/left/TouchScreenButton_left")
+onready var right_button : TouchScreenButton = get_node("touch_buttons/right/TouchScreenButton_right")
+onready var attack_button : TouchScreenButton = get_node("touch_buttons/attack/TouchScreenButton_attack")
+onready var jump_button : TouchScreenButton = get_node("touch_buttons/jump/TouchScreenButton_jump")
+onready var enter_button : TouchScreenButton = get_node("touch_buttons/enter/TouchScreenButton_enter")
+onready var interact_button : TouchScreenButton = get_node("touch_buttons/interact/TouchScreenButton_interact")
 onready var touch_buttons : ColorRect = get_node("touch_buttons")
 
 onready var dialog : ColorRect = get_node("dialog_overlay")
 onready var dialog_text : RichTextLabel = get_node("dialog_overlay/dialog_box/RichTextLabel")
-onready var next_button : TouchScreenButton = get_node("dialog_overlay/dialog_box/TouchScreenButton")
-onready var sprite : Sprite = get_node("dialog_overlay/dialog_box/Sprite")
+onready var next_button : TouchScreenButton = get_node("dialog_overlay/dialog_box/TouchScreenButton_next_dialog")
+onready var sprite : Sprite = get_node("dialog_overlay/dialog_box/Control/Sprite")
 onready var choice_button : Button = get_node("dialog_overlay/choices/HBoxContainer/Button")
 onready var choice_area : ColorRect = get_node("dialog_overlay/choices")
 onready var choice_list : VBoxContainer = get_node("dialog_overlay/choices/HBoxContainer")
@@ -45,7 +43,15 @@ func _ready() -> void:
 	PlayerData.connect("score_updated", self, "update_interface")
 	PlayerData.connect("player_health_changed", self, "update_interface")
 	PlayerData.connect("player_died", self, "_on_PlayerData_player_died")
+	NamazTimings.connect("namaz_time", self, "_show_namaz_reminder")
 	update_interface()
+
+
+func _show_namaz_reminder(var type):
+	get_tree().paused = true
+	touch_buttons.visible = false
+	$namaz_reminder.visible = true
+	$namaz_reminder/ColorRect/namaz_type.text = str(type)
 
 
 func _on_PlayerData_player_died() -> void:
@@ -154,13 +160,13 @@ func generate_choices(choices) -> void:
 	for c in choices:
 		if (choice_button.text == ""):
 			choice_button.text = c
-			choice_button.connect("pressed", npc, "process_choice", [c])
+			choice_button.connect("pressed", npc_child, "process_choice", [c])
 		else:
 			var new_button = choice_button.duplicate()
 			b.append(new_button)
 			choice_list.add_child(new_button)
 			new_button.text = c
-			new_button.connect("pressed", npc, "process_choice", [c])
+			new_button.connect("pressed", npc_child, "process_choice", [c])
 
 
 func clear_choices() -> void:
@@ -208,3 +214,9 @@ func _on_yes_button_released() -> void:
 
 func _on_no_button_released() -> void:
 	$pause_overlay/confirmation_overlay.visible = false
+
+
+func _on_TouchScreenButton_pressed() -> void:
+	$namaz_reminder.visible = false
+	touch_buttons.visible = true
+	get_tree().paused = false

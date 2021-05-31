@@ -1,5 +1,6 @@
 extends Control
 
+var keyboard_open = false
 
 func is_digit(s) -> bool:
 	# ascii values between 30H and 39H inclusive are digits
@@ -74,3 +75,33 @@ func _on_error_cancel_button_pressed() -> void:
 
 func _on_success_cancel_button_pressed() -> void:
 	get_tree().change_scene("res://src/screens/settings_page/change_account/change_account_details.tscn")
+
+
+func _on_password_1_focus_entered() -> void:
+	if OS.has_virtual_keyboard() == true:
+		$elements.rect_position.y -= 150
+		$elements/password_2.focus_mode = FOCUS_NONE
+		
+		
+func _on_password_2_focus_entered() -> void:
+	if OS.has_virtual_keyboard() == true:
+		$elements.rect_position.y -= 250
+		$elements/password_1.focus_mode = FOCUS_NONE
+
+
+
+func _process(delta: float) -> void:
+	if OS.has_virtual_keyboard() == true:
+		if OS.get_virtual_keyboard_height() > 0:
+			keyboard_open = true
+			
+		if keyboard_open == true:
+			if OS.get_virtual_keyboard_height() == 0:
+				$elements.rect_position.y = 0
+				keyboard_open = false
+
+				$elements/password_1.release_focus()
+				$elements/password_2.release_focus()
+				
+				$elements/password_2.focus_mode = FOCUS_ALL
+				$elements/password_1.focus_mode = FOCUS_ALL

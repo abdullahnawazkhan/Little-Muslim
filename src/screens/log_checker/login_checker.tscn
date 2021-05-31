@@ -53,19 +53,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 524.106, 213.861 )
-scale = Vector2( 0.385, 0.394 )
-frames = SubResource( 2 )
-frame = 5
-speed_scale = 2.0
-playing = true
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="auto_login" type="HTTPRequest" parent="."]
 
 [node name="get_document" type="HTTPRequest" parent="."]
+
+[node name="namaz_timings" type="HTTPRequest" parent="."]
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
+position = Vector2( 23.9464, -91.5006 )
+scale = Vector2( 0.385, 0.394 )
+frames = SubResource( 2 )
+frame = 7
+speed_scale = 2.0
+playing = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="request_completed" from="auto_login" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="get_document" to="." method="_on_get_document_request_completed"]
+[connection signal="request_completed" from="namaz_timings" to="." method="_on_namaz_timings_request_completed"]

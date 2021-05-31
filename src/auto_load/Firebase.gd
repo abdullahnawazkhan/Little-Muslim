@@ -22,10 +22,10 @@ func log_in(http, email, password) -> void:
 
 
 func get_headers() -> PoolStringArray:
-	return PoolStringArray([
-		"Content-Type: application/json",
-		"Authorization: Bearer %s" % user_token
-	])
+		return PoolStringArray([
+			"Content-Type: application/json",
+			"Authorization: Bearer %s" % user_token
+		])
 
 
 func register(http, email, password) -> void:

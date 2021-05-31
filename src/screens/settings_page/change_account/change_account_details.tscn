@@ -72,29 +72,29 @@ __meta__ = {
 
 [node name="change_name" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_right = 356.0
-margin_bottom = 86.0
+margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Change Name"
 scene_path = "res://src/screens/settings_page/change_account/change_name/change_name.tscn"
 
 [node name="change_scene_button2" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 90.0
+margin_top = 93.0
 margin_right = 356.0
-margin_bottom = 177.0
+margin_bottom = 182.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Change Password"
 scene_path = "res://src/screens/settings_page/change_account/change_password/change_password.tscn"
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 181.0
+margin_top = 186.0
 margin_right = 356.0
-margin_bottom = 265.0
+margin_bottom = 263.0
 text = "Reset Data"
 
 [node name="log_out" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 269.0
+margin_top = 267.0
 margin_right = 356.0
 margin_bottom = 356.0
 size_flags_horizontal = 3
