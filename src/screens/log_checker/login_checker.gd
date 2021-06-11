@@ -1,49 +1,38 @@
 extends Control
 
-var found = false
-var thread_work_done = false
-
 func _ready() -> void:
 	$Timer.set_wait_time(1.0)
 	$Timer.start()
 	_check_existing_login()
 	
-
+	
 func _check_existing_login() -> void:
 	var file = File.new()
 	if (file.file_exists("user://save_login.dat") == false):
-		print("No Data found")
-		found = false
-		thread_work_done = true
+		get_tree().change_scene("res://src/screens/start_up_screen.tscn")
 	else:
 		# automatically logs user in
-		file = File.new()
+		#file = File.new()
 		file.open("user://save_login.dat", File.READ)
 		var content = file.get_as_text()
+		# abc@xyz.com/Abc12345
 		var arr = content.split("/")
+		# arr [0] = left portion
+		# arr [1] = right portion
 		var email = arr[0]
 		var password = arr[1]
-		
-		var body = {
-			"email" : email,
-			"password" : password,
-			"returnSecureToken" : true
-		}
 		
 		Firebase.log_in($auto_login, email, password)
 	
 
 func _physics_process(delta: float) -> void:
-	if (found != true && thread_work_done == true):
-		get_tree().change_scene("res://src/screens/start_up_screen.tscn")
-	else:
-		if ($Timer.is_stopped() == true):
-			if ($Label.text == "Loading..."):
-				$Label.text = "Loading"
-			else:
-				$Label.text += "." 
-			$Timer.set_wait_time(1.0)
-			$Timer.start()
+	if ($Timer.is_stopped() == true):
+		if ($Label.text == "Loading..."):
+			$Label.text = "Loading"
+		else:
+			$Label.text += "." 
+		$Timer.set_wait_time(1.0)
+		$Timer.start()
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -53,13 +42,12 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		Firebase.user_token = dict["idToken"]
 		Firebase.user_id = dict["localId"]
 		Firebase.get_document("users/%s" % Firebase.user_id, $get_document)
-		found = true
 	else:
 		var dir = Directory.new()
 		dir.remove("user://save_login.dat")
-		found = false
 		
-	thread_work_done = true
+		get_tree().change_scene("res://src/screens/start_up_screen.tscn")
+		
 
 
 func _on_get_document_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:

@@ -23,6 +23,9 @@ onready var choice_button : Button = get_node("dialog_overlay/choices/HBoxContai
 onready var choice_area : ColorRect = get_node("dialog_overlay/choices")
 onready var choice_list : VBoxContainer = get_node("dialog_overlay/choices/HBoxContainer")
 
+var qibla_scene = preload("res://src/qibla_finder/qibla_finder.tscn")
+var internet_error_msg = preload("res://src/ui/no_internet.tscn")
+
 var b = []
 
 var npc_child = null
@@ -44,6 +47,8 @@ func _ready() -> void:
 	PlayerData.connect("player_health_changed", self, "update_interface")
 	PlayerData.connect("player_died", self, "_on_PlayerData_player_died")
 	NamazTimings.connect("namaz_time", self, "_show_namaz_reminder")
+	InternetConnection.in_game = true
+	InternetConnection.connect("no_internet", self, "_show_internet_error_msg")
 	update_interface()
 
 
@@ -220,3 +225,13 @@ func _on_TouchScreenButton_pressed() -> void:
 	$namaz_reminder.visible = false
 	touch_buttons.visible = true
 	get_tree().paused = false
+
+
+func _on_Button_button_up() -> void:
+	var qibla_instance = qibla_scene.instance()
+	self.add_child(qibla_instance)
+
+
+func _show_internet_error_msg() -> void:
+	var internet_error_instance = internet_error_msg.instance()
+	self.add_child(internet_error_instance)

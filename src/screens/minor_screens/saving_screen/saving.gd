@@ -8,11 +8,6 @@ func _ready() -> void:
 	$Timer.set_wait_time(1.0)
 	$Timer.start()
 	
-#	"quest_in_progress" : {
-#				"arrayValue" : {
-#					"values" : []
-#				}
-#			},
 	
 	Firebase.user_data["health"]["integerValue"] = PlayerData.health
 	Firebase.user_data["points"]["integerValue"] = PlayerData.score
@@ -27,9 +22,9 @@ func _ready() -> void:
 	
 	# getting quests in progress for saving
 	var new_prog_vals = []
-	for i in range(len(PlayerData.quests_in_progress)):
+	for q in PlayerData.quests_in_progress:
 		new_prog_vals.append({
-			"stringValue" : PlayerData.quests_in_progress[i]
+			"stringValue" : q
 		})
 	Firebase.user_data["quest_in_progress"]["arrayValue"]["values"] = new_prog_vals
 	

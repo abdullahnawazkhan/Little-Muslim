@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Little-Muslim"
-run/main_scene="res://src/screens/log_checker/login_checker.tscn"
+run/main_scene="res://src/screens/start_up_internet_checker/internet_checker.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -41,6 +41,7 @@ config/icon="res://icon.png"
 PlayerData="*res://src/auto_load/player_data.gd"
 Firebase="*res://src/auto_load/Firebase.gd"
 NamazTimings="*res://src/auto_load/namaz_timings.gd"
+InternetConnection="*res://src/auto_load/internet_connection.tscn"
 
 [display]
 

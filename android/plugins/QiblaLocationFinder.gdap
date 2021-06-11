@@ -1,0 +1,5 @@
+[config]
+
+name="QiblaLocationFinder"
+binary_type="local"
+binary="QiblaLocationFinder-release.aar"

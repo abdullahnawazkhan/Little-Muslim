@@ -376,7 +376,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 15 )
 color = Color( 0, 0, 0, 0.678431 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="title" parent="pause_overlay" instance=ExtResource( 13 )]
@@ -406,23 +406,29 @@ __meta__ = {
 
 [node name="resume_button" parent="pause_overlay/pause_menu" instance=ExtResource( 9 )]
 margin_right = 316.0
-margin_bottom = 98.0
+margin_bottom = 77.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
 text = "Resume"
 
 [node name="main_menu" type="Button" parent="pause_overlay/pause_menu"]
-margin_top = 102.0
+margin_top = 81.0
 margin_right = 316.0
-margin_bottom = 201.0
+margin_bottom = 165.0
 size_flags_vertical = 3
 text = "Main Menu"
 
-[node name="quit" type="Button" parent="pause_overlay/pause_menu"]
-margin_top = 205.0
+[node name="Button" type="Button" parent="pause_overlay/pause_menu"]
+margin_top = 169.0
 margin_right = 316.0
-margin_bottom = 304.0
+margin_bottom = 253.0
+text = "Qibla Finder"
+
+[node name="quit" type="Button" parent="pause_overlay/pause_menu"]
+margin_top = 257.0
+margin_right = 316.0
+margin_bottom = 341.0
 size_flags_vertical = 3
 text = "Exit"
 
@@ -575,6 +581,7 @@ normal = ExtResource( 28 )
 [connection signal="pressed" from="touch_buttons/enter/TouchScreenButton_enter" to="." method="_on_TouchScreenButton_enter_pressed"]
 [connection signal="pressed" from="touch_buttons/interact/TouchScreenButton_interact" to="." method="_on_TouchScreenButton_interact_pressed"]
 [connection signal="button_up" from="pause_overlay/pause_menu/main_menu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="pause_overlay/pause_menu/Button" to="." method="_on_Button_button_up"]
 [connection signal="button_up" from="pause_overlay/pause_menu/quit" to="." method="_on_quit_button_up"]
 [connection signal="released" from="pause_overlay/confirmation_overlay/ColorRect/yes_button" to="." method="_on_yes_button_released"]
 [connection signal="released" from="pause_overlay/confirmation_overlay/ColorRect/no_button" to="." method="_on_no_button_released"]
