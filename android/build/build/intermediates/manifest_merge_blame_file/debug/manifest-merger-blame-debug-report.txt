@@ -128,11 +128,17 @@
 83-->[godot-lib.debug.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4078a0b16d2c56e4a80978d5ef960a67\godot-lib.debug\AndroidManifest.xml:19:18-77
 84
 85        <meta-data
-85-->[QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\88757d3b2ddc04a49eaf0dff6112a86e\QiblaLocationFinder-release\AndroidManifest.xml:10:9-12:83
-86            android:name="org.godotengine.plugin.v1.QiblaLocationFinder"
-86-->[QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\88757d3b2ddc04a49eaf0dff6112a86e\QiblaLocationFinder-release\AndroidManifest.xml:11:13-73
-87            android:value="com.example.qiblalocationfinder.QiblaLocationFinder" />
-87-->[QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\88757d3b2ddc04a49eaf0dff6112a86e\QiblaLocationFinder-release\AndroidManifest.xml:12:13-80
-88    </application>
-89
-90</manifest>
+85-->[PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:10:9-12:79
+86            android:name="org.godotengine.plugin.v1.PermissionChecker"
+86-->[PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:11:13-71
+87            android:value="com.example.permissionchecker.PermissionChecker" />
+87-->[PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:12:13-76
+88        <meta-data
+88-->[QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:10:9-12:83
+89            android:name="org.godotengine.plugin.v1.QiblaLocationFinder"
+89-->[QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:11:13-73
+90            android:value="com.example.qiblalocationfinder.QiblaLocationFinder" />
+90-->[QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:12:13-80
+91    </application>
+92
+93</manifest>

@@ -1,0 +1,5 @@
+[config]
+
+name="PermissionChecker"
+binary_type="local"
+binary="PermissionChecker-release.aar"

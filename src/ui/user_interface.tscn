@@ -70,7 +70,7 @@ size = 40
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 25
+size = 30
 font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=10]
@@ -406,29 +406,29 @@ __meta__ = {
 
 [node name="resume_button" parent="pause_overlay/pause_menu" instance=ExtResource( 9 )]
 margin_right = 316.0
-margin_bottom = 77.0
+margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
 text = "Resume"
 
 [node name="main_menu" type="Button" parent="pause_overlay/pause_menu"]
-margin_top = 81.0
+margin_top = 88.0
 margin_right = 316.0
-margin_bottom = 165.0
+margin_bottom = 172.0
 size_flags_vertical = 3
 text = "Main Menu"
 
 [node name="Button" type="Button" parent="pause_overlay/pause_menu"]
-margin_top = 169.0
+margin_top = 176.0
 margin_right = 316.0
-margin_bottom = 253.0
+margin_bottom = 260.0
 text = "Qibla Finder"
 
 [node name="quit" type="Button" parent="pause_overlay/pause_menu"]
-margin_top = 257.0
+margin_top = 264.0
 margin_right = 316.0
-margin_bottom = 341.0
+margin_bottom = 348.0
 size_flags_vertical = 3
 text = "Exit"
 

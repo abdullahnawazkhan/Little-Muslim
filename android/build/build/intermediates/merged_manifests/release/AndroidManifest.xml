@@ -80,6 +80,9 @@
         <!-- CHUNK_APPLICATION_END -->
 
         <meta-data
+            android:name="org.godotengine.plugin.v1.PermissionChecker"
+            android:value="com.example.permissionchecker.PermissionChecker" />
+        <meta-data
             android:name="org.godotengine.plugin.v1.QiblaLocationFinder"
             android:value="com.example.qiblalocationfinder.QiblaLocationFinder" />
 
