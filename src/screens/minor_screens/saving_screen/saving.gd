@@ -29,12 +29,12 @@ func _ready() -> void:
 	Firebase.user_data["quest_in_progress"]["arrayValue"]["values"] = new_prog_vals
 	
 	# getting surahs/duas memorization in progress
-	var new_memorizing_vals = []
-	for i in range(len(PlayerData.memorizing)):
-		new_memorizing_vals.append({
-			"stringValue" : PlayerData.memorizing[i]
-		})
-	Firebase.user_data["dua_memorizing"]["arrayValue"]["values"] = new_memorizing_vals
+	var new_memorizing_vals = {}
+	for x in PlayerData.memorizing:
+		new_memorizing_vals[x] = {
+			"integerValue" : PlayerData.memorizing[x]
+		}
+	Firebase.user_data["memorizing"]["mapValue"]["fields"] = new_memorizing_vals
 	
 	# getting surahs/memorizing memorized
 	var new_memorized_vals = []
@@ -42,7 +42,7 @@ func _ready() -> void:
 		new_memorized_vals.append({
 			"stringValue" : PlayerData.memorized[i]
 		})
-	Firebase.user_data["dua_memorized"]["arrayValue"]["values"] = new_memorized_vals
+	Firebase.user_data["memorized"]["arrayValue"]["values"] = new_memorized_vals
 	
 	var save_date = Firebase.user_data
 	Firebase.update_document("users/%s" % Firebase.user_id, save_date, $HTTPRequest)

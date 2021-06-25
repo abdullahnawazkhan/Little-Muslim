@@ -4,8 +4,10 @@ ADDED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManif
 INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml:2:1-70:12
 INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml:2:1-70:12
 INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml:2:1-70:12
+MERGED from [AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:2:1-15:12
 MERGED from [PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:2:1-15:12
 MERGED from [QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:2:1-15:12
+MERGED from [SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:2:1-17:12
 MERGED from [godot-lib.release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\2f29423de5771cd0c2f475b364e10860\godot-lib.release\AndroidManifest.xml:2:1-22:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\72b4d95a0e8b43ee4215c0c4e8b0fb72\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\5debf09d2541e0ccacc6adc6a4fdd105\fragment-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -71,10 +73,14 @@ ADDED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManif
 		ADDED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml:21:9-32
 application
 ADDED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml:30:5-68:19
+MERGED from [AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:9:5-13:19
+MERGED from [AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:9:5-13:19
 MERGED from [PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:9:5-13:19
 MERGED from [PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:9:5-13:19
 MERGED from [QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:9:5-13:19
 MERGED from [QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:9:5-13:19
+MERGED from [SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:11:5-15:19
+MERGED from [SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:11:5-15:19
 MERGED from [godot-lib.release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\2f29423de5771cd0c2f475b364e10860\godot-lib.release\AndroidManifest.xml:18:5-20:19
 MERGED from [godot-lib.release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\2f29423de5771cd0c2f475b364e10860\godot-lib.release\AndroidManifest.xml:18:5-20:19
 MERGED from [androidx.core:core:1.0.0] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\947833f03979c6d84fcd9a8feba7ce42\core-1.0.0\AndroidManifest.xml:22:5-89
@@ -143,10 +149,14 @@ uses-sdk
 INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml
 INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml
+MERGED from [AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:5:5-7:41
+MERGED from [AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:5:5-7:41
 MERGED from [PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:5:5-7:41
 MERGED from [PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:5:5-7:41
 MERGED from [QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:5:5-7:41
 MERGED from [QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:5:5-7:41
+MERGED from [SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:7:5-9:41
+MERGED from [SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:7:5-9:41
 MERGED from [godot-lib.release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\2f29423de5771cd0c2f475b364e10860\godot-lib.release\AndroidManifest.xml:7:5-9:41
 MERGED from [godot-lib.release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\2f29423de5771cd0c2f475b364e10860\godot-lib.release\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\72b4d95a0e8b43ee4215c0c4e8b0fb72\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
@@ -209,6 +219,12 @@ INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidMa
 		INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml
 		ADDED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml
 		INJECTED from C:\Users\abdul\Documents\FYP\Little-Muslim\android\build\AndroidManifest.xml
+meta-data#org.godotengine.plugin.v1.AudioPlayer
+ADDED from [AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:10:9-12:67
+	android:value
+		ADDED from [AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:12:13-64
+	android:name
+		ADDED from [AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:11:13-65
 meta-data#org.godotengine.plugin.v1.PermissionChecker
 ADDED from [PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:10:9-12:79
 	android:value
@@ -221,6 +237,12 @@ ADDED from [QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\trans
 		ADDED from [QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:12:13-80
 	android:name
 		ADDED from [QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:11:13-73
+meta-data#org.godotengine.plugin.v1.SpeechToText
+ADDED from [SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:12:9-14:69
+	android:value
+		ADDED from [SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:14:13-66
+	android:name
+		ADDED from [SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:13:13-66
 instrumentation
 ADDED from [godot-lib.release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\2f29423de5771cd0c2f475b364e10860\godot-lib.release\AndroidManifest.xml:11:5-15:57
 	android:label

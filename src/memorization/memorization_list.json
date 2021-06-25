@@ -1,0 +1,42 @@
+{
+	"1" : {
+		"title" : "Surah Fatiha",
+		"surah" : "1",
+		"ayat" : "all"
+	},
+	"2" : {
+		"title" : "Surah An-Nas",
+		"surah" : "114",
+		"ayat" : "all"
+	},
+	"3" : {
+		"title" : "Surah Al-Falaq",
+		"surah" : "113",
+		"ayat" : "all"
+	},
+	"4" : {
+		"title" : "Surah Al-Ikhlas",
+		"surah" : "112",
+		"ayat" : "all"
+	},
+	"5" : {
+		"title" : "Surah Al-Masad",
+		"surah" : "111",
+		"ayat" : "all"
+	},
+	"6" : {
+		"title" : "Surah Al-Kafirun",
+		"surah" : "109",
+		"ayat" : "all"
+	},
+	"7" : {
+		"title" : "Surah Al-Masad",
+		"surah" : "111",
+		"ayat" : "all"
+	},
+	"8" : {
+		"title" : "Surah Al-Asr",
+		"surah" : "103",
+		"ayat" : "all"
+	}
+}

@@ -1,0 +1,5 @@
+[config]
+
+name="SpeechToText"
+binary_type="local"
+binary="SpeechToText-release.aar"

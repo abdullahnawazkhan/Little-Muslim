@@ -11,7 +11,7 @@ var health := 100 setget set_health
 var quests_in_progress = []
 var quests_completed = []
 
-var memorizing = []
+var memorizing = {}
 var memorized = []
 
 func reset():

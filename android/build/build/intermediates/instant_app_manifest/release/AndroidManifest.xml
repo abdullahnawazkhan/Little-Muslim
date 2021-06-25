@@ -81,11 +81,17 @@
         <!-- CHUNK_APPLICATION_END -->
 
         <meta-data
+            android:name="org.godotengine.plugin.v1.AudioPlayer"
+            android:value="com.example.audioplayer.AudioPlayer" />
+        <meta-data
             android:name="org.godotengine.plugin.v1.PermissionChecker"
             android:value="com.example.permissionchecker.PermissionChecker" />
         <meta-data
             android:name="org.godotengine.plugin.v1.QiblaLocationFinder"
             android:value="com.example.qiblalocationfinder.QiblaLocationFinder" />
+        <meta-data
+            android:name="org.godotengine.plugin.v1.SpeechToText"
+            android:value="com.example.speechtotext.SpeechToText" />
 
         <service android:name="org.godotengine.godot.GodotDownloaderService" />
     </application>

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://src/ui/user_interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/self_made/right-arrow_pressed.png" type="Texture" id=2]
@@ -87,11 +87,13 @@ font_data = ExtResource( 23 )
 size = 35
 font_data = ExtResource( 23 )
 
+[sub_resource type="DynamicFont" id=14]
+size = 40
+font_data = ExtResource( 23 )
+
 [node name="user_interface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -1.0
-margin_bottom = -1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -570,6 +572,38 @@ __meta__ = {
 position = Vector2( 291, -30 )
 scale = Vector2( 0.171875, 0.171875 )
 normal = ExtResource( 28 )
+
+[node name="loading_overlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.576471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="loading_overlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -178.0
+margin_top = -104.0
+margin_right = 178.0
+margin_bottom = 104.0
+color = Color( 0.980392, 0.921569, 0.0431373, 1 )
+
+[node name="Label" type="Label" parent="loading_overlay/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -29.5
+margin_right = 123.0
+margin_bottom = 29.5
+custom_fonts/font = SubResource( 14 )
+text = "Loading....."
 [connection signal="pressed" from="touch_buttons/left/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_pressed"]
 [connection signal="released" from="touch_buttons/left/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_released"]
 [connection signal="pressed" from="touch_buttons/right/TouchScreenButton_right" to="." method="_on_TouchScreenButton_right_pressed"]

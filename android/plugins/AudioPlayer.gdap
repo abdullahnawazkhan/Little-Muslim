@@ -1,0 +1,5 @@
+[config]
+
+name="AudioPlayer"
+binary_type="local"
+binary="AudioPlayer-release.aar"
