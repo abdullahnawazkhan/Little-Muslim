@@ -146,11 +146,11 @@
 93            android:value="com.example.qiblalocationfinder.QiblaLocationFinder" />
 93-->[QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\336c08628ce5313e5e29f6e1df198e61\QiblaLocationFinder-release\AndroidManifest.xml:12:13-80
 94        <meta-data
-94-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:12:9-14:69
+94-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\e6dddf0c51b722d11b9a13517be3340e\SpeechToText-release\AndroidManifest.xml:12:9-14:69
 95            android:name="org.godotengine.plugin.v1.SpeechToText"
-95-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:13:13-66
+95-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\e6dddf0c51b722d11b9a13517be3340e\SpeechToText-release\AndroidManifest.xml:13:13-66
 96            android:value="com.example.speechtotext.SpeechToText" />
-96-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\4b3566a08c7eac44aae93b32f9a17865\SpeechToText-release\AndroidManifest.xml:14:13-66
+96-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\e6dddf0c51b722d11b9a13517be3340e\SpeechToText-release\AndroidManifest.xml:14:13-66
 97    </application>
 98
 99</manifest>

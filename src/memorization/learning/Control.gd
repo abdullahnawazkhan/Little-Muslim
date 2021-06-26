@@ -3,6 +3,7 @@ extends Control
 signal recitation_done
 
 onready var api_text := get_node("api_text/text")
+onready var verse_number := get_node("verse_number")
 onready var spoken_text := get_node("spoken_text/text")
 onready var timer := get_node("get_timer")
 
@@ -54,15 +55,18 @@ func init(s_title, surah_number, ayat_number) -> void:
 	surah_title = s_title
 	surah = surah_number
 	verse = ayat_number
+#	verse can contain 2 things:
+#		- Specific verse number
+#		- "All"
 	
 	current_verse_index = 0
 
 
 func _ready() -> void:
-	$loading.visible = true
+#	$loading.visible = true
 	
 	$title.text = surah_title
-#
+
 	var audio_file
 
 	if verse == "all":
@@ -100,19 +104,16 @@ func start_processing():
 	# TODO: Bug fix -> Need to handle when user does not say anything
 	while true:
 		words = speechToText.getWords()
-		if (words != ""):
+		if len(words) > 0:
 			break
-		if timer_stopped == true:
-			break
+	print("Out of Inifite loop")
+#	timer.stop()
+#	timer_stopped = true
 		
-	timer.stop()
-	timer_stopped = true
-		
-	if (words == ""):
+	if (words == "error"):
 		error_overlay.visible = true
 		loading_overlay.visible = false
 	else:
-		spoken_text.arabic_input = words
 		if (compare(words, simple_arabic) == true):
 			if verse == 'all':
 				if current_verse_index < len(verses):
@@ -127,7 +128,8 @@ func start_processing():
 					var audio_file = str("%03d" % int(surah)) + str("%03d" % (current_verse_index + 1))
 					audioPlayer.init("https://mirrors.quranicaudio.com/everyayah/Husary_Muallim_128kbps/" + audio_file + ".mp3")
 					
-					current_verse_index = current_verse_index + 1
+					current_verse_index += 1
+					verse_number.text = "Verse: " + str(current_verse_index)
 				else:
 					# all verses recited
 					emit_signal("recitation_done", 0)
@@ -194,9 +196,9 @@ func compare(spoken, actual):
 		return false
 
 
-func _on_Timer_timeout() -> void:
-	timer.stop()
-	timer_stopped = true
+#func _on_Timer_timeout() -> void:
+#	timer.stop()
+#	timer_stopped = true
 
 
 func _on_without_diacritics_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -211,7 +213,6 @@ func _on_without_diacritics_HTTPRequest_request_completed(result: int, response_
 		if verse != 'all':
 			surah_verse = str(surah) + ":" + str(verse)
 		
-		var index = 1
 		for a in arr:
 			if verse != 'all':
 				if a["verse_key"] == surah_verse:
@@ -221,7 +222,9 @@ func _on_without_diacritics_HTTPRequest_request_completed(result: int, response_
 				verses_simple.append(a['text_uthmani_simple'])
 		
 		if verse == "all":
+			# takes in array, removes any empty strings and returns the array
 			verses_simple = remove_empty_data(verses_simple)
+			# takes in array,  removes any diaciritics and returns the array
 			verses_simple = remove_diacritics(verses_simple)
 			simple_arabic = verses_simple[0]
 
@@ -251,7 +254,8 @@ func _on_with_diacritics_HTTPRequest_request_completed(result: int, response_cod
 			verses = remove_empty_data(verses)
 			arabic = verses[0]
 			api_text.arabic_input = arabic
-			current_verse_index = current_verse_index + 1
+			current_verse_index += 1
+			verse_number.text = "Verse: " + str(current_verse_index)
 		
 		$loading.visible = false
 
@@ -295,14 +299,12 @@ func _on_stop_speaking_button_pressed() -> void:
 	start_speaking_btn.visible = true
 	stop_speaking_btn.visible = false
 		
-	timer_stopped = false
+#	timer_stopped = false
 
 	speechToText.stop()
-
-	timer.set_wait_time(5)
-	timer.start()
-
-	words = ""
+#
+#	timer.set_wait_time(5)
+#	timer.start()
 	
 	start_processing()
 
@@ -313,7 +315,7 @@ func remove_diacritics(arr):
 
 	for a in arr:
 		var new_str = ""
-		for i in range(len(a)):
+		for i in range(len(a)): # looping over each character of 'a'
 			if diacritics_list.has(a[i]) == false:
 				new_str += a[i]
 		new_arr.append(new_str)
@@ -329,3 +331,4 @@ func remove_empty_data(arr):
 			new_arr.append(a)
 			
 	return new_arr
+

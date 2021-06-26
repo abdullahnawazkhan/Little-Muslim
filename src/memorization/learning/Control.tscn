@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/memorization_module/stop.png" type="Texture" id=1]
 [ext_resource path="res://assets/memorization_module/black_cancel.png" type="Texture" id=2]
@@ -45,11 +45,15 @@ size = 40
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=10]
+size = 25
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=11]
 size = 40
 font_data = ExtResource( 8 )
 
-[sub_resource type="Theme" id=11]
-default_font = SubResource( 10 )
+[sub_resource type="Theme" id=12]
+default_font = SubResource( 11 )
 
 [node name="Control" type="Control"]
 pause_mode = 2
@@ -80,7 +84,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -474.0
-margin_top = -203.0
+margin_top = -171.0
 margin_right = 474.0
 margin_bottom = 127.0
 theme = SubResource( 6 )
@@ -91,7 +95,7 @@ __meta__ = {
 
 [node name="text" type="Label" parent="api_text"]
 margin_right = 948.0
-margin_bottom = 330.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 7 )
@@ -142,6 +146,16 @@ text = "Surah Fatiha"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="verse_number" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -47.5
+margin_top = 74.751
+margin_right = 47.5
+margin_bottom = 111.751
+custom_fonts/font = SubResource( 10 )
+text = "Verse: "
 
 [node name="get_timer" type="Timer" parent="."]
 
@@ -225,7 +239,7 @@ margin_left = -109.0
 margin_top = -30.0
 margin_right = 109.0
 margin_bottom = 30.0
-theme = SubResource( 11 )
+theme = SubResource( 12 )
 text = "Try Again"
 autowrap = true
 __meta__ = {
@@ -269,7 +283,7 @@ margin_left = -148.5
 margin_top = -29.5
 margin_right = 148.5
 margin_bottom = 29.5
-theme = SubResource( 11 )
+theme = SubResource( 12 )
 text = "GOOD JOB !!"
 autowrap = true
 uppercase = true
@@ -286,7 +300,7 @@ normal = ExtResource( 5 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.145098, 0.145098, 0.145098, 0.698039 )
+color = Color( 0, 0, 0, 0.643137 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -314,7 +328,7 @@ margin_left = -138.0
 margin_top = -32.0
 margin_right = 138.0
 margin_bottom = 32.0
-theme = SubResource( 11 )
+theme = SubResource( 12 )
 text = "Loading....."
 autowrap = true
 uppercase = true

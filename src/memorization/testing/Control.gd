@@ -1,15 +1,10 @@
 extends Control
 
-# TODO: need to check which alif is are we getting in speech to text
-
 signal recitation_done
 
 onready var api_text := get_node("api_text/text")
 onready var spoken_text := get_node("spoken_text/text")
 onready var timer := get_node("get_timer")
-
-onready var playBtn := get_node("audio_buttons/play_button")
-onready var pauseBtn := get_node("audio_buttons/pause_button")
 
 onready var start_speaking_btn = get_node("stt_buttons/start_speaking_button")
 onready var stop_speaking_btn = get_node("stt_buttons/stop_speaking_button")
@@ -25,7 +20,6 @@ var timer_stopped = false
 
 # object variables of android modules
 var speechToText = null
-var audioPlayer = null
 var android = null
 
 # arabic text with diacritics
@@ -57,14 +51,10 @@ var fail_count
 
 # constructor of node
 func init(s_title, surah_number, ayat_number) -> void:
-#	surah_title = s_title
-#	surah = surah_number
-#	verse = ayat_number
+	surah_title = s_title
+	surah = surah_number
+	verse = ayat_number
 
-	surah_title = "Surah Al-Asr"
-	surah = "103"
-	verse = "all"
-	
 	current_verse_index = 0
 	# new added for testing
 	fail_count = 0
@@ -75,22 +65,6 @@ func _ready() -> void:
 	
 	$title.text = surah_title
 
-	var audio_file
-
-	if verse == "all":
-		# only getting the first verse of the surah
-		audio_file = str("%03d" % int(surah)) + "001"
-	else:
-		audio_file = str("%03d" % int(surah)) + str("%03d" % int(verse))
-
-	# getting object of AudioPlayer Android Plugin
-	if Engine.has_singleton("AudioPlayer"):
-		audioPlayer = Engine.get_singleton("AudioPlayer")
-		audioPlayer.init("https://mirrors.quranicaudio.com/everyayah/Husary_Muallim_128kbps/" + audio_file + ".mp3")
-		print("AudioPlayer INitialized")
-	else:
-		print("Issue with connecting with audio player android module")
-
 	# getting object of SpeechToText Android Plugin
 	if Engine.has_singleton("SpeechToText"):
 		speechToText = Engine.get_singleton("SpeechToText")
@@ -100,12 +74,6 @@ func _ready() -> void:
 		with_diacritics.request("https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=" + str(surah))
 	else:
 		print("Issue with connecting with speech to text android module")
-	
-
-func _process(delta: float) -> void:
-	if (audioPlayer.get_is_playing() == false):
-		playBtn.visible = true
-		pauseBtn.visible = false
 
 
 func start_processing():
@@ -124,11 +92,9 @@ func start_processing():
 		error_overlay.visible = true
 		loading_overlay.visible = false
 	else:
-		print("About to Compare")
-		spoken_text.arabic_input = words
 		if (compare(words, simple_arabic) == true):
 			# new added for testing
-			api_text.arabic_input += simple_arabic + " ۝ "
+			api_text.arabic_input += arabic + " ۝ "
 			
 			if verse == 'all':
 				if current_verse_index < len(verses):
@@ -136,37 +102,36 @@ func start_processing():
 					arabic = verses[current_verse_index]
 					simple_arabic = verses_simple[current_verse_index]
 					
-					# setting up audioplayer for next verse
-					var audio_file = str("%03d" % int(surah)) + str("%03d" % (current_verse_index + 1))
-					audioPlayer.init("https://mirrors.quranicaudio.com/everyayah/Husary_Muallim_128kbps/" + audio_file + ".mp3")
-					
 					current_verse_index = current_verse_index + 1
-					$verse.text = "Verse: " + current_verse_index
+					$verse.text = "Verse: " + str(current_verse_index)
 				else:
 					# all verses recited
-					emit_signal("recitation_done")
+					emit_signal("recitation_done", 1)
 					queue_free()
 			else:
-				emit_signal("recitation_done")
+				emit_signal("recitation_done", 1)
 				queue_free()
 			
-			loading_overlay.visible = false
+			$loading.visible = false
 			success_overlay.visible = true
 		else:
 			fail_count += 1
 			
 			if fail_count == 5:
 				api_text.arabic_input = ""
-				for v in verses:
-					api_text.arabic_input += v + " ۝ "
 				
-				$audio_buttons.visible = true
+				if verse == "all":
+					for v in verses:
+						api_text.arabic_input += v + " ۝ "
+				else:
+					api_text.arabic_input = arabic + " ۝ "
+
 				$stt_buttons.visible = false
 				$exit.visible = true
 				$verse.visible = false
 				
 			error_overlay.visible = true
-			loading_overlay.visible = false
+			$loading.visible = false
 
 
 func remove(s, index):
@@ -184,21 +149,14 @@ func compare(spoken, actual):
 	actual = actual.rstrip(' ')
 	# removing any leading spaces
 	actual = actual.lstrip(' ')
-#	spoken.trim_suffic('۹')
-#	speechToText.log("INSIDE COMPARE FUNCTION")
-	print("Inside compare function")
-	print("Spoken String: ", spoken)
-	print("Actual String: ", actual)
+
 	var i = 0
 	while i < spoken.length():
-		print("Spoken Character :", spoken[i])
-		print("Actual Character :", actual[i])
 		if (spoken[i] == 'ﻱ' && actual[i] == 'ﻯ' || spoken[i] == 'ﻯ' && actual[i] == 'ﻱ'):
 			spoken[i] = actual[i]
 			i += 1
 			continue
 		if (spoken[i] == 'ﻲ' && actual[i] == 'ﻰ' || spoken[i] == 'ﻰ' && actual[i] == 'ﻲ'):
-			print("FOUND CASE 2")
 			spoken[i] = actual[i]
 			continue
 		if (spoken[i] == 'ي' && actual[i] == 'ى' || spoken[i] == 'ى' && actual[i] == 'ي'):
@@ -209,12 +167,8 @@ func compare(spoken, actual):
 			i += 1
 			continue
 		else:
-			print("Removing")
 			spoken = remove(spoken, i)
-			print("New Spoken", spoken)
-			print("Actual: ", actual)
 
-#	speechToText.log("DONE COMPARING")
 	if (spoken == actual):
 		return true
 	else:
@@ -243,8 +197,6 @@ func _on_without_diacritics_HTTPRequest_request_completed(result: int, response_
 			if verse != 'all':
 				if a["verse_key"] == surah_verse:
 					simple_arabic = a["text_uthmani_simple"]
-					# to delete
-#					api_text.arabic_input = simple_arabic
 					break
 			else:
 				verses_simple.append(a['text_uthmani_simple'])
@@ -254,11 +206,8 @@ func _on_without_diacritics_HTTPRequest_request_completed(result: int, response_
 		
 		if verse == "all":
 			simple_arabic = verses_simple[0]
-			# to delete
-#			api_text.arabic_input = verses_simple[0]
-#			current_verse_index = current_verse_index + 1
-		
-		print("Without Diacritics:", verses_simple)
+
+		$loading.visible = false
 
 
 func _on_with_diacritics_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -281,38 +230,19 @@ func _on_with_diacritics_HTTPRequest_request_completed(result: int, response_cod
 			if verse != 'all':
 				if a["verse_key"] == surah_verse:
 					arabic = a["text_uthmani"]
-#					api_text.arabic_input = arabic
+					api_text.arabic_input = arabic
 					break
 			else:
 				verses.append(a['text_uthmani'])
 		
-		verses = remove_empty_data(verses)
-#		verses_simple = remove_diacritics(verses)
-		
 		if verse == 'all':
+			verses = remove_empty_data(verses)
 			arabic = verses[0]
-			simple_arabic = verses_simple[0]
 			
 			current_verse_index = current_verse_index + 1
-			$verse.text = "Verse: " + current_verse_index
+			$verse.text = "Verse: " + str(current_verse_index)
 		
 		$loading.visible = false
-
-
-func _on_play_button_pressed() -> void:
-	if (audioPlayer.get_is_playing() == false):
-		print("AUDIO IS PLAYER AS BUTTON IS PRESSED")
-		audioPlayer.start()
-		playBtn.visible = false
-		pauseBtn.visible = true
-
-
-func _on_pause_button_pressed() -> void:
-	if (audioPlayer.get_is_playing() == true):
-		print("AUDIO IS PLAYER AS BUTTON IS PRESSED")
-		audioPlayer.pause()
-		pauseBtn.visible = false
-		playBtn.visible = true
 
 
 func _on_error_cancel_button_pressed() -> void:
@@ -327,15 +257,11 @@ func _on_start_speaking_button_pressed() -> void:
 	start_speaking_btn.visible = false
 	stop_speaking_btn.visible = true
 
-	audioPlayer.stop()
-	audioPlayer.prepare()
-
 	speechToText.listen()
 	words = ""
 
 
 func _on_stop_speaking_button_pressed() -> void:
-	print("Stop Speaking button pressed")
 	$loading.visible = true
 	
 	start_speaking_btn.visible = true
@@ -378,5 +304,5 @@ func remove_empty_data(arr):
 
 
 func _on_exit_button_pressed() -> void:
-	emit_signal("recitation_done")
+	emit_signal("recitation_done", 2)
 	queue_free()

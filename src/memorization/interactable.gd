@@ -22,17 +22,17 @@ func _ready() -> void:
 	load_json()
 	select_random()
 	
-#	# checking if user has any elements in memorized array
-#	if len(PlayerData.memorized) == 0:
-#		state_obj = learning_state.instance()
-#	else:
-#		# selecting from random selected state
-#		if state == 0:
-#			state_obj = learning_state.instance()
-#		else:
-#			state_obj = testing_state.instance()
+	# checking if user has any elements in memorized array
+	if len(PlayerData.memorized) == 0:
+		state_obj = learning_state.instance()
+	else:
+		# selecting from random selected state
+		if state == 0:
+			state_obj = learning_state.instance()
+		else:
+			state_obj = testing_state.instance()
 
-	state_obj = testing_state.instance()
+	state_obj = learning_state.instance()
 		
 	state_obj.init(surah_title, surah, ayat)
 	state_obj.connect("recitation_done", self, "process")
@@ -74,22 +74,25 @@ func _on_Node2D_body_entered(body: Node) -> void:
 		
 
 
-func process() -> void:
-	# TODO: need to check for 
-	if surah in PlayerData.memorizing:
-		# incrementing count
-		PlayerData.memorizing[surah] = int(PlayerData.memorizing[surah]) + 1
-		# if count is greater than 10, removing from "memorizing" and moving to "memorized"
-		if PlayerData.memorizing[surah] == 10:
-			PlayerData.memorized.append(surah)
-			PlayerData.memorizing.erase(surah)
-	elif surah in PlayerData.memorized:
-		# surah is already in "memorized"
-		pass
-	else:
-		# adding surah to "memorizing"
+func process(var option) -> void:
+#	states:
+#		0 --> Processing Memorizing
+#		1 --> No processing
+#		2 --> Processing Memorized
+	if option == 0:
+		if surah in PlayerData.memorizing:
+			# incrementing count
+			PlayerData.memorizing[surah] = int(PlayerData.memorizing[surah]) + 1
+			# if count is greater than 10, removing from "memorizing" and moving to "memorized"
+			if PlayerData.memorizing[surah] == 10:
+				PlayerData.memorized.append(surah)
+				PlayerData.memorizing.erase(surah)
+		else:
+			# adding surah to "memorizing"
+			PlayerData.memorizing[surah] = 1
+	elif option == 2:
+		PlayerData.memorized.erase(surah)
 		PlayerData.memorizing[surah] = 1
-
-#	UI.loading(false)
+ 
 	get_tree().paused = false
 	queue_free()
