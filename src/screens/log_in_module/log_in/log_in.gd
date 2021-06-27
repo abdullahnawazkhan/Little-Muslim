@@ -71,17 +71,19 @@ func _on_get_document_request_request_completed(result: int, response_code: int,
 		for i in range(size_of_completed):
 			PlayerData.quests_completed.append(d["quest_completed"]["arrayValue"]["values"][i]["stringValue"])
 		
-	# getting list of surahs/duas currently memorizing
-	if (len(d["dua_memorizing"]["arrayValue"]) != 0):
-		var size_of_in_progress = len(d["dua_memorizing"]["arrayValue"]["values"])
-		for i in range(size_of_in_progress):
-			PlayerData.memorizing.append(d["dua_memorizing"]["arrayValue"]["values"][i]["stringValue"])
+	# getting dictionary (map) of surahs/duas currently memorizing
+	# key: dua/surah  -> value: number of times user has receited
+	if (len(d["memorizing"]["mapValue"]) != 0):
+		var size_of_in_progress = len(d["memorizing"]["mapValue"]["fields"])
+		var items = d["memorizing"]["mapValue"]["fields"]
+		for i in items:
+			PlayerData.memorizing[i] = items[i]["integerValue"]
 
 	# getting list of surahs/duas memorized
-	if (len(d["dua_memorized"]["arrayValue"]) != 0):
-		var size_of_completed = len(d["dua_memorized"]["arrayValue"]["values"])
+	if (len(d["memorized"]["arrayValue"]) != 0):
+		var size_of_completed = len(d["memorized"]["arrayValue"]["values"])
 		for i in range(size_of_completed):
-			PlayerData.memorized.append(d["dua_memorized"]["arrayValue"]["values"][i]["stringValue"])
+			PlayerData.memorized.append(d["memorized"]["arrayValue"]["values"][i]["stringValue"])
 
 	PlayerData.set_health(int(d["health"]["integerValue"]))
 	PlayerData.set_score(int(d["points"]["integerValue"]))
@@ -103,11 +105,11 @@ func _on_Timer_timeout() -> void:
 	get_tree().change_scene("res://src/screens/main_menu.tscn")
 
 
-#func _on_email_focus_entered() -> void:
-#	if OS.has_virtual_keyboard() == true:
-#		$element.rect_position.y -= 150
-#
-##		$element/password.focus_mode = FOCUS_NONE
+func _on_email_focus_entered() -> void:
+	if OS.has_virtual_keyboard() == true:
+		$element.rect_position.y -= 150
+
+		$element/password.focus_mode = FOCUS_NONE
 
 
 func _process(delta: float) -> void:
@@ -126,11 +128,11 @@ func _process(delta: float) -> void:
 				$element/email.focus_mode = FOCUS_ALL
 
 
-#func _on_password_focus_entered() -> void:
-#	if OS.has_virtual_keyboard() == true:
-#		$element.rect_position.y -= 250
-#
-##		$element/email.focus_mode = FOCUS_NONE
+func _on_password_focus_entered() -> void:
+	if OS.has_virtual_keyboard() == true:
+		$element.rect_position.y -= 250
+
+		$element/email.focus_mode = FOCUS_NONE
 
 
 func _on_namaz_timings_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:

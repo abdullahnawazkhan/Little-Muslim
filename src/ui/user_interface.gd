@@ -235,7 +235,7 @@ func _on_Button_button_up() -> void:
 func _show_internet_error_msg() -> void:
 	var internet_error_instance = internet_error_msg.instance()
 	self.add_child(internet_error_instance)
-	
+	get_tree().paused = true
 
 func loading(value):
 	$loading_overlay.visible = value

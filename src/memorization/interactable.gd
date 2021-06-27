@@ -68,18 +68,21 @@ func select_random() -> void:
 
 func _on_Node2D_body_entered(body: Node) -> void:
 	if (body.name == "player"):
-#		UI.loading(true)
+		UI.loading(true)
+		
+		yield(get_tree().create_timer(0.1), "timeout")
+		
 		UI.add_child(state_obj)
 		get_tree().paused = true
 		
 
 
-func process(var option) -> void:
-#	states:
+func process(var value) -> void:
+#	values:
 #		0 --> Processing Memorizing
 #		1 --> No processing
 #		2 --> Processing Memorized
-	if option == 0:
+	if value == 0:
 		if surah in PlayerData.memorizing:
 			# incrementing count
 			PlayerData.memorizing[surah] = int(PlayerData.memorizing[surah]) + 1
@@ -90,9 +93,10 @@ func process(var option) -> void:
 		else:
 			# adding surah to "memorizing"
 			PlayerData.memorizing[surah] = 1
-	elif option == 2:
+	elif value == 2:
 		PlayerData.memorized.erase(surah)
 		PlayerData.memorizing[surah] = 1
  
+	UI.loading(false)
 	get_tree().paused = false
 	queue_free()

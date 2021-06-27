@@ -35,27 +35,25 @@ VScrollBar/styles/scroll_focus = SubResource( 5 )
 size = 70
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 40
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 25
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 size = 40
 font_data = ExtResource( 8 )
 
-[sub_resource type="Theme" id=12]
-default_font = SubResource( 11 )
+[sub_resource type="Theme" id=11]
+default_font = SubResource( 10 )
 
 [node name="Control" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 0.943848
-margin_bottom = 0.943848
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -91,6 +89,7 @@ __meta__ = {
 [node name="text" type="Label" parent="api_text"]
 margin_right = 948.0
 margin_bottom = 296.0
+rect_min_size = Vector2( 296, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 7 )
@@ -110,7 +109,7 @@ margin_left = -143.0
 margin_top = 16.0181
 margin_right = 143.0
 margin_bottom = 75.0181
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Surah:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,13 +122,11 @@ margin_left = -143.0
 margin_top = 79.9384
 margin_right = 41.0
 margin_bottom = 116.938
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "Verse: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="get_timer" type="Timer" parent="."]
 
 [node name="stt_buttons" type="Control" parent="."]
 anchor_left = 0.5
@@ -187,7 +184,7 @@ margin_left = -109.0
 margin_top = -30.0
 margin_right = 109.0
 margin_bottom = 30.0
-theme = SubResource( 12 )
+theme = SubResource( 11 )
 text = "Try Again"
 autowrap = true
 __meta__ = {
@@ -231,7 +228,7 @@ margin_left = -148.5
 margin_top = -29.5
 margin_right = 148.5
 margin_bottom = 29.5
-theme = SubResource( 12 )
+theme = SubResource( 11 )
 text = "GOOD JOB !!"
 autowrap = true
 uppercase = true
@@ -276,7 +273,7 @@ margin_left = -138.0
 margin_top = -32.0
 margin_right = 138.0
 margin_bottom = 32.0
-theme = SubResource( 12 )
+theme = SubResource( 11 )
 text = "Loading....."
 autowrap = true
 uppercase = true
@@ -298,7 +295,6 @@ scale = Vector2( 0.158154, 0.158154 )
 normal = ExtResource( 11 )
 [connection signal="request_completed" from="without_diacritics_HTTPRequest" to="." method="_on_without_diacritics_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="with_diacritics_HTTPRequest" to="." method="_on_with_diacritics_HTTPRequest_request_completed"]
-[connection signal="timeout" from="get_timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="stt_buttons/start_speaking_button" to="." method="_on_start_speaking_button_pressed"]
 [connection signal="pressed" from="stt_buttons/stop_speaking_button" to="." method="_on_stop_speaking_button_pressed"]
 [connection signal="pressed" from="error_overlay/output/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]

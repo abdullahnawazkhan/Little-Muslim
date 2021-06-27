@@ -20,8 +20,6 @@ onready var loading_overlay := get_node("loading")
 onready var without_diacritics := get_node("without_diacritics_HTTPRequest")
 onready var with_diacritics := get_node("with_diacritics_HTTPRequest")
 
-var timer_stopped = false
-
 # object variables of android modules
 var speechToText = null
 var audioPlayer = null
@@ -63,8 +61,8 @@ func init(s_title, surah_number, ayat_number) -> void:
 
 
 func _ready() -> void:
-#	$loading.visible = true
-	
+	$loading.visible = true
+
 	$title.text = surah_title
 
 	var audio_file
@@ -100,8 +98,9 @@ func _process(delta: float) -> void:
 		pauseBtn.visible = false
 
 
-func start_processing():
-	# TODO: Bug fix -> Need to handle when user does not say anything
+func start_processing(data):
+	# all thread functions require an input parameter
+	# we are NOT using "data"
 	while true:
 		words = speechToText.getWords()
 		if len(words) > 0:
@@ -112,7 +111,7 @@ func start_processing():
 		
 	if (words == "error"):
 		error_overlay.visible = true
-		loading_overlay.visible = false
+		$loading.visible = false
 	else:
 		if (compare(words, simple_arabic) == true):
 			if verse == 'all':
@@ -139,11 +138,11 @@ func start_processing():
 				emit_signal("recitation_done", 0)
 				queue_free()
 			
-			loading_overlay.visible = false
+			$loading.visible = false
 			success_overlay.visible = true
 		else:
 			error_overlay.visible = true
-			loading_overlay.visible = false
+			$loading.visible = false
 
 
 func remove(s, index):
@@ -294,19 +293,25 @@ func _on_start_speaking_button_pressed() -> void:
 
 
 func _on_stop_speaking_button_pressed() -> void:
-	$loading.visible = true
-	
 	start_speaking_btn.visible = true
 	stop_speaking_btn.visible = false
 		
 #	timer_stopped = false
 
 	speechToText.stop()
+	
+	$loading.visible = true
+	
+	yield(get_tree().create_timer(0.1  ), "timeout")
+	
+	start_processing(null)
+	
+#	working_thread.start(self, "start_processing", null)
 #
 #	timer.set_wait_time(5)
 #	timer.start()
 	
-	start_processing()
+#	start_processing()
 
 
 func remove_diacritics(arr):
@@ -331,4 +336,5 @@ func remove_empty_data(arr):
 			new_arr.append(a)
 			
 	return new_arr
+
 

@@ -33,7 +33,7 @@ VScrollBar/styles/scroll = SubResource( 4 )
 VScrollBar/styles/scroll_focus = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 70
+size = 100
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=8]
@@ -59,8 +59,6 @@ default_font = SubResource( 11 )
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 0.943848
-margin_bottom = 0.943848
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -96,6 +94,7 @@ __meta__ = {
 [node name="text" type="Label" parent="api_text"]
 margin_right = 948.0
 margin_bottom = 298.0
+rect_min_size = Vector2( 948, 298 )
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 7 )
@@ -156,8 +155,6 @@ margin_right = 47.5
 margin_bottom = 111.751
 custom_fonts/font = SubResource( 10 )
 text = "Verse: "
-
-[node name="get_timer" type="Timer" parent="."]
 
 [node name="audio_buttons" type="Control" parent="."]
 anchor_left = 0.5
@@ -300,7 +297,7 @@ normal = ExtResource( 5 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.643137 )
+color = Color( 0.145098, 0.145098, 0.145098, 0.698039 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -337,7 +334,6 @@ __meta__ = {
 }
 [connection signal="request_completed" from="without_diacritics_HTTPRequest" to="." method="_on_without_diacritics_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="with_diacritics_HTTPRequest" to="." method="_on_with_diacritics_HTTPRequest_request_completed"]
-[connection signal="timeout" from="get_timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="audio_buttons/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="audio_buttons/pause_button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="stt_buttons/start_speaking_button" to="." method="_on_start_speaking_button_pressed"]

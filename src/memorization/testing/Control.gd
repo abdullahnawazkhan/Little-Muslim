@@ -4,7 +4,7 @@ signal recitation_done
 
 onready var api_text := get_node("api_text/text")
 onready var spoken_text := get_node("spoken_text/text")
-onready var timer := get_node("get_timer")
+#onready var timer := get_node("get_timer")
 
 onready var start_speaking_btn = get_node("stt_buttons/start_speaking_button")
 onready var stop_speaking_btn = get_node("stt_buttons/stop_speaking_button")
@@ -16,7 +16,7 @@ onready var loading_overlay := get_node("loading")
 onready var without_diacritics := get_node("without_diacritics_HTTPRequest")
 onready var with_diacritics := get_node("with_diacritics_HTTPRequest")
 
-var timer_stopped = false
+#var timer_stopped = false
 
 # object variables of android modules
 var speechToText = null
@@ -80,15 +80,10 @@ func start_processing():
 	# TODO: Bug fix -> Need to handle when user does not say anything
 	while true:
 		words = speechToText.getWords()
-		if (words != ""):
+		if len(words) > 0:
 			break
-		if timer_stopped == true:
-			break
-		
-	timer.stop()
-	timer_stopped = true
 	
-	if (words == ""):
+	if (words == "error"):
 		error_overlay.visible = true
 		loading_overlay.visible = false
 	else:
@@ -175,9 +170,9 @@ func compare(spoken, actual):
 		return false
 
 
-func _on_Timer_timeout() -> void:
-	timer.stop()
-	timer_stopped = true
+#func _on_Timer_timeout() -> void:
+#	timer.stop()
+#	timer_stopped = true
 
 
 func _on_without_diacritics_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -267,12 +262,11 @@ func _on_stop_speaking_button_pressed() -> void:
 	start_speaking_btn.visible = true
 	stop_speaking_btn.visible = false
 		
-	timer_stopped = false
+#	timer_stopped = false
 
 	speechToText.stop()
 
-	timer.set_wait_time(5)
-	timer.start()
+	yield(get_tree().create_timer(0.1), "timeout")
 
 	words = ""
 	
