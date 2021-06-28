@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/memorization_module/stop.png" type="Texture" id=1]
 [ext_resource path="res://assets/memorization_module/black_cancel.png" type="Texture" id=2]
@@ -49,6 +49,10 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="Theme" id=11]
 default_font = SubResource( 10 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 40
+font_data = ExtResource( 8 )
 
 [node name="Control" type="Control"]
 pause_mode = 2
@@ -148,7 +152,7 @@ normal = ExtResource( 4 )
 
 [node name="stop_speaking_button" type="TouchScreenButton" parent="stt_buttons"]
 visible = false
-position = Vector2( -195.21, 167.981 )
+position = Vector2( -31.92, 167.981 )
 scale = Vector2( 0.256, 0.256 )
 normal = ExtResource( 1 )
 
@@ -293,6 +297,72 @@ __meta__ = {
 position = Vector2( 8.9797, 10.1022 )
 scale = Vector2( 0.158154, 0.158154 )
 normal = ExtResource( 11 )
+
+[node name="final_success" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.145098, 0.145098, 0.145098, 0.698039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="final_success"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -321.0
+margin_top = -175.5
+margin_right = 321.0
+margin_bottom = 175.5
+color = Color( 0.211765, 0.819608, 0.317647, 1 )
+
+[node name="Label" type="Label" parent="final_success/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -242.5
+margin_top = -122.5
+margin_right = 242.5
+margin_bottom = 122.5
+custom_fonts/font = SubResource( 12 )
+text = "Congratulations !! You have succesfully passed this test"
+autowrap = true
+
+[node name="final_failure" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.145098, 0.145098, 0.145098, 0.698039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="final_failure"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -321.0
+margin_top = -175.5
+margin_right = 321.0
+margin_bottom = 175.5
+color = Color( 0.929412, 0.211765, 0.211765, 1 )
+
+[node name="Label" type="Label" parent="final_failure/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -242.5
+margin_top = -122.5
+margin_right = 242.5
+margin_bottom = 122.5
+custom_fonts/font = SubResource( 12 )
+text = "You Failed this test. Better Luck Next Time :)"
+autowrap = true
 [connection signal="request_completed" from="without_diacritics_HTTPRequest" to="." method="_on_without_diacritics_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="with_diacritics_HTTPRequest" to="." method="_on_with_diacritics_HTTPRequest_request_completed"]
 [connection signal="pressed" from="stt_buttons/start_speaking_button" to="." method="_on_start_speaking_button_pressed"]

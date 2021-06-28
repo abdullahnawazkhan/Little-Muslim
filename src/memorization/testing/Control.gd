@@ -51,9 +51,13 @@ var fail_count
 
 # constructor of node
 func init(s_title, surah_number, ayat_number) -> void:
-	surah_title = s_title
-	surah = surah_number
-	verse = ayat_number
+#	surah_title = s_title
+#	surah = surah_number
+#	verse = ayat_number
+	
+	surah_title = "Surah Al-Ikhlas"
+	surah = "112"
+	verse = "all"
 
 	current_verse_index = 0
 	# new added for testing
@@ -100,9 +104,17 @@ func start_processing():
 					$verse.text = "Verse: " + str(current_verse_index)
 				else:
 					# all verses recited
+					$final_success.visible = true
+					
+					yield(get_tree().create_timer(1), "timeout")
+					
 					emit_signal("recitation_done", 1)
 					queue_free()
 			else:
+				$final_success.visible = true
+					
+				yield(get_tree().create_timer(1), "timeout")
+				
 				emit_signal("recitation_done", 1)
 				queue_free()
 			
@@ -111,7 +123,14 @@ func start_processing():
 		else:
 			fail_count += 1
 			
+			print("Failure Count: ", fail_count)
+			
+			error_overlay.visible = true
+			$loading.visible = false
+			
 			if fail_count == 5:
+				$final_failure.visible = true
+				
 				api_text.arabic_input = ""
 				
 				if verse == "all":
@@ -124,8 +143,10 @@ func start_processing():
 				$exit.visible = true
 				$verse.visible = false
 				
-			error_overlay.visible = true
-			$loading.visible = false
+				yield(get_tree().create_timer(3.0), "timeout")
+				
+				$final_failure.visible = false
+				error_overlay.visible = false
 
 
 func remove(s, index):

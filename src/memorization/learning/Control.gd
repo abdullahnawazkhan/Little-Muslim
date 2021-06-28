@@ -50,9 +50,13 @@ var current_verse_index
 
 # constructor of node
 func init(s_title, surah_number, ayat_number) -> void:
-	surah_title = s_title
-	surah = surah_number
-	verse = ayat_number
+#	surah_title = s_title
+#	surah = surah_number
+#	verse = ayat_number
+	
+	surah_title = "Surah Al-Ikhlas"
+	surah = "112"
+	verse = "all"
 #	verse can contain 2 things:
 #		- Specific verse number
 #		- "All"
@@ -106,9 +110,9 @@ func start_processing(data):
 		if len(words) > 0:
 			break
 	print("Out of Inifite loop")
-#	timer.stop()
-#	timer_stopped = true
-		
+
+	words = speechToText.getWords()
+#
 	if (words == "error"):
 		error_overlay.visible = true
 		$loading.visible = false
@@ -131,10 +135,18 @@ func start_processing(data):
 					verse_number.text = "Verse: " + str(current_verse_index)
 				else:
 					# all verses recited
+					$final_success.visible = true
+					
+					yield(get_tree().create_timer(5.0), "timeout")
+					
 					emit_signal("recitation_done", 0)
 					queue_free()
 			else:
 				# there was only 1 verse to recite
+				$final_success.visible = true
+					
+				yield(get_tree().create_timer(5.0), "timeout")
+				
 				emit_signal("recitation_done", 0)
 				queue_free()
 			
@@ -302,7 +314,7 @@ func _on_stop_speaking_button_pressed() -> void:
 	
 	$loading.visible = true
 	
-	yield(get_tree().create_timer(0.1  ), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	
 	start_processing(null)
 	

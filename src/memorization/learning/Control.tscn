@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/memorization_module/stop.png" type="Texture" id=1]
 [ext_resource path="res://assets/memorization_module/black_cancel.png" type="Texture" id=2]
@@ -54,6 +54,10 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="Theme" id=12]
 default_font = SubResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 40
+font_data = ExtResource( 8 )
 
 [node name="Control" type="Control"]
 pause_mode = 2
@@ -329,6 +333,45 @@ theme = SubResource( 12 )
 text = "Loading....."
 autowrap = true
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="final_success" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.145098, 0.145098, 0.145098, 0.698039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="final_success"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -321.0
+margin_top = -175.5
+margin_right = 321.0
+margin_bottom = 175.5
+color = Color( 0.211765, 0.819608, 0.317647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="msg" type="Label" parent="final_success/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -242.5
+margin_top = -91.5
+margin_right = 242.5
+margin_bottom = 91.5
+custom_fonts/font = SubResource( 13 )
+text = "Congratulations !! You have succesfully recited this task"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
