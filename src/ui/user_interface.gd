@@ -1,5 +1,8 @@
 extends Control
 
+# TODO: need to add proper loading msgs for memorization module
+#	- separate for both learning and testing
+
 onready var scene_tree : = get_tree()
 onready var paused_overly : ColorRect = get_node("pause_overlay")
 onready var pause_title : Label = get_node("pause_overlay/title")
