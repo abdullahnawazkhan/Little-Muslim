@@ -1,7 +1,5 @@
 extends Control
 
-#TODO: Checking issue with login flow
-
 func _ready() -> void:
 	$Timer.set_wait_time(1.0)
 	$Timer.start()

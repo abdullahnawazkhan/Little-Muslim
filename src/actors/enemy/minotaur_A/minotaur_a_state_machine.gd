@@ -1,3 +1,5 @@
+# TODO: need to handle when player attacked while enenmy is in hurt state
+
 extends "res://src/actors/state_machine.gd"
 
 onready var animator = parent.get_node("AnimatedSprite")

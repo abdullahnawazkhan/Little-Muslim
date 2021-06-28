@@ -77,7 +77,6 @@ func _ready() -> void:
 
 
 func start_processing():
-	# TODO: Bug fix -> Need to handle when user does not say anything
 	while true:
 		words = speechToText.getWords()
 		if len(words) > 0:
