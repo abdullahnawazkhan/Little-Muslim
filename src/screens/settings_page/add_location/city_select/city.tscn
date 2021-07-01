@@ -1,17 +1,18 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/ui/black_cancel.png" type="Texture" id=1]
 [ext_resource path="res://assets/ui/magnifying-glass.png" type="Texture" id=2]
-[ext_resource path="res://src/screens/settings_page/add_location/city_select/city.gd" type="Script" id=3]
-[ext_resource path="res://assets/ui/black_cancel.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/screens/settings_page/add_location/city_select/city.gd" type="Script" id=4]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 5.0
@@ -22,7 +23,7 @@ border_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 25
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="Theme" id=5]
 default_font = SubResource( 4 )
@@ -40,12 +41,12 @@ Button/styles/pressed = null
 
 [sub_resource type="DynamicFont" id=6]
 size = 40
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -210,7 +211,7 @@ __meta__ = {
 [node name="TouchScreenButton" type="TouchScreenButton" parent="elements/error"]
 position = Vector2( 410.012, -25.0491 )
 scale = Vector2( 0.157071, 0.152933 )
-normal = ExtResource( 4 )
+normal = ExtResource( 1 )
 [connection signal="pressed" from="elements/searchbar/Control/touch_button" to="." method="_on_touch_button_pressed"]
 [connection signal="request_completed" from="elements/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="elements/error/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/player/walk/(9).png" type="Texture" id=11]
 [ext_resource path="res://src/screens/log_checker/login_checker.gd" type="Script" id=12]
 
+
+
 [sub_resource type="DynamicFont" id=1]
 size = 70
 font_data = ExtResource( 1 )
@@ -78,7 +80,7 @@ __meta__ = {
 position = Vector2( 23.9464, -91.5006 )
 scale = Vector2( 0.385, 0.394 )
 frames = SubResource( 2 )
-frame = 7
+frame = 9
 speed_scale = 2.0
 playing = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

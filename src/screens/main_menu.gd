@@ -1,22 +1,19 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	InternetConnection.in_game = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
-
-
 func _on_log_out_button_up() -> void:
+	$confirmation_dialog.visible = true
+
+
+func _on_yes_button_released() -> void:
 	var dir = Directory.new()
 	dir.remove("user://save_login.dat")
 	get_tree().change_scene("res://src/screens/start_up_screen.tscn")
+
+
+func _on_no_button_released() -> void:
+	$confirmation_dialog.visible = false

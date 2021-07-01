@@ -4,6 +4,8 @@
 [ext_resource path="res://assets/ui/magnifying-glass.png" type="Texture" id=2]
 [ext_resource path="res://src/screens/settings_page/add_location/country_select/country.gd" type="Script" id=3]
 
+
+
 [sub_resource type="DynamicFont" id=1]
 size = 45
 font_data = ExtResource( 1 )

@@ -66,41 +66,34 @@ margin_top = -141.49
 margin_right = 178.0
 margin_bottom = 214.51
 theme = ExtResource( 4 )
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="change_name" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_right = 356.0
-margin_bottom = 89.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Change Name"
 scene_path = "res://src/screens/settings_page/change_account/change_name/change_name.tscn"
 
 [node name="change_scene_button2" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 93.0
+margin_top = 122.0
 margin_right = 356.0
-margin_bottom = 182.0
+margin_bottom = 234.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Change Password"
 scene_path = "res://src/screens/settings_page/change_account/change_password/change_password.tscn"
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 186.0
-margin_right = 356.0
-margin_bottom = 263.0
-text = "Reset Data"
-
-[node name="log_out" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 267.0
+margin_top = 244.0
 margin_right = 356.0
 margin_bottom = 356.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Log Out"
-script = null
+text = "Reset Data"
 
 [node name="reset_data_request" type="HTTPRequest" parent="."]
 
@@ -215,7 +208,6 @@ position = Vector2( 446.012, -28.9781 )
 scale = Vector2( 0.168255, 0.168255 )
 normal = ExtResource( 8 )
 [connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_Button_button_up"]
-[connection signal="button_up" from="VBoxContainer/log_out" to="." method="_on_log_out_button_up"]
 [connection signal="request_completed" from="reset_data_request" to="." method="_on_reset_data_request_request_completed"]
 [connection signal="released" from="confirmation_dialog/ColorRect/yes_button" to="." method="_on_yes_button_released"]
 [connection signal="released" from="confirmation_dialog/ColorRect/no_button" to="." method="_on_no_button_released"]

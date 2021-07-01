@@ -105,11 +105,11 @@ func _on_Timer_timeout() -> void:
 	get_tree().change_scene("res://src/screens/main_menu.tscn")
 
 
-#func _on_email_focus_entered() -> void:
-#	if OS.has_virtual_keyboard() == true:
-#		$element.rect_position.y -= 150
-#
-#		$element/password.focus_mode = FOCUS_NONE
+func _on_email_focus_entered() -> void:
+	if OS.has_virtual_keyboard() == true:
+		$element.rect_position.y -= 150
+
+		$element/password.focus_mode = FOCUS_NONE
 
 
 func _process(delta: float) -> void:
@@ -128,11 +128,11 @@ func _process(delta: float) -> void:
 				$element/email.focus_mode = FOCUS_ALL
 
 
-#func _on_password_focus_entered() -> void:
-#	if OS.has_virtual_keyboard() == true:
-#		$element.rect_position.y -= 250
-#
-#		$element/email.focus_mode = FOCUS_NONE
+func _on_password_focus_entered() -> void:
+	if OS.has_virtual_keyboard() == true:
+		$element.rect_position.y -= 250
+
+		$element/email.focus_mode = FOCUS_NONE
 
 
 func _on_namaz_timings_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:

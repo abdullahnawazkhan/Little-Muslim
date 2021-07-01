@@ -1,6 +1,16 @@
 extends Control
 
-var location_scene = preload("res://src/screens/log_in_module/registration/add_location/location.tscn")
+onready var user_name = get_node("elements/ScrollContainer/VBoxContainer/name_box/name")
+onready var email = get_node("elements/ScrollContainer/VBoxContainer/email_box/email")
+onready var password_1 = get_node("elements/ScrollContainer/VBoxContainer/password_1_box/password")
+onready var password_2 = get_node("elements/ScrollContainer/VBoxContainer/password_2_box/password2")
+onready var country_name = get_node("elements/ScrollContainer/VBoxContainer/country_box/country_name")
+onready var city_name = get_node("elements/ScrollContainer/VBoxContainer/city_box/city_name")
+
+var COUNTRY = preload("res://src/screens/settings_page/add_location/country_select/country.tscn")
+var CITY = preload("res://src/screens/settings_page/add_location/city_select/city.tscn")
+
+var country_code
 
 var keyboard_open = false
 
@@ -17,19 +27,19 @@ func is_digit(s) -> bool:
 
 func validate_password() -> bool:
 	# checking if both passwords match
-	if ($elements/password.text != $elements/password2.text):
+	if (password_1.text != password_2.text):
 		$elements/error_pane/ColorRect/error_msg.text = "Passwords Do Not Match"
 		return false
 	
 	# Rules:
 	#	- Password Must be atleast of length 8
 	#	- Password Must contain atleast 1 digit
-	if (len($elements/password.text) < 8):
+	if (len(password_1.text) < 8):
 		$elements/error_pane/ColorRect/error_msg.text = "Password must be of length 8"
 		return false
 	
-	for i in range(len($elements/password.text)):
-		var pass_text = $elements/password.text
+	for i in range(len(password_1.text)):
+		var pass_text = password_1.text
 		var character = pass_text[i]
 		if (is_digit(character) == true):
 			return true
@@ -38,16 +48,27 @@ func validate_password() -> bool:
 	return false
 
 
+func check_fill() -> bool:
+	if password_1.text == "" || password_2.text == "" || user_name.text == "" || email.text == "" || country_name.text == "" || city_name.text == "":
+		return false
+
+	return true
+
 func _on_Button_button_up() -> void:
 	$elements/loading.visible = true
 	
-	if (validate_password() == false):
+	# checking if all data has been entered
+	if (check_fill() == false):
+		$elements/error_pane/ColorRect/error_msg.text = "Please fill in all required data"
+		$elements/error_pane.visible = true 
+		$elements/loading.visible = false
+	elif (validate_password() == false):
 		$elements/error_pane.visible = true
 		$elements/loading.visible = false
 		
 		print("Passwords do not match")
 	else:
-		Firebase.register($elements/account_creation, $elements/email.text, $elements/password.text)
+		Firebase.register($elements/account_creation, email.text, password_1.text)
 
 
 
@@ -64,22 +85,22 @@ func _on_account_creation_request_completed(result: int, response_code: int, hea
 		
 		var dict = {
 			"country": {
-				"stringValue" : ""
+				"stringValue" : country_name.text
 			},
 			"city": {
-				"stringValue" : ""
+				"stringValue" : city_name.text
 			},
 			"name" : {
-				"stringValue" : $elements/name.text
+				"stringValue" : user_name.text
 			},
-			"dua_memorized" : {
+			"memorized" : {
 				"arrayValue" : {
 					"values" : []
 				}
 			},
-			"dua_memorizing" : {
-				"arrayValue" : {
-					"values" : []
+			"memorizing" : {
+				"mapValue" : {
+					"fields" : {}
 				}
 			},
 			"inventory" : {
@@ -128,9 +149,6 @@ func _on_account_creation_request_completed(result: int, response_code: int, hea
 
 func _on_document_creation_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if (response_code == 200):
-		var location_instance = location_scene.instance()
-		get_tree().get_current_scene().add_child(location_instance)
-#		get_tree().change_scene("res://src/screens/settings_page/add_location/location.tscn")
 		$elements/success_pane.visible = true
 		$elements/loading.visible = false
 	else:
@@ -199,3 +217,23 @@ func _on_name_focus_entered() -> void:
 		$elements/password2.focus_mode = FOCUS_NONE
 		$elements/email.focus_mode = FOCUS_NONE
 		$elements/password.focus_mode = FOCUS_NONE
+
+
+func set_country(country_text, country_code_value):
+	country_name.text = country_text
+	country_code = country_code_value
+	
+
+func set_city(city_text):
+	city_name.text = city_text
+
+
+func _on_select_country_button_up() -> void:
+	var country = COUNTRY.instance()
+	self.add_child(country)
+
+
+func _on_select_city_button_up() -> void:
+	var city = CITY.instance()
+	city.set_id(country_code)
+	self.add_child(city)

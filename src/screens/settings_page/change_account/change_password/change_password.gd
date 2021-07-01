@@ -14,32 +14,32 @@ func is_digit(s) -> bool:
 
 func validate_password() -> bool:
 	# checking if both passwords match
-	if ($password_1.text != $password_2.text):
-		$error_msg_area/Label.text = "Passwords Do Not Match"
+	if ($elements/password_1.text != $elements/password_2.text):
+		$elements/error_msg_area/Label.text = "Passwords Do Not Match"
 		return false
 	
 	# Rules:
 	#	- Password Must be atleast of length 8
 	#	- Password Must contain atleast 1 digit
-	if (len($password_1.text) < 8):
-		$error_msg_area/Label.text = "Password must be of length 8"
+	if (len($elements/password_1.text) < 8):
+		$elements/error_msg_area/Label.text = "Password must be of length 8"
 		return false
 	
-	for i in range(len($password_1.text)):
-		if (is_digit($password_1.text[i]) == true):
+	for i in range(len($elements/password_1.text)):
+		if (is_digit($elements/password_1.text[i]) == true):
 			return true
 	
-	$error_msg_area/Label.text = "Password must contain 1 digit"
+	$elements/error_msg_area/Label.text = "Password must contain 1 digit"
 	return false
 
 func _on_Button_button_up() -> void:
-	$loading.visible = true
+	$elements/loading.visible = true
 	
 	if (validate_password() == false):
-		$loading.visible = false
-		$error_msg_area.visible = true
+		$elements/loading.visible = false
+		$elements/error_msg_area.visible = true
 	else:
-		Firebase.change_password($password_1.text, $HTTPRequest)
+		Firebase.change_password($elements/password_1.text, $elements/HTTPRequest)
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -57,11 +57,11 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		file.close()
 		
 		file.open("user://save_login.dat", File.WRITE)
-		file.store_string(email + "/" + $password_1.text)
+		file.store_string(email + "/" + $elements/password_1.text)
 		file.close()
 		
-		$loading.visible = false
-		$success_msg_area.visible = true
+		$elements/loading.visible = false
+		$elements/success_msg_area.visible = true
 		
 		
 	else:
@@ -70,7 +70,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 
 func _on_error_cancel_button_pressed() -> void:
-	$error_msg_area.visible = false
+	$elements/error_msg_area.visible = false
 
 
 func _on_success_cancel_button_pressed() -> void:

@@ -9,8 +9,8 @@ var done_location : String
 
 
 func _ready() -> void:
-	$country.text = Firebase.user_data["country"]["stringValue"]
-	$city.text = Firebase.user_data["city"]["stringValue"]
+	$VBoxContainer/HBoxContainer/country.text = Firebase.user_data["country"]["stringValue"]
+	$VBoxContainer/HBoxContainer2/city.text = Firebase.user_data["city"]["stringValue"]
 
 
 func set_done_location(loc : String) -> void:
@@ -23,7 +23,7 @@ func _on_select_country_pressed() -> void:
 
 
 func set_country(name, code) -> void:
-	$country.text = name
+	$VBoxContainer/HBoxContainer/country.text = name
 	country_code = code
 #	print(code)
 
@@ -35,14 +35,14 @@ func _on_select_city_pressed() -> void:
 
 
 func set_city(name) -> void:
-	$city.text = name
+	$VBoxContainer/HBoxContainer2/city.text = name
 
 
 func _on_continue_button_up() -> void:
-	$pause_overlay.visible = true
+	$loading_overlay.visible = true
 	
-	Firebase.user_data["country"]["stringValue"] = $country.text
-	Firebase.user_data["city"]["stringValue"] = $city.text
+	Firebase.user_data["country"]["stringValue"] = $VBoxContainer/HBoxContainer/country.text
+	Firebase.user_data["city"]["stringValue"] = $VBoxContainer/HBoxContainer2/city.text
 	
 	var save_date = Firebase.user_data
 	
@@ -51,8 +51,7 @@ func _on_continue_button_up() -> void:
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if (response_code == 200):
-		print("Account Creation Successful")
-		$get_new_timings.request("http://api.aladhan.com/v1/timingsByCity?city=" + $city.text + "&country=" + $country.text + "&method=8")
+		$get_new_timings.request("http://api.aladhan.com/v1/timingsByCity?city=" + $VBoxContainer/HBoxContainer2/city.text + "&country=" + $VBoxContainer/HBoxContainer/country.text + "&method=8")
 	else:
 		print("Error")
 
@@ -81,8 +80,8 @@ func _on_get_new_timings_request_completed(result: int, response_code: int, head
 				NamazTimings.todays_timings["Maghrib"] = dict["data"]["timings"]["Maghrib"]
 			elif (x == "Isha"):
 				NamazTimings.todays_timings["Isha"] = dict["data"]["timings"]["Isha"]
-		
-		$pause_overlay.visible = false
-		$success_overlay.visible = true
 	else:
 		print("Server Error")
+	
+	$loading_overlay.visible = false
+	$success_overlay.visible = true

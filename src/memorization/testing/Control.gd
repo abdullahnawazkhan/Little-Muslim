@@ -106,14 +106,14 @@ func start_processing():
 					# all verses recited
 					$final_success.visible = true
 					
-					yield(get_tree().create_timer(1), "timeout")
+					yield(get_tree().create_timer(5.0), "timeout")
 					
 					emit_signal("recitation_done", 1)
 					queue_free()
 			else:
 				$final_success.visible = true
 					
-				yield(get_tree().create_timer(1), "timeout")
+				yield(get_tree().create_timer(5.0), "timeout")
 				
 				emit_signal("recitation_done", 1)
 				queue_free()

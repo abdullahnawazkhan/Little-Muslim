@@ -1,8 +1,4 @@
 extends Control
-
-# TODO: need to add proper loading msgs for memorization module
-#	- separate for both learning and testing
-
 onready var scene_tree : = get_tree()
 onready var paused_overly : ColorRect = get_node("pause_overlay")
 onready var pause_title : Label = get_node("pause_overlay/title")
@@ -240,5 +236,9 @@ func _show_internet_error_msg() -> void:
 	self.add_child(internet_error_instance)
 	get_tree().paused = true
 
-func loading(value):
-	$loading_overlay.visible = value
+
+func loading(type, value):
+	if type == 0:
+		$learning_loading_overlay.visible = value
+	else:
+		$test_loading_overlay.visible = value

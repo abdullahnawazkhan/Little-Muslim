@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/screens/log_in_module/registration/register.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/ui/back_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/ui/red_cancel.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/black_cancel.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/small_button.tres" type="Theme" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -20,6 +21,14 @@ size = 20
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 30
 font_data = ExtResource( 2 )
 
@@ -61,15 +70,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name_label" type="Label" parent="elements"]
+[node name="ScrollContainer" type="ScrollContainer" parent="elements"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -284.469
-margin_top = -174.219
-margin_right = -213.469
-margin_bottom = -130.219
+margin_left = -409.5
+margin_top = -155.402
+margin_right = 409.5
+margin_bottom = 234.598
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="elements/ScrollContainer"]
+margin_right = 807.0
+margin_bottom = 715.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 50
+
+[node name="name_box" type="HBoxContainer" parent="elements/ScrollContainer/VBoxContainer"]
+margin_right = 807.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="name_label" type="Label" parent="elements/ScrollContainer/VBoxContainer/name_box"]
+margin_right = 160.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Name"
@@ -77,15 +109,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="email_label" type="Label" parent="elements"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -282.568
-margin_top = -73.1348
-margin_right = -212.568
-margin_bottom = -29.1348
+[node name="name" type="LineEdit" parent="elements/ScrollContainer/VBoxContainer/name_box"]
+margin_left = 164.0
+margin_right = 807.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = SubResource( 3 )
+placeholder_text = "Enter Name Here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="email_box" type="HBoxContainer" parent="elements/ScrollContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 807.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+
+[node name="email_label" type="Label" parent="elements/ScrollContainer/VBoxContainer/email_box"]
+margin_top = 1.0
+margin_right = 160.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Email"
@@ -93,15 +140,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="password_label" type="Label" parent="elements"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -346.518
-margin_top = 17.2
-margin_right = -213.518
-margin_bottom = 61.2
+[node name="email" type="LineEdit" parent="elements/ScrollContainer/VBoxContainer/email_box"]
+margin_left = 164.0
+margin_right = 807.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = SubResource( 3 )
+placeholder_text = "Enter Email Here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password_1_box" type="HBoxContainer" parent="elements/ScrollContainer/VBoxContainer"]
+margin_top = 180.0
+margin_right = 807.0
+margin_bottom = 220.0
+
+[node name="password_label" type="Label" parent="elements/ScrollContainer/VBoxContainer/password_1_box"]
+margin_top = 1.0
+margin_right = 160.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Password"
@@ -109,15 +169,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="password_label2" type="Label" parent="elements"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -346.993
-margin_top = 91.8281
-margin_right = -211.993
-margin_bottom = 170.828
+[node name="password" type="LineEdit" parent="elements/ScrollContainer/VBoxContainer/password_1_box"]
+margin_left = 164.0
+margin_right = 807.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+custom_fonts/font = SubResource( 3 )
+secret = true
+placeholder_text = "Enter Password Here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password_2_box" type="HBoxContainer" parent="elements/ScrollContainer/VBoxContainer"]
+margin_top = 270.0
+margin_right = 807.0
+margin_bottom = 347.0
+
+[node name="password_label2" type="Label" parent="elements/ScrollContainer/VBoxContainer/password_2_box"]
+margin_right = 160.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
 text = "Re-Enter
@@ -126,61 +199,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name" type="LineEdit" parent="elements"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -193.661
-margin_top = -178.219
-margin_right = 317.339
-margin_bottom = -126.219
-custom_fonts/font = SubResource( 3 )
-placeholder_text = "Enter Name Here"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="email" type="LineEdit" parent="elements"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -193.134
-margin_top = -82.6964
-margin_right = 317.866
-margin_bottom = -30.6964
-custom_fonts/font = SubResource( 3 )
-placeholder_text = "Enter Email Here"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="password" type="LineEdit" parent="elements"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -193.134
-margin_top = 8.59045
-margin_right = 317.866
-margin_bottom = 60.5905
-custom_fonts/font = SubResource( 3 )
-secret = true
-placeholder_text = "Enter Password Here"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="password2" type="LineEdit" parent="elements"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -193.134
-margin_top = 108.182
-margin_right = 317.866
-margin_bottom = 160.182
+[node name="password2" type="LineEdit" parent="elements/ScrollContainer/VBoxContainer/password_2_box"]
+margin_left = 164.0
+margin_top = 18.0
+margin_right = 807.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 4.0
 custom_fonts/font = SubResource( 3 )
 secret = true
 placeholder_text = "Re-Enter Password Here"
@@ -188,15 +214,78 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="elements"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -148.0
-margin_top = 189.227
-margin_right = 148.0
-margin_bottom = 273.227
+[node name="country_box" type="HBoxContainer" parent="elements/ScrollContainer/VBoxContainer"]
+margin_top = 397.0
+margin_right = 807.0
+margin_bottom = 464.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="elements/ScrollContainer/VBoxContainer/country_box"]
+margin_top = 15.0
+margin_right = 122.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
+text = "Country"
+
+[node name="select_country" type="Button" parent="elements/ScrollContainer/VBoxContainer/country_box"]
+margin_left = 126.0
+margin_right = 313.0
+margin_bottom = 67.0
+theme = ExtResource( 7 )
+text = "Select Country"
+
+[node name="country_name" type="Label" parent="elements/ScrollContainer/VBoxContainer/country_box"]
+margin_left = 317.0
+margin_top = 15.0
+margin_right = 807.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+
+[node name="city_box" type="HBoxContainer" parent="elements/ScrollContainer/VBoxContainer"]
+margin_top = 514.0
+margin_right = 807.0
+margin_bottom = 581.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="elements/ScrollContainer/VBoxContainer/city_box"]
+margin_top = 15.0
+margin_right = 130.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.458824, 0.168627, 1 )
+text = "City"
+
+[node name="select_city" type="Button" parent="elements/ScrollContainer/VBoxContainer/city_box"]
+margin_left = 134.0
+margin_right = 283.0
+margin_bottom = 67.0
+theme = ExtResource( 7 )
+text = "Select City"
+
+[node name="city_name" type="Label" parent="elements/ScrollContainer/VBoxContainer/city_box"]
+margin_left = 287.0
+margin_top = 15.0
+margin_right = 807.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+
+[node name="Button" type="Button" parent="elements/ScrollContainer/VBoxContainer"]
+margin_left = 255.0
+margin_top = 631.0
+margin_right = 551.0
+margin_bottom = 715.0
+size_flags_horizontal = 4
 theme = ExtResource( 3 )
 text = "Create Account"
 __meta__ = {
@@ -239,7 +328,7 @@ margin_left = -209.5
 margin_top = -84.5
 margin_right = 209.5
 margin_bottom = 84.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 text = "Passwords Do not Match. Please Re-enter Information"
 autowrap = true
 __meta__ = {
@@ -283,7 +372,7 @@ margin_left = -247.0
 margin_top = -24.5
 margin_right = 247.0
 margin_bottom = 24.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 text = "Account Successfully Created"
 autowrap = true
 __meta__ = {
@@ -319,7 +408,7 @@ margin_left = -102.5
 margin_top = -22.0
 margin_right = 102.5
 margin_bottom = 22.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 text = "Loading...."
 autowrap = true
 __meta__ = {
@@ -355,11 +444,13 @@ margin_bottom = 52.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="focus_entered" from="elements/name" to="." method="_on_name_focus_entered"]
-[connection signal="focus_entered" from="elements/email" to="." method="_on_email_focus_entered"]
-[connection signal="focus_entered" from="elements/password" to="." method="_on_password_focus_entered"]
-[connection signal="focus_entered" from="elements/password2" to="." method="_on_password2_focus_entered"]
-[connection signal="button_up" from="elements/Button" to="." method="_on_Button_button_up"]
+[connection signal="focus_entered" from="elements/ScrollContainer/VBoxContainer/name_box/name" to="." method="_on_name_focus_entered"]
+[connection signal="focus_entered" from="elements/ScrollContainer/VBoxContainer/email_box/email" to="." method="_on_email_focus_entered"]
+[connection signal="focus_entered" from="elements/ScrollContainer/VBoxContainer/password_1_box/password" to="." method="_on_password_focus_entered"]
+[connection signal="focus_entered" from="elements/ScrollContainer/VBoxContainer/password_2_box/password2" to="." method="_on_password2_focus_entered"]
+[connection signal="button_up" from="elements/ScrollContainer/VBoxContainer/country_box/select_country" to="." method="_on_select_country_button_up"]
+[connection signal="button_up" from="elements/ScrollContainer/VBoxContainer/city_box/select_city" to="." method="_on_select_city_button_up"]
+[connection signal="button_up" from="elements/ScrollContainer/VBoxContainer/Button" to="." method="_on_Button_button_up"]
 [connection signal="request_completed" from="elements/account_creation" to="." method="_on_account_creation_request_completed"]
 [connection signal="request_completed" from="elements/document_creation" to="." method="_on_document_creation_request_completed"]
 [connection signal="pressed" from="elements/error_pane/ColorRect/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]

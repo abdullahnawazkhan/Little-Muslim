@@ -68,9 +68,9 @@ func select_random() -> void:
 
 func _on_Node2D_body_entered(body: Node) -> void:
 	if (body.name == "player"):
-		UI.loading(true)
+		UI.loading(state, true)
 		
-		yield(get_tree().create_timer(0.1), "timeout")
+		yield(get_tree().create_timer(2.0), "timeout")
 		
 		UI.add_child(state_obj)
 		get_tree().paused = true
@@ -97,6 +97,6 @@ func process(var value) -> void:
 		PlayerData.memorized.erase(surah)
 		PlayerData.memorizing[surah] = 1
  
-	UI.loading(false)
+	UI.loading(state, false)
 	get_tree().paused = false
 	queue_free()

@@ -159,6 +159,9 @@ margin_right = 47.5
 margin_bottom = 111.751
 custom_fonts/font = SubResource( 10 )
 text = "Verse: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="audio_buttons" type="Control" parent="."]
 anchor_left = 0.5

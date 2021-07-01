@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 		pauseBtn.visible = false
 
 
-func start_processing(data):
+func start_processing():
 	# all thread functions require an input parameter
 	# we are NOT using "data"
 	while true:
@@ -316,7 +316,7 @@ func _on_stop_speaking_button_pressed() -> void:
 	
 	yield(get_tree().create_timer(0.1), "timeout")
 	
-	start_processing(null)
+	start_processing()
 	
 #	working_thread.start(self, "start_processing", null)
 #

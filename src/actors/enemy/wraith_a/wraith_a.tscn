@@ -92,6 +92,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 61 ), ExtResource( 71 ), ExtResource( 34 ), ExtResource( 72 ), ExtResource( 40 ), ExtResource( 51 ), ExtResource( 55 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 56 ), ExtResource( 73 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 62 ), ExtResource( 43 ), ExtResource( 57 ), ExtResource( 32 ), ExtResource( 83 ), ExtResource( 46 ), ExtResource( 74 ), ExtResource( 35 ), ExtResource( 65 ), ExtResource( 78 ), ExtResource( 75 ), ExtResource( 47 ), ExtResource( 68 ) ],
 "loop": true,
 "name": "die",
@@ -102,19 +107,14 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 61 ), ExtResource( 71 ), ExtResource( 34 ), ExtResource( 72 ), ExtResource( 40 ), ExtResource( 51 ), ExtResource( 55 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 56 ), ExtResource( 73 ), ExtResource( 29 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 20 ) ],
 "loop": true,
-"name": "walk",
+"name": "attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 63 ), ExtResource( 30 ), ExtResource( 53 ), ExtResource( 59 ) ],
 "loop": true,
 "name": "spell_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "attack",
 "speed": 5.0
 } ]
 
@@ -144,7 +144,7 @@ script = ExtResource( 27 )
 position = Vector2( 0, 1.7818 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 speed_scale = 2.0
 playing = true
 flip_h = true
@@ -166,10 +166,11 @@ modulate = Color( 0.00784314, 1, 0.164706, 1 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2( -243.513, 27.6016 )
+position = Vector2( -272.022, -57.9246 )
 shape = SubResource( 3 )
 
 [node name="Minotaur1AttackArea" type="Area2D" parent="."]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 collision_layer = 0
 

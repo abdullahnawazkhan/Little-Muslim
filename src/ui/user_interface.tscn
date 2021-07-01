@@ -573,7 +573,7 @@ position = Vector2( 291, -30 )
 scale = Vector2( 0.171875, 0.171875 )
 normal = ExtResource( 28 )
 
-[node name="loading_overlay" type="ColorRect" parent="."]
+[node name="learning_loading_overlay" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -582,7 +582,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="loading_overlay"]
+[node name="ColorRect" type="ColorRect" parent="learning_loading_overlay"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -593,17 +593,56 @@ margin_right = 178.0
 margin_bottom = 104.0
 color = Color( 0.980392, 0.921569, 0.0431373, 1 )
 
-[node name="Label" type="Label" parent="loading_overlay/ColorRect"]
+[node name="Label" type="Label" parent="learning_loading_overlay/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -123.0
-margin_top = -29.5
-margin_right = 123.0
-margin_bottom = 29.5
+margin_left = -164.0
+margin_top = -60.5
+margin_right = 164.0
+margin_bottom = 60.5
 custom_fonts/font = SubResource( 14 )
-text = "Loading....."
+text = "Get Ready to Learn"
+align = 1
+autowrap = true
+
+[node name="test_loading_overlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.576471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="test_loading_overlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -178.0
+margin_top = -104.0
+margin_right = 178.0
+margin_bottom = 104.0
+color = Color( 0.980392, 0.921569, 0.0431373, 1 )
+
+[node name="Label" type="Label" parent="test_loading_overlay/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -143.0
+margin_top = -60.5
+margin_right = 143.0
+margin_bottom = 60.5
+custom_fonts/font = SubResource( 14 )
+text = "Get Ready for the Test"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="touch_buttons/left/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_pressed"]
 [connection signal="released" from="touch_buttons/left/TouchScreenButton_left" to="." method="_on_TouchScreenButton_left_released"]
 [connection signal="pressed" from="touch_buttons/right/TouchScreenButton_right" to="." method="_on_TouchScreenButton_right_pressed"]

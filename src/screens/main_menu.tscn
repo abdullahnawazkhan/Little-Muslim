@@ -1,16 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/ui/quit_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=4]
 [ext_resource path="res://src/screens/main_menu.gd" type="Script" id=5]
+[ext_resource path="res://assets/ui/009-tick.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/033-wrong.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 3 )
 
@@ -70,17 +76,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -159.0
-margin_top = -77.7464
-margin_right = 159.0
-margin_bottom = 270.254
+margin_left = -186.5
+margin_top = -98.8771
+margin_right = 186.5
+margin_bottom = 270.123
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="play" parent="VBoxContainer" instance=ExtResource( 1 )]
-margin_right = 318.0
-margin_bottom = 84.0
+margin_right = 373.0
+margin_bottom = 91.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
@@ -88,9 +94,9 @@ text = "Play Now"
 scene_path = "res://src/screens/minor_screens/loading_screen/loading_screen.tscn"
 
 [node name="settings" parent="VBoxContainer" instance=ExtResource( 1 )]
-margin_top = 88.0
-margin_right = 318.0
-margin_bottom = 172.0
+margin_top = 95.0
+margin_right = 373.0
+margin_bottom = 186.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
@@ -98,18 +104,67 @@ text = "Settings"
 scene_path = "res://src/screens/settings_page/settings.tscn"
 
 [node name="log_out" type="Button" parent="VBoxContainer"]
-margin_top = 176.0
-margin_right = 318.0
-margin_bottom = 260.0
+margin_top = 190.0
+margin_right = 373.0
+margin_bottom = 274.0
 theme = ExtResource( 4 )
 text = "Log Out"
 
 [node name="quit_button" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 264.0
-margin_right = 318.0
-margin_bottom = 348.0
+margin_top = 278.0
+margin_right = 373.0
+margin_bottom = 369.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
 text = "Quit"
+
+[node name="confirmation_dialog" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.192157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="confirmation_dialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -229.0
+margin_top = -156.0
+margin_right = 229.0
+margin_bottom = 156.0
+color = Color( 0.564706, 0.658824, 0.905882, 1 )
+
+[node name="Label" type="Label" parent="confirmation_dialog/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.0
+margin_top = -110.865
+margin_right = 203.0
+margin_bottom = 37.1346
+custom_fonts/font = SubResource( 3 )
+text = "Are you sure you want to log out?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yes_button" type="TouchScreenButton" parent="confirmation_dialog/ColorRect"]
+position = Vector2( 78.755, 178.868 )
+scale = Vector2( 0.184, 0.184 )
+normal = ExtResource( 6 )
+
+[node name="no_button" type="TouchScreenButton" parent="confirmation_dialog/ColorRect"]
+position = Vector2( 263.082, 178.868 )
+scale = Vector2( 0.184, 0.184 )
+normal = ExtResource( 7 )
 [connection signal="button_up" from="VBoxContainer/log_out" to="." method="_on_log_out_button_up"]
+[connection signal="released" from="confirmation_dialog/ColorRect/yes_button" to="." method="_on_yes_button_released"]
+[connection signal="released" from="confirmation_dialog/ColorRect/no_button" to="." method="_on_no_button_released"]
