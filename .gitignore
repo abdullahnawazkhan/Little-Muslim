@@ -2,5 +2,5 @@
 *.import
 .import/
 .import/*
-build/
-build/*
+android/build/
+android/build/*
