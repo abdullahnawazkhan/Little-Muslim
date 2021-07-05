@@ -123,11 +123,11 @@
 80        <!-- CHUNK_APPLICATION_END -->
 81
 82        <meta-data
-82-->[AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:10:9-12:67
+82-->[AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\a9f49c11089457f9bf721b896385fe7c\AudioPlayer-release\AndroidManifest.xml:10:9-12:67
 83            android:name="org.godotengine.plugin.v1.AudioPlayer"
-83-->[AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:11:13-65
+83-->[AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\a9f49c11089457f9bf721b896385fe7c\AudioPlayer-release\AndroidManifest.xml:11:13-65
 84            android:value="com.example.audioplayer.AudioPlayer" />
-84-->[AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\0170f51b93fe106c7ed399e7bc5d66fd\AudioPlayer-release\AndroidManifest.xml:12:13-64
+84-->[AudioPlayer-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\a9f49c11089457f9bf721b896385fe7c\AudioPlayer-release\AndroidManifest.xml:12:13-64
 85        <meta-data
 85-->[PermissionChecker-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\19b8200662e3e1d618ab6bb73be92c6e\PermissionChecker-release\AndroidManifest.xml:10:9-12:79
 86            android:name="org.godotengine.plugin.v1.PermissionChecker"
@@ -141,11 +141,11 @@
 90            android:value="com.example.qiblalocationfinder.QiblaLocationFinder" />
 90-->[QiblaLocationFinder-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\c9b3fbf6f59ab5f0bccbec02cd0ad8bf\QiblaLocationFinder-release\AndroidManifest.xml:12:13-80
 91        <meta-data
-91-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\e6dddf0c51b722d11b9a13517be3340e\SpeechToText-release\AndroidManifest.xml:12:9-14:69
+91-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\a988580e7103edc3b2f67da3e47eb7a8\SpeechToText-release\AndroidManifest.xml:12:9-14:69
 92            android:name="org.godotengine.plugin.v1.SpeechToText"
-92-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\e6dddf0c51b722d11b9a13517be3340e\SpeechToText-release\AndroidManifest.xml:13:13-66
+92-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\a988580e7103edc3b2f67da3e47eb7a8\SpeechToText-release\AndroidManifest.xml:13:13-66
 93            android:value="com.example.speechtotext.SpeechToText" />
-93-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\e6dddf0c51b722d11b9a13517be3340e\SpeechToText-release\AndroidManifest.xml:14:13-66
+93-->[SpeechToText-release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\a988580e7103edc3b2f67da3e47eb7a8\SpeechToText-release\AndroidManifest.xml:14:13-66
 94
 95        <service android:name="org.godotengine.godot.GodotDownloaderService" />
 95-->[godot-lib.release.aar] C:\Users\abdul\.gradle\caches\transforms-2\files-2.1\2f29423de5771cd0c2f475b364e10860\godot-lib.release\AndroidManifest.xml:19:9-80

@@ -7,6 +7,7 @@ onready var password_2 = get_node("elements/ScrollContainer/VBoxContainer/passwo
 onready var country_name = get_node("elements/ScrollContainer/VBoxContainer/country_box/country_name")
 onready var city_name = get_node("elements/ScrollContainer/VBoxContainer/city_box/city_name")
 
+
 var COUNTRY = preload("res://src/screens/settings_page/add_location/country_select/country.tscn")
 var CITY = preload("res://src/screens/settings_page/add_location/city_select/city.tscn")
 
@@ -74,7 +75,7 @@ func _on_Button_button_up() -> void:
 
 func _on_account_creation_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if (response_code == 200):
-		print("Log in successful")
+		print("Registration Completed")
 		
 		var d = parse_json(body.get_string_from_utf8())
 		

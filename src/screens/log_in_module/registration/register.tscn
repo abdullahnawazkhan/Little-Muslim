@@ -296,11 +296,15 @@ __meta__ = {
 
 [node name="document_creation" type="HTTPRequest" parent="elements"]
 
+[node name="back" parent="elements" instance=ExtResource( 4 )]
+scale = Vector2( 0.244, 0.244 )
+scene_path = "res://src/screens/start_up_screen.tscn"
+
 [node name="error_pane" type="ColorRect" parent="elements"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.92549, 0.113725, 0.113725, 0.0627451 )
+color = Color( 0, 0, 0, 0.509804 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -344,7 +348,7 @@ normal = ExtResource( 6 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0862745, 0.494118, 0.0392157, 0.431373 )
+color = Color( 0, 0, 0, 0.509804 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -411,36 +415,6 @@ margin_bottom = 22.0
 custom_fonts/font = SubResource( 6 )
 text = "Loading...."
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="back" parent="elements" instance=ExtResource( 4 )]
-scale = Vector2( 0.244, 0.244 )
-scene_path = "res://src/screens/start_up_screen.tscn"
-
-[node name="email_cover" type="ColorRect" parent="elements"]
-visible = false
-margin_right = 511.0
-margin_bottom = 52.0
-color = Color( 1, 1, 1, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="password_cover" type="ColorRect" parent="elements"]
-visible = false
-margin_right = 511.0
-margin_bottom = 52.0
-color = Color( 1, 1, 1, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="password2_cover" type="ColorRect" parent="elements"]
-visible = false
-margin_right = 511.0
-margin_bottom = 52.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
