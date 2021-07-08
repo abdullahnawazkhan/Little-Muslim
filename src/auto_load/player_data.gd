@@ -14,6 +14,8 @@ var quests_completed = []
 var memorizing = {}
 var memorized = []
 
+var user_level
+
 func reset():
 	self.score = 0
 	self.deaths = 0

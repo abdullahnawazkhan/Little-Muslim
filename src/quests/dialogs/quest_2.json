@@ -1,0 +1,53 @@
+{
+	"000" : {
+		"type" : "dialog",
+		"text" : "Please help us !!",
+		"next" : "001"
+	},
+	"001" : {
+		"type" : "dialog",
+		"text" : "The forest is over-run by monsters. The children can't play outside anymore.",
+		"next" : "002"
+	},
+	"002" : {
+		"type" : "response",
+		"text" : "We don't have any money to pay you. But please will you help us ??",
+		"responses" : {
+			"Yes! Ofcourse I will help" : "003",
+			"No! I don't do this for free" : "004"
+		}
+	},
+	"003" : {
+		"type" : "quest_accepted_dialog",
+		"text" : "Thank you! Thank you so much! I can't believe it. Please go talk to man who lives next to the river to learn more about the monsters",
+		"next" : "null"
+	},
+	"004" : {
+		"type" : "dialog",
+		"text" : "I understand. That was foolish of me to ask. Have a safe journey!",
+		"next" : "null"
+	},
+	"005" : {
+		"type" : "dialog",
+		"text" : "Again I can't thank you enough for helping us :)",
+		"next" : "null"
+	},
+	"007" : {
+		"type" : "response",
+		"text" : "How is the monster hunting going?",
+		"responses" : {
+			"Trying to figure out a way to stop the Monsters" : "005",
+			"I defeated the jungle monster, now no monsters will ever hurt you people" : "008"
+		}
+	},
+	"008" : {
+		"type" : "dialog",
+		"text" : "I can't believe it. Finally the day has come. Children gather around. Let's all come together in thanking this warrior. Thank you truly <3",
+		"next" : "009"
+	},
+	"009" : {
+		"type" : "dialog",
+		"text" : "I remembered a Hadith, Messenger of Allah (SAW) said: “Whoever relieves a Muslim of a burden from the burdens of the world, Allah will relieve him of a burden from the burdens on the Day of Judgement. And whoever helps ease a difficulty in the world, Allah will grant him ease from a difficulty in the world and in the Hereafter. And whoever covers (the faults of) a Muslim, Allah will cover (his faults) for him in the world and the Hereafter. And Allah is engaged in helping the worshipper as long as the worshipper is engaged in helping his brother.”",
+		"next" : "finished"
+	}
+}

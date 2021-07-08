@@ -5,11 +5,14 @@ class_name npc
 
 onready var ui := get_tree().get_current_scene().get_node("user_interface/user_interface")
 
+# holds entire json dialog data
 var dialog = {}
+# holds the current state
 var state = "000"
+# holds the responses objects
+# contains the responses user can select from
+# and contains next state against the response selected
 var curr_choices = {}
-var save_data = {}
-
 
 # child class will need to pass in values in the below variables
 # values will be passed in the child's _ready() function
@@ -26,20 +29,27 @@ func _init(q_name, s) -> void:
 
 	load_json()
 
+	# checking if user has already completed this quest
 	if quest_name in PlayerData.quests_completed:
-		queue_free() # 
-		
+		queue_free()
+	
+	# if user has already accepted quest
+	# no need to start dialog from state "000"
+	# rather use in_progress_state
 	if quest_name in PlayerData.quests_in_progress:
 		state = in_progress_state
 
 
 func load_json() -> void:
 	# loading dialog .json for the quest
+	
+	# creating File class object
 	var file  = File.new()
+	# opening file and checking for error
 	var error = file.open("res://src/quests/dialogs/" + quest_name + ".json", File.READ)
 	if error == OK:
+		# if there is no error
 		dialog = parse_json(file.get_as_text())
-		print("No issues loading JSON")
 		file.close()
 	else:
 		print("Error loading JSON")
@@ -86,6 +96,8 @@ func _add_to_in_progress() -> void:
 
 
 func process_choice(choice) -> void:
+	# this is called when the user selects an option
+	# this takes in the choice as an input
 	state = curr_choices[choice]
 	execute()
 

@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/change_scene_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/ui/theme_1.tres" type="Theme" id=3]
 [ext_resource path="res://src/ui/back_button.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/screens/settings_page/settings.gd" type="Script" id=5]
-
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -16,7 +13,6 @@ font_data = ExtResource( 1 )
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,37 +46,29 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -233.0
-margin_top = -129.843
+margin_top = -105.663
 margin_right = 233.0
-margin_bottom = 233.157
+margin_bottom = 191.337
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="change_scene_button" parent="HBoxContainer" instance=ExtResource( 2 )]
 margin_right = 466.0
-margin_bottom = 118.0
+margin_bottom = 143.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 text = "Change Account Settings"
 scene_path = "res://src/screens/settings_page/change_account/change_account_details.tscn"
 
-[node name="change_scene_button3" parent="HBoxContainer" instance=ExtResource( 2 )]
-margin_top = 122.0
-margin_right = 466.0
-margin_bottom = 240.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 3 )
-text = "Adjust Volume"
-
 [node name="change_scene_button2" parent="HBoxContainer" instance=ExtResource( 2 )]
-margin_top = 244.0
+margin_top = 153.0
 margin_right = 466.0
-margin_bottom = 363.0
+margin_bottom = 297.0
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 text = "Change Location Settings"

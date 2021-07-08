@@ -33,11 +33,16 @@
 	"005" : {
 		"type" : "dialog",
 		"text" : "I can't believe it. I thought i would never see this again. Thank you so much",
-		"next" : "finished"
+		"next" : "007"
 	},
 	"006" : {
 		"type" : "dialog",
 		"text" : "Again I can't thank you enough for helping me",
 		"next" : "null"
+	},
+	"007" : {
+		"type" : "dialog",
+		"text" : "I remembered a Hadith, Messenger of Allah (SAW) said: “Whoever relieves a Muslim of a burden from the burdens of the world, Allah will relieve him of a burden from the burdens on the Day of Judgement. And whoever helps ease a difficulty in the world, Allah will grant him ease from a difficulty in the world and in the Hereafter. And whoever covers (the faults of) a Muslim, Allah will cover (his faults) for him in the world and the Hereafter. And Allah is engaged in helping the worshipper as long as the worshipper is engaged in helping his brother.”",
+		"next" : "finished"
 	}
 }

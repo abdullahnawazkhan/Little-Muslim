@@ -418,6 +418,18 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="students" type="LineEdit" parent="elements"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.0
+margin_top = -12.0
+margin_right = 29.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 [connection signal="focus_entered" from="elements/ScrollContainer/VBoxContainer/name_box/name" to="." method="_on_name_focus_entered"]
 [connection signal="focus_entered" from="elements/ScrollContainer/VBoxContainer/email_box/email" to="." method="_on_email_focus_entered"]
 [connection signal="focus_entered" from="elements/ScrollContainer/VBoxContainer/password_1_box/password" to="." method="_on_password_focus_entered"]
@@ -429,3 +441,4 @@ __meta__ = {
 [connection signal="request_completed" from="elements/document_creation" to="." method="_on_document_creation_request_completed"]
 [connection signal="pressed" from="elements/error_pane/ColorRect/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]
 [connection signal="pressed" from="elements/success_pane/ColorRect/success_cancel_button" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="text_entered" from="elements/students" to="." method="_on_students_text_entered"]

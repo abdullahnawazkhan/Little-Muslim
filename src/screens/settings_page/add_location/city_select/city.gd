@@ -21,8 +21,6 @@ func get_headers():
 
 func _on_touch_button_pressed() -> void:
 	clear_list()
-#	$elements/HTTPRequest.request("http://battuta.medunes.net/api/city/" + id + "/search/?city" + $elements/searchbar/LineEdit.text + "&key=e63f9251e7b43b868deb085a2d350e03")
-#	$elements/HTTPRequest.request("http://battuta.medunes.net/api/city/pk/search/?city=" + $elements/searchbar/LineEdit.text + "&key=e63f9251e7b43b868deb085a2d350e03")
 	$elements/HTTPRequest.request("https://wft-geo-db.p.rapidapi.com/v1/geo/cities?countryIds=" + id + "&namePrefix=" + $elements/searchbar/LineEdit.text, get_headers())
 	
 	$elements/loading.visible = true
@@ -34,13 +32,14 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		var data = parse_json(body.get_string_from_utf8())
 		
 		for d in data["data"]:
-			var new_button = template.duplicate()
-			new_button.visible = true
-			new_button.text = d["city"]
-			new_button.connect("pressed", self, "process_choice", [d["city"]])
-			
-			list.add_child(new_button)
-			list_of_countries.append(new_button)
+			if d["type"] == "CITY":
+				var new_button = template.duplicate()
+				new_button.visible = true
+				new_button.text = d["city"]
+				new_button.connect("pressed", self, "process_choice", [d["city"]])
+				
+				list.add_child(new_button)
+				list_of_countries.append(new_button)
 	else:
 		print("Server Error")
 		$elements/error.visible = true

@@ -1,0 +1,59 @@
+{
+	"000" : {
+		"type" : "dialog",
+		"text" : "Hello There",
+		"next" : "001"
+	},
+	"001" : {
+		"type" : "response",
+		"text" : "Need Anything?",
+		"responses" : {
+			"Yes, can you tell me about the monsters here" : "002",
+			"No thank you" : "003"
+		}
+	},
+	"002" : {
+		"type" : "response",
+		"text" : "The monsters are mindless. They only follow their leaders orders.",
+		"responses" : {
+			"Okay Thank you" : "003",
+			"Can you tell me more about their leader" : "004"
+		}
+	},
+	"003" : {
+		"type" : "dialog",
+		"text" : "OK. Safe Travels and Good Luck",
+		"next" : "null"
+	},
+	"004" : {
+		"type" : "dialog",
+		"text" : "I've heard the leader lives in a house in the darkest part of the forest. No man ever makes it back alive",
+		"next" : "005"
+	},
+	"005" : {
+		"type" : "response",
+		"text" : "Don't tell me, are you planning on fighting that beast?",
+		"responses" : {
+			"Yes I am" : "006",
+			"No just asking around" : "003"
+		}
+	},
+	"006" : {
+		"type" : "quest_accepted_dialog",
+		"text" : "You look strong, but that sword is weak. It will shatter soon. Bring me 500 stars and I'll strengthen your sword",
+		"next" : "null"
+	},
+	"007" : {
+		"type" : "response",
+		"text" : "Do you want to upgrade your sword?",
+		"responses" : {
+			"Yes (-500 stars)" : "008",
+			"Not sure yet" : "003"
+		}
+	},
+	"008" : {
+		"type" : "dialog",
+		"text" : "Here you go, now atleast you have a chance against the monster",
+		"next" : "finished"
+	}
+}

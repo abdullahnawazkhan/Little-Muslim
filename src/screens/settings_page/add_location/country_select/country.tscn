@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/ui/magnifying-glass.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/screens/settings_page/add_location/country_select/country.gd" type="Script" id=3]
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -13,30 +12,48 @@ font_data = ExtResource( 2 )
 size = 20
 font_data = ExtResource( 2 )
 
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.92549, 0.482353, 0.0745098, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
 bg_color = Color( 0.92549, 0.482353, 0.0745098, 1 )
 border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="DynamicFont" id=4]
-size = 25
+size = 35
 font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=5]
 default_font = SubResource( 4 )
-Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
-Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 1, 0.388235, 0.054902, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = null
+Button/styles/hover = SubResource( 8 )
 Button/styles/normal = SubResource( 3 )
-Button/styles/pressed = null
+Button/styles/pressed = SubResource( 7 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 40
@@ -123,30 +140,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -396.5
-margin_top = -103.683
-margin_right = 396.5
-margin_bottom = 265.317
+margin_left = -312.0
+margin_top = -103.865
+margin_right = 312.0
+margin_bottom = 265.135
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="elements/ScrollContainer"]
-margin_right = 793.0
+margin_right = 624.0
 size_flags_horizontal = 3
-custom_constants/separation = 10
+custom_constants/separation = 20
 
 [node name="template" type="Button" parent="elements/ScrollContainer/VBoxContainer"]
 visible = false
-margin_right = 793.0
-margin_bottom = 47.0
+margin_right = 624.0
+margin_bottom = 62.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 5 )
 text = "Pakistan"
 clip_text = true
-align = 0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="elements"]
 

@@ -1,0 +1,30 @@
+{
+	"000" : {
+		"type" : "dialog",
+		"text" : "This Horse looks to be very thirsty",
+		"next" : "002"
+	},
+	"002" : {
+		"type" : "response",
+		"text" : "I can give him some water, but it will cost me all my stars. Should I do this?",
+		"responses" : {
+			"No, let someone else help him. Its only a horse" : "003",
+			"Yes, I think I will help this horse" : "004"
+		}
+	},
+	"003" : {
+		"type" : "dialog",
+		"text" : "I shouldn't feel bad about this. Its just a horse",
+		"next" : "finished"
+	},
+	"004" : {
+		"type" : "dialog",
+		"text" : "Here you go :). Hope you feel better now",
+		"next" : "005"
+	},
+	"005" : {
+		"type" : "dialog",
+		"text" : "I remember a Hadith, Abu Huraira reported: The Messenger of Allah, peace and blessings be upon him, said, “A man suffered from thirst while he was walking on a journey. When he found a well, he climbed down into it and drank from it. Then he came out and saw a dog lolling its tongue from thirst and licking the ground. The man said: This dog has suffered thirst just as I have suffered from it. He climbed down into the well, filled his shoe with water, and caught it in his mouth as he climbed up. Then he gave the dog a drink. Allah appreciated his deed, so He forgave him.” They said, “O Messenger of Allah, is there a reward for charity even for the animals?” The Prophet said, “Yes, in every creature with a moist liver is a reward for charity.”",
+		"next" : "finished"
+	}
+}

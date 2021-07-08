@@ -50,17 +50,12 @@ var current_verse_index
 
 # constructor of node
 func init(s_title, surah_number, ayat_number) -> void:
-#	surah_title = s_title
-#	surah = surah_number
-#	verse = ayat_number
-	
-	surah_title = "Surah Al-Ikhlas"
-	surah = "112"
-	verse = "all"
+	surah_title = s_title
+	surah = surah_number
+	verse = ayat_number
 #	verse can contain 2 things:
 #		- Specific verse number
 #		- "All"
-	
 	current_verse_index = 0
 
 
@@ -96,29 +91,38 @@ func _ready() -> void:
 		print("Issue with connecting with speech to text android module")
 
 
+# will run on every iteration of the game loop
 func _process(delta: float) -> void:
+	# checking if audio has stopped playing
+	# if thats the case, will show the playbutton and hide the pause button
 	if (audioPlayer.get_is_playing() == false):
 		playBtn.visible = true
 		pauseBtn.visible = false
 
 
 func start_processing():
-	# all thread functions require an input parameter
-	# we are NOT using "data"
+	# will keep on asking the SpeechToText Plugin for the spoken words
+	# getWords() will either return "error" or the words spoken by the user
 	while true:
 		words = speechToText.getWords()
+		# will check if the words var has received anything from the Plugin
+		# is checked by checking the len of the variable
 		if len(words) > 0:
 			break
-	print("Out of Inifite loop")
 
-	words = speechToText.getWords()
-#
 	if (words == "error"):
 		error_overlay.visible = true
 		$loading.visible = false
 	else:
+		# checking if verse text and spoken text match
 		if (compare(words, simple_arabic) == true):
+			# there are 2 cases:
+			#	- We are either making the user recite the entire sura
+			#	- We are making user recite only 1 verse
+			
+			# entire surah case
 			if verse == 'all':
+				# checking if verse just recited was the last verse of the surah
 				if current_verse_index < len(verses):
 					# showing the next ayat
 					api_text.arabic_input = verses[current_verse_index]
@@ -155,61 +159,6 @@ func start_processing():
 		else:
 			error_overlay.visible = true
 			$loading.visible = false
-
-
-func remove(s, index):
-	var new_s = ""
-	
-	for i in range(len(s)):
-		if (i != index):
-			new_s += s[i]
-
-	return new_s
-
-
-func compare(spoken, actual):
-	# removing any trailing spaces
-	actual = actual.rstrip(' ')
-	# removing any leading spaces
-	actual = actual.lstrip(' ')
-
-	print("Inside compare function")
-	print("Spoken String: ", spoken)
-	print("Actual String: ", actual)
-	var i = 0
-	while i < spoken.length():
-		print("Spoken Character :", spoken[i])
-		print("Actual Character :", actual[i])
-		if (spoken[i] == 'ﻱ' && actual[i] == 'ﻯ' || spoken[i] == 'ﻯ' && actual[i] == 'ﻱ'):
-			spoken[i] = actual[i]
-			i += 1
-			continue
-		if (spoken[i] == 'ﻲ' && actual[i] == 'ﻰ' || spoken[i] == 'ﻰ' && actual[i] == 'ﻲ'):
-			print("FOUND CASE 2")
-			spoken[i] = actual[i]
-			continue
-		if (spoken[i] == 'ي' && actual[i] == 'ى' || spoken[i] == 'ى' && actual[i] == 'ي'):
-			spoken[i] = actual[i]
-			i += 1
-			continue
-		if (spoken[i] == actual[i]):
-			i += 1
-			continue
-		else:
-			print("Removing")
-			spoken = remove(spoken, i)
-			print("New Spoken", spoken)
-			print("Actual: ", actual)
-
-	if (spoken == actual):
-		return true
-	else:
-		return false
-
-
-#func _on_Timer_timeout() -> void:
-#	timer.stop()
-#	timer_stopped = true
 
 
 func _on_without_diacritics_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -307,8 +256,6 @@ func _on_start_speaking_button_pressed() -> void:
 func _on_stop_speaking_button_pressed() -> void:
 	start_speaking_btn.visible = true
 	stop_speaking_btn.visible = false
-		
-#	timer_stopped = false
 
 	speechToText.stop()
 	
@@ -317,13 +264,6 @@ func _on_stop_speaking_button_pressed() -> void:
 	yield(get_tree().create_timer(0.1), "timeout")
 	
 	start_processing()
-	
-#	working_thread.start(self, "start_processing", null)
-#
-#	timer.set_wait_time(5)
-#	timer.start()
-	
-#	start_processing()
 
 
 func remove_diacritics(arr):
@@ -349,4 +289,53 @@ func remove_empty_data(arr):
 			
 	return new_arr
 
+
+func remove(s, index):
+	var new_s = ""
+	
+	for i in range(len(s)):
+		if (i != index):
+			new_s += s[i]
+
+	return new_s
+
+
+func compare(spoken, actual):
+	# removing any trailing spaces
+	actual = actual.rstrip(' ')
+	# removing any leading spaces
+	actual = actual.lstrip(' ')
+
+	print("Inside compare function")
+	print("Spoken String: ", spoken)
+	print("Actual String: ", actual)
+	var i = 0
+	while i < spoken.length():
+		print("Spoken Character :", spoken[i])
+		print("Actual Character :", actual[i])
+		if (spoken[i] == 'ﻱ' && actual[i] == 'ﻯ' || spoken[i] == 'ﻯ' && actual[i] == 'ﻱ'):
+			spoken[i] = actual[i]
+			i += 1
+			continue
+		if (spoken[i] == 'ﻲ' && actual[i] == 'ﻰ' || spoken[i] == 'ﻰ' && actual[i] == 'ﻲ'):
+			print("FOUND CASE 2")
+			spoken[i] = actual[i]
+			continue
+		if (spoken[i] == 'ي' && actual[i] == 'ى' || spoken[i] == 'ى' && actual[i] == 'ي'):
+			spoken[i] = actual[i]
+			i += 1
+			continue
+		if (spoken[i] == actual[i]):
+			i += 1
+			continue
+		else:
+			print("Removing")
+			spoken = remove(spoken, i)
+			print("New Spoken", spoken)
+			print("Actual: ", actual)
+
+	if (spoken == actual):
+		return true
+	else:
+		return false
 

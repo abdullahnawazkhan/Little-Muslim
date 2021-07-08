@@ -12,7 +12,6 @@ var keyboard_open = false
 
 
 func _on_TouchScreenButton_pressed() -> void:
-	print("Back button pressed")
 	get_tree().change_scene("res://src/screens/log_in_module/log_in/log_in.tscn")
 
 
@@ -27,7 +26,6 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		print("Email Sent")
 		loading_msg.visible = false
 		success_msg.visible = true
-		# pop msg email reset password successful
 	else:
 		# display pop up no such email exists
 		loading_msg.visible = false

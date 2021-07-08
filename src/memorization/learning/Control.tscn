@@ -36,26 +36,26 @@ VScrollBar/styles/scroll_focus = SubResource( 5 )
 size = 100
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=13]
 size = 70
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 40
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 25
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 size = 40
 font_data = ExtResource( 8 )
 
-[sub_resource type="Theme" id=12]
-default_font = SubResource( 11 )
+[sub_resource type="Theme" id=11]
+default_font = SubResource( 10 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=12]
 size = 40
 font_data = ExtResource( 8 )
 
@@ -130,7 +130,7 @@ margin_right = 948.0
 margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 13 )
 text = " "
 align = 2
 autowrap = true
@@ -144,7 +144,8 @@ margin_left = -143.0
 margin_top = 16.0181
 margin_right = 143.0
 margin_bottom = 75.0181
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "Surah Fatiha"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -157,7 +158,7 @@ margin_left = -47.5
 margin_top = 74.751
 margin_right = 47.5
 margin_bottom = 111.751
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "Verse: "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -243,7 +244,7 @@ margin_left = -109.0
 margin_top = -30.0
 margin_right = 109.0
 margin_bottom = 30.0
-theme = SubResource( 12 )
+theme = SubResource( 11 )
 text = "Try Again"
 autowrap = true
 __meta__ = {
@@ -287,7 +288,7 @@ margin_left = -148.5
 margin_top = -29.5
 margin_right = 148.5
 margin_bottom = 29.5
-theme = SubResource( 12 )
+theme = SubResource( 11 )
 text = "GOOD JOB !!"
 autowrap = true
 uppercase = true
@@ -332,7 +333,7 @@ margin_left = -138.0
 margin_top = -32.0
 margin_right = 138.0
 margin_bottom = 32.0
-theme = SubResource( 12 )
+theme = SubResource( 11 )
 text = "Loading....."
 autowrap = true
 uppercase = true
@@ -372,7 +373,7 @@ margin_left = -242.5
 margin_top = -91.5
 margin_right = 242.5
 margin_bottom = 91.5
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 12 )
 text = "Congratulations !! You have succesfully recited this task"
 autowrap = true
 __meta__ = {

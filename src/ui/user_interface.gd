@@ -39,6 +39,7 @@ enum pause_action {MAIN_MENU, QUIT}
 var current_action
 
 var scene_change_path := ""
+var current_level
 
 
 func _ready() -> void:
@@ -193,6 +194,7 @@ func set_scene_change_path(path) -> void:
 func _on_TouchScreenButton_enter_pressed() -> void:
 	var save = load(scene_change_path)
 	var save_scene = save.instance()
+	save_scene.initialize(current_level)
 	get_parent().add_child(save_scene)
 
 
@@ -242,3 +244,7 @@ func loading(type, value):
 		$learning_loading_overlay.visible = value
 	else:
 		$test_loading_overlay.visible = value
+
+
+func set_current_level(val):
+	current_level = val

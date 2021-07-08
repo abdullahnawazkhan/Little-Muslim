@@ -1,18 +1,20 @@
 extends Control
 
 func _ready() -> void:
+	# used to adding a dot to the loading text after every 1 second
 	$Timer.set_wait_time(1.0)
 	$Timer.start()
 	_check_existing_login()
 	
 	
 func _check_existing_login() -> void:
+	# the function will check 
+	
 	var file = File.new()
 	if (file.file_exists("user://save_login.dat") == false):
 		get_tree().change_scene("res://src/screens/start_up_screen.tscn")
 	else:
 		# automatically logs user in
-		#file = File.new()
 		file.open("user://save_login.dat", File.READ)
 		var content = file.get_as_text()
 		# abc@xyz.com/Abc12345
@@ -51,45 +53,45 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 
 func _on_get_document_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	var dict = parse_json(body.get_string_from_utf8())
-	Firebase.user_data = dict["fields"]
-	var d = dict["fields"]
+	var data = parse_json(body.get_string_from_utf8())
+	Firebase.user_data = data["fields"]
+	var response_data = data["fields"]
 	
 	# getting list of quests that are in progress
-	if (len(d["quest_in_progress"]["arrayValue"]) != 0):
-		var size_of_in_progress = len(d["quest_in_progress"]["arrayValue"]["values"])
+	if (len(response_data["quest_in_progress"]["arrayValue"]) != 0):
+		var size_of_in_progress = len(response_data["quest_in_progress"]["arrayValue"]["values"])
 		for i in range(size_of_in_progress):
-			PlayerData.quests_in_progress.append(d["quest_in_progress"]["arrayValue"]["values"][i]["stringValue"])
+			PlayerData.quests_in_progress.append(response_data["quest_in_progress"]["arrayValue"]["values"][i]["stringValue"])
 	
 	# getting list of quests that are completed
-	if (len(d["quest_completed"]["arrayValue"]) != 0):
-		var size_of_completed = len(d["quest_completed"]["arrayValue"]["values"])
+	if (len(response_data["quest_completed"]["arrayValue"]) != 0):
+		var size_of_completed = len(response_data["quest_completed"]["arrayValue"]["values"])
 		for i in range(size_of_completed):
-			PlayerData.quests_completed.append(d["quest_completed"]["arrayValue"]["values"][i]["stringValue"])
+			PlayerData.quests_completed.append(response_data["quest_completed"]["arrayValue"]["values"][i]["stringValue"])
 		
 	# getting dictionary (map) of surahs/duas currently memorizing
 	# key: dua/surah  -> value: number of times user has receited
-	if (len(d["memorizing"]["mapValue"]) != 0):
-		var size_of_in_progress = len(d["memorizing"]["mapValue"]["fields"])
-		var items = d["memorizing"]["mapValue"]["fields"]
+	if (len(response_data["memorizing"]["mapValue"]) != 0):
+		var size_of_in_progress = len(response_data["memorizing"]["mapValue"]["fields"])
+		var items = response_data["memorizing"]["mapValue"]["fields"]
 		for i in items:
 			PlayerData.memorizing[i] = items[i]["integerValue"]
 
 	# getting list of surahs/duas memorized
-	if (len(d["memorized"]["arrayValue"]) != 0):
-		var size_of_completed = len(d["memorized"]["arrayValue"]["values"])
+	if (len(response_data["memorized"]["arrayValue"]) != 0):
+		var size_of_completed = len(response_data["memorized"]["arrayValue"]["values"])
 		for i in range(size_of_completed):
-			PlayerData.memorized.append(d["memorized"]["arrayValue"]["values"][i]["stringValue"])
+			PlayerData.memorized.append(response_data["memorized"]["arrayValue"]["values"][i]["stringValue"])
 			
 	# getting user country and city
-	var city = d["city"]["stringValue"]
-	var country = d["country"]["stringValue"]
+	var city = response_data["city"]["stringValue"]
+	var country = response_data["country"]["stringValue"]
 
-	PlayerData.set_health(int(d["health"]["integerValue"]))
-	PlayerData.set_score(int(d["points"]["integerValue"]))
+	PlayerData.set_health(int(response_data["health"]["integerValue"]))
+	PlayerData.set_score(int(response_data["points"]["integerValue"]))
+	PlayerData.user_level = (response_data["level"]["stringValue"])
 	
 	$namaz_timings.request("http://api.aladhan.com/v1/timingsByCity?city=" + city + "&country=" + country + "&method=8")
-	
 
 
 func _on_Timer_timeout() -> void:

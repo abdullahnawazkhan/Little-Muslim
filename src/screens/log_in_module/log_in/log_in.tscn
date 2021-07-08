@@ -155,7 +155,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HTTPRequest" type="HTTPRequest" parent="element"]
+[node name="log_in_request" type="HTTPRequest" parent="element"]
 
 [node name="get_document_request" type="HTTPRequest" parent="element"]
 
@@ -251,22 +251,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="loading" type="ColorRect" parent="element"]
+[node name="loading_pane" type="ColorRect" parent="element"]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -266.335
-margin_top = -126.5
-margin_right = 263.665
-margin_bottom = 126.5
-color = Color( 0.980392, 0.921569, 0.0431373, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.509804 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="success_msg" type="Label" parent="element/loading"]
+[node name="ColorRect" type="ColorRect" parent="element/loading_pane"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -265.0
+margin_top = -126.5
+margin_right = 265.0
+margin_bottom = 126.5
+color = Color( 0.980392, 0.921569, 0.0431373, 1 )
+
+[node name="success_msg" type="Label" parent="element/loading_pane/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -287,7 +292,7 @@ __meta__ = {
 [connection signal="focus_entered" from="element/password" to="." method="_on_password_focus_entered"]
 [connection signal="button_up" from="element/Button" to="." method="_on_Button_button_up"]
 [connection signal="button_up" from="element/forgot_password" to="." method="_on_forgot_password_button_up"]
-[connection signal="request_completed" from="element/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="element/log_in_request" to="." method="_on_log_in_request_completed"]
 [connection signal="request_completed" from="element/get_document_request" to="." method="_on_get_document_request_request_completed"]
 [connection signal="request_completed" from="element/namaz_timings" to="." method="_on_namaz_timings_request_completed"]
 [connection signal="pressed" from="element/error_pane/popup/error_cancel_button" to="." method="_on_error_cancel_button_pressed"]

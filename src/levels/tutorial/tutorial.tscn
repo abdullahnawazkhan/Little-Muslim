@@ -1,0 +1,535 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/tilesheet_complete.png" type="Texture" id=1]
+[ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui/user_interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/actors/enemy/minotaur_b/minotaur_b.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/levels/tutorial/tutorial.gd" type="Script" id=5]
+[ext_resource path="res://assets/ui/point.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/pottaone-regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/ui/red_cancel.png" type="Texture" id=8]
+[ext_resource path="res://src/memorization/interactable.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/ui/portal.png" type="Texture" id=10]
+[ext_resource path="res://assets/worlds/background_tutorial.png" type="Texture" id=11]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=7]
+0/name = "tilesheet_complete.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 64, 384, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "tilesheet_complete.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 128, 384, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tilesheet_complete.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 192, 384, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 3 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "tilesheet_complete.png 3"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 448, 448, 64, 64 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 4 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "tilesheet_complete.png 4"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 512, 448, 64, 64 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 5 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+5/name = "tilesheet_complete.png 5"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 384, 64, 64 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 6 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 44.1513
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 47.4497
+
+[sub_resource type="DynamicFont" id=10]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 40
+font_data = ExtResource( 7 )
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1078.19 ],
+"_edit_vertical_guides_": [ 2688.55 ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_top = -0.94397
+margin_right = 2657.0
+margin_bottom = 1076.06
+texture = ExtResource( 11 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 7 )
+collision_layer = 8
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 20, 5, 0, 21, 5, 0, 22, 5, 0, 23, 5, 0, 24, 5, 0, 25, 5, 0, 26, 5, 0, 27, 5, 0, 28, 5, 0, 29, 5, 0, 30, 5, 0, 31, 5, 0, 32, 5, 0, 33, 5, 0, 34, 5, 0, 35, 5, 0, 36, 5, 0, 37, 5, 0, 38, 5, 0, 39, 5, 0, 40, 5, 0, 41, 5, 0, 65536, 5, 0, 65577, 5, 0, 131072, 5, 0, 131113, 5, 0, 196608, 5, 0, 196649, 5, 0, 262144, 5, 0, 262185, 5, 0, 327680, 5, 0, 327721, 5, 0, 393216, 5, 0, 393257, 5, 0, 458752, 5, 0, 458793, 5, 0, 524288, 5, 0, 524329, 5, 0, 589824, 5, 0, 589865, 5, 0, 655360, 5, 0, 655401, 5, 0, 720896, 5, 0, 720913, 3, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 720924, 4, 0, 720937, 5, 0, 786432, 5, 0, 786473, 5, 0, 851968, 5, 0, 852009, 5, 0, 917504, 5, 0, 917518, 3, 0, 917519, 4, 0, 917545, 5, 0, 983040, 5, 0, 983081, 5, 0, 1048576, 5, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 1048607, 1, 0, 1048608, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1048612, 1, 0, 1048613, 1, 0, 1048614, 1, 0, 1048615, 1, 0, 1048616, 1, 0, 1048617, 5, 0 )
+
+[node name="jump_hint" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_hint"]
+position = Vector2( 728.638, 937.688 )
+shape = SubResource( 8 )
+
+[node name="walk_hint" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walk_hint"]
+position = Vector2( 144.899, 921.819 )
+shape = SubResource( 8 )
+
+[node name="attack_hint" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_hint"]
+position = Vector2( 1186.41, 645.143 )
+shape = SubResource( 8 )
+
+[node name="memorizing_hint" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="memorizing_hint"]
+position = Vector2( 1989.99, 973.513 )
+shape = SubResource( 8 )
+
+[node name="coin" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2262.43, 730.712 )
+script = null
+
+[node name="AnimatedSprite" parent="coin" index="2"]
+frame = 3
+
+[node name="minotaur_b" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1760.87, 604.485 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 156.716, 222.067 )
+scale = Vector2( 0.35, 0.35 )
+
+[node name="AnimatedSprite" parent="player" index="0"]
+animation = "idle"
+frame = 5
+
+[node name="Camera2D" parent="player" index="3"]
+limit_right = 2689
+limit_bottom = 1078
+
+[node name="portal" type="Sprite" parent="."]
+position = Vector2( 2563.94, 905.965 )
+scale = Vector2( 1.23738, 1.23738 )
+texture = ExtResource( 10 )
+
+[node name="portal_Area2D" type="Area2D" parent="portal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portal/portal_Area2D"]
+shape = SubResource( 9 )
+
+[node name="user_interface" type="CanvasLayer" parent="."]
+
+[node name="user_interface" parent="user_interface" instance=ExtResource( 3 )]
+
+[node name="jump_hint" type="Control" parent="user_interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="user_interface/jump_hint"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="user_interface/jump_hint/Control"]
+position = Vector2( -106.673, -172.428 )
+rotation = 1.29872
+scale = Vector2( 0.185546, 0.185546 )
+texture = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="user_interface/jump_hint"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.5
+margin_top = -231.935
+margin_right = 228.5
+margin_bottom = 58.0654
+color = Color( 0.141176, 0.137255, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="user_interface/jump_hint/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = -92.5
+margin_right = 189.0
+margin_bottom = 92.5
+custom_fonts/font = SubResource( 10 )
+text = "Press the JUMP button to make yourself jump, You can also jump while moving"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="user_interface/jump_hint/ColorRect"]
+position = Vector2( 408.214, -20.1587 )
+scale = Vector2( 0.138726, 0.138726 )
+normal = ExtResource( 8 )
+
+[node name="walk_hint" type="Control" parent="user_interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="user_interface/walk_hint"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="user_interface/walk_hint/Control"]
+position = Vector2( 175.551, -168.648 )
+rotation = 1.45451
+scale = Vector2( 0.185546, 0.185546 )
+texture = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="user_interface/walk_hint"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.5
+margin_top = -231.935
+margin_right = 228.5
+margin_bottom = 58.0654
+color = Color( 0.141176, 0.137255, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="user_interface/walk_hint/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -196.5
+margin_top = -87.5
+margin_right = 196.5
+margin_bottom = 87.5
+custom_fonts/font = SubResource( 10 )
+text = "Press the ARROW buttons to make yourself move"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="walk_exit" type="TouchScreenButton" parent="user_interface/walk_hint/ColorRect"]
+position = Vector2( 408.214, -20.1587 )
+scale = Vector2( 0.138726, 0.138726 )
+normal = ExtResource( 8 )
+
+[node name="attack_hint" type="Control" parent="user_interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="user_interface/attack_hint"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="user_interface/attack_hint/Control"]
+position = Vector2( -348.579, -114.112 )
+rotation = 0.524692
+scale = Vector2( 0.185546, 0.185546 )
+texture = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="user_interface/attack_hint"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.5
+margin_top = -231.935
+margin_right = 228.5
+margin_bottom = 58.0654
+color = Color( 0.141176, 0.137255, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="user_interface/attack_hint/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -196.5
+margin_top = -87.5
+margin_right = 196.5
+margin_bottom = 87.5
+custom_fonts/font = SubResource( 10 )
+text = "Press the ATTACK button to attack an enemy"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attack_exit" type="TouchScreenButton" parent="user_interface/attack_hint/ColorRect"]
+position = Vector2( 408.214, -20.1587 )
+scale = Vector2( 0.138726, 0.138726 )
+normal = ExtResource( 8 )
+
+[node name="memorization_hint" type="Control" parent="user_interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="user_interface/memorization_hint"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.5
+margin_top = -231.935
+margin_right = 228.5
+margin_bottom = 58.0654
+color = Color( 0.141176, 0.137255, 0.462745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="user_interface/memorization_hint/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -196.5
+margin_top = -87.5
+margin_right = 196.5
+margin_bottom = 87.5
+custom_fonts/font = SubResource( 10 )
+text = "Get the coin to enter the memorization area"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="memo_exit" type="TouchScreenButton" parent="user_interface/memorization_hint/ColorRect"]
+position = Vector2( 408.214, -20.1587 )
+scale = Vector2( 0.138726, 0.138726 )
+normal = ExtResource( 8 )
+
+[node name="loading" type="ColorRect" parent="user_interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.341176 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="user_interface/loading"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.0
+margin_top = -155.0
+margin_right = 205.0
+margin_bottom = 155.0
+color = Color( 0.901961, 0.905882, 0.207843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="user_interface/loading/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -29.5
+margin_right = 123.0
+margin_bottom = 29.5
+custom_fonts/font = SubResource( 11 )
+text = "Loading....."
+[connection signal="body_entered" from="jump_hint" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="walk_hint" to="." method="_on_walk_hint_body_entered"]
+[connection signal="body_entered" from="attack_hint" to="." method="_on_attack_hint_body_entered"]
+[connection signal="body_entered" from="memorizing_hint" to="." method="_on_memorizing_hint_body_entered"]
+[connection signal="body_entered" from="coin" to="." method="_on_coin_body_entered"]
+[connection signal="body_entered" from="portal/portal_Area2D" to="." method="_on_portal_Area2D_body_entered"]
+[connection signal="pressed" from="user_interface/jump_hint/ColorRect/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="user_interface/walk_hint/ColorRect/walk_exit" to="." method="_on_walk_exit_pressed"]
+[connection signal="pressed" from="user_interface/attack_hint/ColorRect/attack_exit" to="." method="_on_attack_exit_pressed"]
+[connection signal="pressed" from="user_interface/memorization_hint/ColorRect/memo_exit" to="." method="_on_memo_exit_pressed"]
+
+[editable path="coin"]
+
+[editable path="player"]

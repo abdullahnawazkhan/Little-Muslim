@@ -44,10 +44,13 @@ func _on_Button_button_up() -> void:
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if (response_code == 200):
-		var dict = parse_json(body.get_string_from_utf8())
-		Firebase.user_token = dict["idToken"]
+		var response_data = parse_json(body.get_string_from_utf8())
+		Firebase.user_token = response_data["idToken"]
 		print("Password Changed")
 		
+		# updating password in the save data login file for used for autologins
+		
+		# getting user email from the current login data file
 		var file = File.new()
 		file.open("user://save_login.dat", File.READ)
 		var content = file.get_as_text()
@@ -56,16 +59,14 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		var password = arr[1]
 		file.close()
 		
+		# overwritting file with email and new password
 		file.open("user://save_login.dat", File.WRITE)
 		file.store_string(email + "/" + $elements/password_1.text)
 		file.close()
 		
 		$elements/loading.visible = false
 		$elements/success_msg_area.visible = true
-		
-		
 	else:
-		var dict = parse_json(body.get_string_from_utf8())
 		print("ERROR CHANGING PASSWORD")
 
 

@@ -32,7 +32,7 @@ func _ready() -> void:
 		else:
 			state_obj = testing_state.instance()
 
-	state_obj = testing_state.instance()
+	state_obj = learning_state.instance()
 		
 	state_obj.init(surah_title, surah, ayat)
 	state_obj.connect("recitation_done", self, "process")

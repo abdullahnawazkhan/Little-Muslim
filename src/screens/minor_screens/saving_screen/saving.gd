@@ -1,8 +1,9 @@
 extends Control
 
+var curr_level
 
-var saving_done = false
-
+func initialize(var val):
+	curr_level = val
 
 func _ready() -> void:
 	$Timer.set_wait_time(1.0)
@@ -11,6 +12,7 @@ func _ready() -> void:
 	
 	Firebase.user_data["health"]["integerValue"] = PlayerData.health
 	Firebase.user_data["points"]["integerValue"] = PlayerData.score
+	Firebase.user_data["level"]["stringValue"] = curr_level
 	
 	# getting quests completed for saving
 	var new_comp_vals = []

@@ -395,7 +395,7 @@ shape = SubResource( 16 )
 position = Vector2( 946, 3729.08 )
 
 [node name="memorization_interactable" parent="." instance=ExtResource( 10 )]
-position = Vector2( 2868.79, 3263.06 )
+position = Vector2( 2762.84, 2983.88 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="wraith_a" parent="." instance=ExtResource( 8 )]
@@ -411,7 +411,7 @@ position = Vector2( 2573.66, 3201.26 )
 scale = Vector2( 0.35, 0.35 )
 
 [node name="AnimatedSprite" parent="player" index="0"]
-frame = 7
+frame = 12
 
 [node name="Camera2D" parent="player" index="3"]
 position = Vector2( -58.9739, 187.774 )

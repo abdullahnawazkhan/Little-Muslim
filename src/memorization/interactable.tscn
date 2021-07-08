@@ -38,7 +38,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "spin"
-frame = 7
+frame = 5
 speed_scale = 2.0
 playing = true
 [connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]

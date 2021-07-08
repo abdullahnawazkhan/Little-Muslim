@@ -39,6 +39,7 @@ func validate_password() -> bool:
 		$elements/error_pane/ColorRect/error_msg.text = "Password must be of length 8"
 		return false
 	
+	# checking if password has atleast 1 digit
 	for i in range(len(password_1.text)):
 		var pass_text = password_1.text
 		var character = pass_text[i]
@@ -91,6 +92,7 @@ func _on_account_creation_request_completed(result: int, response_code: int, hea
 			"city": {
 				"stringValue" : city_name.text
 			},
+			"studdent"
 			"name" : {
 				"stringValue" : user_name.text
 			},
@@ -124,6 +126,9 @@ func _on_account_creation_request_completed(result: int, response_code: int, hea
 			},
 			"points" : {
 				"integerValue" : 0  
+			},
+			"level" : {
+				"stringValue" : "tutorial"
 			}
 		}
 		
@@ -238,3 +243,7 @@ func _on_select_city_button_up() -> void:
 	var city = CITY.instance()
 	city.set_id(country_code)
 	self.add_child(city)
+
+
+func _on_students_text_entered(new_text: String) -> void:
+	pass # Replace with function body.
